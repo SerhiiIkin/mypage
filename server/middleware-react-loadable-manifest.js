@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST={"..\\Sections\\Hello\\Hello.tsx -> ../../components/Image/Image":{id:303,files:[]},"..\\components\\Skill\\Skill.tsx -> ../Image/Image":{id:303,files:[]}}
