@@ -3,15 +3,16 @@ import LayoutIndex from "../../components/LayoutIndex/LayoutIndex";
 import CardData from "../../store/CardData";
 import CardDetailContent from "../../components/CardContent/CardDetailContent";
 
-import styles from "./projectDetail.module.scss"
+import styles from "./projectDetail.module.scss";
+import NotFounded from "../404";
 
 function ProjectDetail() {
     const router = useRouter();
     const { id } = router.query;
     const dataCard = CardData();
-    const selectedCard = dataCard().filter(
-        (data) => data.id === +id
-    )[0];
+    const selectedCard = dataCard().filter((data) => data.id === +id)[0];
+
+    if (isNaN(+id) || +id > dataCard().length) return <NotFounded />
 
     return (
         <LayoutIndex>

@@ -75,17 +75,20 @@ function Slider(props) {
 
             {pagination && (
                 <article className={styles.pagination}>
-                    {slideData.map((slide, slideId) => (
-                        <button
-                            onClick={onPaginationClick}
-                            className={classNames(
-                                styles.cycle,
-                                currentIndex === slideId && styles.activeCycle
-                            )}
-                            key={slide.id}>
-                            {slideId + 1}
-                        </button>
-                    ))}
+                    {slideData.map((slide, slideId) => {
+                        return (
+                            <button
+                                onClick={onPaginationClick}
+                                className={classNames(
+                                    styles.cycle,
+                                    currentIndex === slideId &&
+                                        styles.activeCycle
+                                )}
+                                key={slide.id}>
+                                {slideId + 1}
+                            </button>
+                        );
+                    })}
                     <button
                         onClick={onPrevBtnClick}
                         className={styles.prevPagination}>
