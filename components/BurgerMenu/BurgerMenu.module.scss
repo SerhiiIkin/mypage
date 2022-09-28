@@ -1,0 +1,45 @@
+.btn {
+    @apply block sm:hidden relative w-8 h-8 m-1;
+
+    &::before,
+    &::after,
+    span {
+        @apply content-[""] h-[3px] bg-black w-full rounded absolute left-0;
+
+        animation: pulse 4s linear infinite;
+
+        @keyframes pulse {
+            0%,
+            100% {
+                @apply bg-green-400 opacity-100;
+            }
+            50% {
+                @apply bg-orange-700 opacity-30;
+            }
+        }
+    }
+
+    &::before {
+        @apply top-[2px];
+    }
+
+    &::after {
+        @apply bottom-[2px];
+    }
+}
+
+.active {
+    @apply z-20;
+
+    span {
+        @apply rotate-[45deg] left-[-13%]  top-[22px] w-[70%];
+    }
+
+    &::before {
+        @apply rotate-90 top-4;
+    }
+
+    &::after {
+        @apply rotate-[-45deg] bottom-[8px] left-[43%] w-[70%];
+    }
+}

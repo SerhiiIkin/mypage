@@ -1,0 +1,51 @@
+.wrapper {
+    @apply container p-4 mx-auto text-white;
+}
+
+.h1 {
+    @apply text-center text-3xl lg:text-5xl pb-4
+}
+
+.link {
+    @apply relative inline-flex pr-[25px] items-center text-xs md:text-base text-orange-400;
+
+    svg {
+        @apply translate-y-[2px] stroke-orange-400 max-h-[21px];
+    }
+    @media (min-width: 1280px) {
+        &:hover {
+            @apply text-blue-400;
+            svg {
+                @apply stroke-blue-400 transition-transform duration-700 translate-x-2;
+            }
+        }
+    }
+}
+
+.linkContainer {
+    @apply pb-4 sm:pb-0;
+}
+
+.content {
+    @apply flex justify-between max-h-[85%] flex-col sm:flex-row;
+}
+
+.imgContainer {
+    @apply flex flex-[50%] max-h-[150px]  sm:max-h-[400px] sm:pb-4;
+    img {
+        user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+}
+
+.textContainer {
+    @apply text-center p-2 flex-[50%];
+}
+
+.h2 {
+    @apply text-xl md:text-2xl pb-2;
+}

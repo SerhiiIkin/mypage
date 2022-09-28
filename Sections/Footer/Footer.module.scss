@@ -1,0 +1,52 @@
+.ico {
+    @apply flex relative pl-[45px] pb-4 text-white xl:hover:text-blue-400;
+    &::before {
+        @apply content-[""] bg-no-repeat absolute h-[30px] w-[30px] left-0;
+    }
+}
+.mail {
+    &::before {
+        @apply bg-[url('../../img/Footer/gmail.svg')];
+    }
+}
+.facebook {
+    &::before {
+        @apply bg-[url('../../img/Footer/facebook.svg')];
+    }
+}
+.phone {
+    &::before {
+        @apply bg-[url('../../img/Footer/phone.svg')];
+    }
+}
+.linkedin {
+    @apply pl-[75px];
+    &::before {
+        @apply bg-[url('../../img/Footer/linkedin.svg')] w-[60px] left-[0px];
+    }
+}
+.telegram {
+    &::before {
+        @apply bg-[url('../../img/Footer/telegram.svg')];
+    }
+}
+
+.h2 {
+    @apply pb-2 sm:text-center text-2xl sm:text-4xl
+}
+
+.wrapper {
+    @apply container mx-auto p-4
+}
+
+.linksWrapper {
+    @apply flex flex-col items-center sm:items-start
+}
+
+.bg {
+    @apply bg-gray-500
+}
+
+.myText {
+    @apply self-end
+}

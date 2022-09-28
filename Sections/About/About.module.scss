@@ -1,0 +1,51 @@
+.wrapper {
+    @apply container px-6 py-2 mx-auto grid grid-cols-1 md:grid-cols-2;
+    h1 {
+        @apply text-3xl lg:text-5xl;
+    }
+    h2 {
+        @apply text-2xl lg:text-4xl;
+    }
+    h3 {
+        @apply text-xl lg:text-3xl;
+    }
+    h1,
+    h2,
+    h3 {
+        @apply font-bold pb-2;
+    }
+    p,
+    li,
+    strong {
+        @apply pb-2;
+    }
+
+    a {
+        @apply text-orange-500 transition-all duration-500 xl:hover:text-blue-400;
+    }
+}
+
+.colOne {
+    @apply md:pr-4 md:row-span-3 row-start-2;
+}
+
+.colTwo {
+    @apply p-2 row-start-3 md:col-start-2 md:row-start-2 md:row-span-2;
+}
+
+.colThree {
+    @apply mx-auto  max-w-[300px] sm:max-w-[500px] md:col-start-2 row-start-1 sm:row-span-1;
+}
+
+.linkAn,
+.linkCV {
+    @apply bg-blue-700 rounded-full p-2 xl:hover:bg-orange-400 transition-all duration-500;
+}
+
+.linkCV {
+    @apply mr-0 sm:mr-2 mb-2 sm:mb-0;
+}
+
+.linkWrapper {
+    @apply flex flex-col sm:flex-row items-start
+}

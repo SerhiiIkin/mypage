@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html,
+body {
+    @apply h-full;
+}
+
+@layer base {
+    html {
+        font-family: "Roboto", sans-serif;
+    }
+}
+
+#__next {
+    @apply flex flex-col min-h-full;
+}
+
+:root {
+    --button: #b3b3b3;
+    --button-color: #0a0a0a;
+    --shadow: #000;
+    --bg: #737373;
+    --header: #7a7a7a;
+    --color: #fafafa;
+    --lit-header: #e6e6e6;
+    --speed: 2s;
+}
+
+* {
+    transform-style: preserve-3d;
+}
+
+@property --swing-x {
+    initial-value: 0;
+    inherits: false;
+    syntax: "<integer>";
+}
+@property --swing-y {
+    initial-value: 0;
+    inherits: false;
+    syntax: "<integer>";
+}
