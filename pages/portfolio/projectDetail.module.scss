@@ -1,7 +1,14 @@
 .wrapper {
-    @apply container mx-auto p-2
+    @apply container mx-auto p-2;
+    p {
+        @apply pb-2
+    }
 }
 
 .title {
     @apply text-xl font-bold xl:text-3xl text-center pb-2
+}
+
+.link {
+    @apply bg-orange-500 p-2 rounded-lg xl:hover:bg-blue-400;
 }

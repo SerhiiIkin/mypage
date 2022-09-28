@@ -2,9 +2,10 @@ import LayoutIndex from "../../components/LayoutIndex/LayoutIndex";
 import Multilanguage from "../../components/Multilanguage";
 
 import CardContent from "../../components/CardContent/CardContent";
+import CardData from "../../store/CardData";
 
 import styles from "./index.module.scss";
-import CardData from "../../store/CardData";
+
 
 function Portfolio() {
     const projectsTitle = Multilanguage(

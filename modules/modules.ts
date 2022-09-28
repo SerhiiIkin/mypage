@@ -18,6 +18,7 @@ export interface ICardContent {
     description?: string;
     alt?: string;
     styles?: any;
+    link?: string;
 }
 
 export interface ILink {

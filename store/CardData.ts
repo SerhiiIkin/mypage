@@ -18,6 +18,13 @@ import product from "../img/Cards/Mern_shop/product.jpg";
 import login from "../img/Cards/React_Chat_Socket/login.jpg";
 import chat from "../img/Cards/React_Chat_Socket/chat.jpg";
 
+import homeGammelSide from "../img/Cards/mitGammelSide/home.jpg";
+import aboutGammelSide from "../img/Cards/mitGammelSide/about.jpg";
+import portfolioGammelSide from "../img/Cards/mitGammelSide/portfolio.jpg";
+import contactsGammelSide from "../img/Cards/mitGammelSide/contacts.jpg";
+
+import detteWebsted from "../img/Cards/detteWebsted.jpg"
+
 function CardData() {
     const {
         titleTask,
@@ -40,34 +47,42 @@ function CardData() {
         titleChat,
         altChat,
         descriptionChat,
+        titleGammelSide,
+        altGammelSide,
+        descriptionGammelSide,
+        titledetteWebsted,
+        altdetteWebsted,
+        descriptiondetteWebsted,
     } = CardText();
 
-    const imagesMernShop = () => {
-        const images = [];
+    const imagesGammelSide = useCallback(
+        () => [
+            homeGammelSide,
+            aboutGammelSide,
+            portfolioGammelSide,
+            contactsGammelSide,
+        ],
+        []
+    );
 
-        images.push(hoved,addProduct, auth_admin, auth, mobile_hoved, product);
+    const imagesMernShop = useCallback(
+        () => [hoved, addProduct, auth_admin, auth, mobile_hoved, product],
+        []
+    );
 
-        return images;
-    };
-
-    const imagesChat = () => {
-        const images = [];
-
-        images.push(login, chat);
-
-        return images;
-    };
+    const imagesChat = useCallback(() => [login, chat], []);
 
     const contentCard = useCallback(() => {
         const data: ICardContent[] = [];
 
-        function createContentCard(id, src, title, alt, description) {
-            function Slide(id, src, title, alt, description) {
-                (this.id = id),
-                    (this.src = src),
-                    (this.title = title),
-                    (this.alt = alt);
+        function createContentCard(id, src, title, alt, description, link) {
+            function Slide(id, src, title, alt, description, link) {
+                this.id = id,
+                this.src = src,
+                this.title = title,
+                this.alt = alt;
                 this.description = description;
+                this.link = link;
             }
 
             const slideData: ICardContent = new Slide(
@@ -75,73 +90,102 @@ function CardData() {
                 src,
                 title,
                 alt,
-                description
+                description,
+                link
             );
 
             data.push(slideData);
         }
 
-        new createContentCard(1, shop, titleShop, altShop, descriptionShop);
+        new createContentCard(1, shop, titleShop, altShop, descriptionShop, "https://serhiiikin.github.io/shop/");
         new createContentCard(
             2,
             restaurant,
             titleManagement,
             altRestaurant,
-            descriptionRestaurant
+            descriptionRestaurant,
+            "https://serhiiikin.github.io/ManagementRestaurant/"
         );
         new createContentCard(
             3,
             converter,
             titleConverter,
             altConverter,
-            descriptionConverter
+            descriptionConverter,
+            "https://serhiiikin.github.io/Currency_converter/"
         );
         new createContentCard(
             4,
             kursusHtmlProject,
             titleProject,
             altProject,
-            descriptionProject
+            descriptionProject,
+            "https://serhiiikin.github.io/ProjectKursus/app/"
         );
         new createContentCard(
             5,
             kursusLessons,
             titleTask,
             altTask,
-            descriptionTask
+            descriptionTask,
+            "https://serhiiikin.github.io/Serhii-Ikin-lesson-13/"
         );
         new createContentCard(
             6,
             imagesMernShop(),
             titleMern,
             altShop,
-            descriptionMern
+            descriptionMern,
+            "https://github.com/SerhiiIkin/MERN_shop"
         );
         new createContentCard(
             7,
             imagesChat(),
             titleChat,
             altChat,
-            descriptionChat
+            descriptionChat,
+            "https://github.com/SerhiiIkin/Chat_SocketServer"
+        );
+        new createContentCard(
+            8,
+            imagesGammelSide(),
+            titleGammelSide,
+            altGammelSide,
+            descriptionGammelSide,
+            "https://serhiiikin.github.io/Portfolio/SerhiiIkinPortfolio/"
+        );
+        new createContentCard(
+            9,
+            detteWebsted,
+            titledetteWebsted,
+            altdetteWebsted,
+            descriptiondetteWebsted,
+            "https://mypage-portfolio.vercel.app/"
         );
 
         return data;
     }, [
         altChat,
         altConverter,
+        altGammelSide,
         altProject,
         altRestaurant,
         altShop,
         altTask,
         descriptionChat,
         descriptionConverter,
+        descriptionGammelSide,
         descriptionMern,
         descriptionProject,
         descriptionRestaurant,
         descriptionShop,
         descriptionTask,
+        imagesChat,
+        imagesGammelSide,
+        imagesMernShop,
         titleChat,
         titleConverter,
+        titleGammelSide,
         titleManagement,
         titleMern,
         titleProject,

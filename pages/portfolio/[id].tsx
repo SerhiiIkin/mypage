@@ -21,6 +21,7 @@ function ProjectDetail() {
                 title={selectedCard?.title}
                 alt={selectedCard?.alt}
                 styles={styles}
+                link={selectedCard?.link}
             />
         </LayoutIndex>
     );

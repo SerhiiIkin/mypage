@@ -4,7 +4,7 @@
     &::before,
     &::after,
     span {
-        @apply content-[""] h-[3px] bg-black w-full rounded absolute left-0;
+        @apply content-[""] h-[3px] bg-black w-full rounded absolute left-0 duration-500;
 
         animation: pulse 4s linear infinite;
 
@@ -29,7 +29,7 @@
 }
 
 .active {
-    @apply z-20;
+    @apply z-30;
 
     span {
         @apply rotate-[45deg] left-[-13%]  top-[22px] w-[70%];

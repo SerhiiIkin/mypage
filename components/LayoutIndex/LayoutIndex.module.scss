@@ -5,7 +5,7 @@
 .arrow {
     position: fixed;
     z-index: 20;
-    background-color: rgb(249 115 22 / var(--tw-bg-opacity)) !important;
+    background-color: rgb(249 115 22 ) !important;
     border-radius: 50% !important;
     height: 35px !important;
     width: 40px !important;
@@ -14,7 +14,7 @@
 
     &:hover {
         @media (min-width: 1281px) {
-            background-color: rgb(96 165 250 / var(--tw-bg-opacity)) !important;
+            background-color: rgb(96 165 250 ) !important;
         }
     }
     svg {

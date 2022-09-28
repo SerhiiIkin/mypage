@@ -32,11 +32,11 @@
 }
 
 .pagination {
-    @apply absolute bottom-[-5px] left-[50%] translate-x-[-50%] min-w-[200px] min-h-[20px] flex justify-between p-2;
+    @apply absolute bottom-[-5px] left-[50%] translate-x-[-50%] min-w-[200px] min-h-[20px] flex justify-between p-2 ;
 }
 
 .cycle {
-    @apply bg-blue-300 px-2 py-1 cursor-pointer rounded-[50%] xl:hover:bg-blue-700;
+    @apply bg-blue-300 px-2 py-1 cursor-pointer rounded-[50%] xl:hover:bg-blue-700 mr-1 last:mr-0;
 }
 
 .activeCycle {

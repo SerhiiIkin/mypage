@@ -50,7 +50,7 @@ function CardText() {
         'React application "Restaurant management"',
         'React applikation "Restaurant administration"'
     );
-    const altRestaurant = Multilanguage("Ресторан", "Restaurant", "restaurant");
+    const altRestaurant = Multilanguage("Ресторан", "Restaurant", "Restaurant");
     const descriptionRestaurant = Multilanguage(
         "Це моя програма, яку я створив за допомогою React JS. Я отримую дані з API (mockapi.io) і записую їх у базу даних (react-redux). Я використовував інтерфейс матеріалу з (mui.com), щоб зробити його більш красивим і чуйним. Це робиться з react-router-dom, тому це SPA (односторінкова програма)",
         "It is my application, that I maked with React JS. I get data from API ( mockapi.io ) and write them in database (react-redux). I used material UI from ( mui.com ) for at make it more beautiful and responsive. It makes with react-router-dom, so it is SPA (Single page application)",
@@ -85,7 +85,39 @@ function CardText() {
     const descriptionChat = Multilanguage(
         "Я розробив програму, за допомою якої можна створити переписку між декількома особами. Программа написана на React.",
         "I developed a program that allows you to create a chat between several people. You need to enter a username and enter the chat. The program is written in React.",
-        "Jeg har udviklet et program, der giver dig mulighed for at oprette en chat mellem flere personer.Du skal indtaste et brugernavn og gå ind i chatten. Programmet er skrevet i React."
+        "Jeg har udviklet et program, der giver dig mulighed for at oprette en chat mellem flere personer. Du skal indtaste et brugernavn og gå ind i chatten. Programmet er skrevet i React."
+    );
+
+    const titleGammelSide = Multilanguage(
+        "Моя перша сторінка портфоліо",
+        "My first portfolio page",
+        "Min første portefølje side"
+    );
+    const altGammelSide = Multilanguage(
+        "Перша сторінка",
+        "The first page",
+        "Den første side"
+    );
+    const descriptionGammelSide = Multilanguage(
+        'Моя перша сторінка, яку я розробив, щоб показати свої навики в Html, Scss, Js. На той момент я не мав досвіду роботи із бібліотекой "React" або "Next Js". Я важжаю, то був чудовий досвід для мене, як починаючого веб розробника.',
+        "My first page that I designed to show my skills in Html, Scss, Js. At that time, I had no experience with the React or Next Js library. I think it was a great experience for me as a beginner web developer.",
+        "Min første side, som jeg har designet for at vise mine færdigheder i HTML, Scss, Js. På det tidspunkt havde jeg ingen erfaring med React eller Next Js bibliotek. Jeg synes, det var en fantastisk oplevelse for mig som nybegynder webudvikler."
+    );
+
+    const titledetteWebsted = Multilanguage(
+        "Поточна сторінка",
+        "Current page",
+        "Nuværende side"
+    );
+    const altdetteWebsted = Multilanguage(
+        "Поточна сторінка",
+        "Current page",
+        "Nuværende side"
+    );
+    const descriptiondetteWebsted = Multilanguage(
+        'З часом набуваючи більше досвіду, у мене є бажання змінити щось на краще. Цей сайт я розробляв на фрейморку який називається "Next JS". Використувуючи цей фреймворт, я розробив односторінковий сайт, з можливістю перекелючення мов, без перезагрузки сторіки, що я важжаю набагато краще для багато мовного сайту. Всі картинки, завантажуються паралельно, тобто користувачеві не потрібно чекати доки весь сайт загрузиться. Замість картинок він буде тимчасво бачити спінер. Використовуючи фреймфорк Tailwind Css, значно зменшується кількість коду в стилях. Мій власно розроблений слайдер, з подгруження тільки однієї бібліотеки, для можливості "свайпати" слайди. Деякі картинки, є можливість відкрити в повний екран, щоб роздивитись деталі. На сторінці про мене, можна знайти відео про мене. Якщо користувач зайде на невідому сторінку, то він отримає сторінку 404, яку я розробив.',
+        'Over time, gaining more experience, I have a desire to change something for the better. I developed this site on the framework called "Next JS". Using this framework, I developed a single-page site, with the ability to switch languages, without reloading the page, which I consider much better for a multilingual site. All pictures are loaded in parallel, that is, the user does not need to wait until the entire site is loaded. Instead of pictures, he will temporarily see a spinner. Using the Tailwind Css framework significantly reduces the amount of code in styles. My own designed slider, with only one library loaded, for the ability to "swipe" slides. Some pictures can be opened in full screen to see the details. On the page about me, you can find a video about me. If the user goes to an unknown page, he will get a 404 page that I designed.',
+        'Med tiden, får jeg mere erfaring, har jeg et ønske om at ændre noget til det bedre. Jeg udviklede dette websted på framework kaldet "Next JS". Ved at bruge denne framework udviklede jeg et enkeltsidet websted med mulighed for at skifte sprog uden at genindlæse siden, hvilket jeg anser for meget bedre for et flersproget websted. Alle billeder indlæses parallelt, det vil sige, at brugeren ikke behøver at vente, indtil hele siden er indlæst. I stedet for billeder vil han midlertidigt se en spinner. Brug af Tailwind Css framework reducerer mængden af ​​kode i stilarter markant. Min egendesignede skyder, med kun et bibliotek indlæst, for muligheden for at "swipe" dias. Nogle billeder kan åbnes i fuld skærm for at se detaljerne. På siden om mig kan du finde en video om mig. Hvis brugeren går til en ukendt side, får han en 404-side, som jeg har designet.'
     );
 
     const linkText = Multilanguage(
@@ -116,6 +148,12 @@ function CardText() {
         titleChat,
         altChat,
         descriptionChat,
+        titleGammelSide,
+        altGammelSide,
+        descriptionGammelSide,
+        titledetteWebsted,
+        altdetteWebsted,
+        descriptiondetteWebsted,
     };
 }
 export default CardText;
