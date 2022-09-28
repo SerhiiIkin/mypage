@@ -1,6 +1,7 @@
 {
     "name": "mypage",
     "version": "0.1.0",
+    "homepage": "https://serhiiikin.github.io/mypage/",
     "private": true,
     "scripts": {
         "dev": "npx next dev -H 192.168.8.102",
