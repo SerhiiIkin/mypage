@@ -46,6 +46,7 @@ export interface ISlider {
     currentIndex: number;
     children: ReactElement;
     setIndex(data: number): void;
+    itemsPerPage :number
 }
 
 export interface ISlideData {

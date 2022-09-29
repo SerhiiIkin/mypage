@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import LayoutIndex from "../../components/LayoutIndex/LayoutIndex";
-import CardData from "../../store/CardData";
+import CardData from "../../components/CardContent/CardData";
 import CardDetailContent from "../../components/CardContent/CardDetailContent";
 
 import styles from "./projectDetail.module.scss";

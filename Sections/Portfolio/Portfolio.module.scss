@@ -3,7 +3,7 @@
 }
 
 .h1 {
-    @apply text-center text-3xl lg:text-5xl pb-4
+    @apply text-center text-3xl lg:text-5xl pb-4;
 }
 
 .link {
@@ -27,11 +27,11 @@
 }
 
 .content {
-    @apply flex justify-between max-h-[85%] flex-col sm:flex-row;
+    @apply flex justify-between mx-auto max-w-[80%] h-[300px] xl:h-[400px] items-center flex-col sm:flex-row xl:cursor-grab;
 }
 
 .imgContainer {
-    @apply flex flex-[50%] max-h-[150px]  sm:max-h-[400px] sm:pb-4;
+    @apply flex flex-[50%] h-[50%] w-[80%] sm:h-[80%] sm:w-[80%] sm:pb-4;
     img {
         user-drag: none;
         user-select: none;
@@ -47,5 +47,5 @@
 }
 
 .h2 {
-    @apply text-xl md:text-2xl pb-2;
+    @apply text-sm md:text-xl pb-2;
 }

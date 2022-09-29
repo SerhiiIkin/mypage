@@ -1,40 +1,57 @@
-import {  useState } from "react";
-import MySlider from "../../components/MySlider/Slider";
 import HeaderText from "../Header/HeaderText";
 import SlideContent from "../../components/CardContent/CardContent";
-import Slide from "../../components/MySlider/Slide";
+import CardContent from "../../components/CardContent/CardData";
 
 import styles from "./Portfolio.module.scss";
-import CardContent from "../../store/CardData";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation, EffectCoverflow } from "swiper";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import "swiper/css/effect-coverflow";
 
 function Portfolio() {
-    const slideData = CardContent()
+    const slideData = CardContent();
     const { portfolio } = HeaderText();
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    function setIndex(data: number) {
-        setCurrentIndex(data);
-    }
 
     return (
         <section className="bg-gray-800">
             <div className={styles.wrapper}>
                 <h1 className={styles.h1}>{portfolio}</h1>
-                <MySlider
-                    buttons
-                    pagination
-                    currentIndex={currentIndex}
-                    setIndex={setIndex}
-                    slideData={slideData()}>
-                    {slideData().map((slide, slideId) => {
+                <Swiper
+                    spaceBetween={150}
+                    slidesPerView={1}
+                    loop={true}
+                    speed={1200}
+                    grabCursor={true}
+                    navigation={true}
+                    effect="coverflow"
+                    coverflowEffect={{
+                        rotate: 360,
+                        slideShadows: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                        dynamicBullets: true,
+                        dynamicMainBullets: 5,
+                        renderBullet: function (index, className) {
+                            return (
+                                '<span class="' +
+                                className +
+                                '">' +
+                                (index + 1) +
+                                "</span>"
+                            );
+                        },
+                    }}
+                    modules={[Pagination, Navigation, EffectCoverflow]}>
+                    {slideData().map((slide) => {
                         const { id, src, title, alt } = slide;
+
                         return (
-                            <Slide
-                                key={id}
-                                slideId={slideId}
-                                currentIndex={currentIndex}
-                                slideData={slideData()}>
+                            <SwiperSlide key={id}>
                                 <SlideContent
                                     id={id}
                                     src={src}
@@ -42,10 +59,10 @@ function Portfolio() {
                                     alt={alt}
                                     styles={styles}
                                 />
-                            </Slide>
+                            </SwiperSlide>
                         );
                     })}
-                </MySlider>
+                </Swiper>
             </div>
         </section>
     );
