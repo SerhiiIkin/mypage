@@ -19,11 +19,10 @@
 }
 
 .content {
-    @apply max-w-[100%] p-2 sm:max-w-[45%] xl:max-w-[30%] mr-2 flex;
+    @apply h-full flex flex-col justify-between;
 }
 
 .imgContainer {
-    @apply flex max-w-[50%] max-h-[150px]  sm:max-h-[400px] sm:pb-4;
     img {
         user-drag: none;
         user-select: none;
@@ -35,7 +34,7 @@
 }
 
 .textContainer {
-    @apply  p-2 max-w-[50%];
+    @apply p-2;
 }
 
 .h2 {

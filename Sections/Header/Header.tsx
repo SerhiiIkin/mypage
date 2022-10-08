@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState } from "react";
+import React, { MouseEvent, useCallback, useState } from "react";
 import { dk, eng, ukr } from "../../store/Slices/languageSlice";
 import HeaderText from "./HeaderText";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
@@ -8,6 +8,11 @@ import { useRouter } from "next/router";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 
 import styles from "./Header.module.scss";
+
+interface ILinkNavBar {
+    text: string;
+    href: string;
+}
 
 function Header() {
     const dispatch = useAppDispatch();
@@ -35,6 +40,30 @@ function Header() {
         }
     }
 
+    const navBarLinks = useCallback(() => {
+        const home: ILinkNavBar = {
+            text: text?.home,
+            href: "/",
+        };
+        const about: ILinkNavBar = {
+            text: text?.about,
+            href: "/about",
+        };
+        const portfolio: ILinkNavBar = {
+            text: text?.portfolio,
+            href: "/portfolio",
+        };
+
+        return [home, about, portfolio];
+    }, [text?.about, text?.home, text?.portfolio]);
+
+    const btnsLanguage = useCallback(() => {
+        const ukr = "UKR";
+        const eng = "ENG";
+        const dk = "DK";
+        return [ukr, eng, dk];
+    }, []);
+
     return (
         <header className={styles.header}>
             <h1 className={styles.authorName}>{text.fullName}</h1>
@@ -42,62 +71,36 @@ function Header() {
             <nav
                 onClick={() => setActive(false)}
                 className={classNames(active ? styles.showMenu : styles.nav)}>
-                {route === "/" ? (
-                    <span className={styles.span}>{text?.home}</span>
-                ) : (
-                    <A pStyles={styles.pLink} href={"/"} text={text?.home}></A>
-                )}
-                {route === "/about" ? (
-                    <span className={styles.span}>{text?.about}</span>
-                ) : (
-                    <A
-                        pStyles={styles.pLink}
-                        href={"/about"}
-                        text={text?.about}></A>
-                )}
-                {route === "/portfolio" ? (
-                    <span className={styles.span}>{text?.portfolio}</span>
-                ) : (
-                    <A
-                        pStyles={styles.pLink}
-                        href={"/portfolio"}
-                        text={text?.portfolio}></A>
-                )}
+                {navBarLinks().map((link) => {
+                    if (route === link.href)
+                        return (
+                            <span key={link.href} className={styles.span}>
+                                {link.text}
+                            </span>
+                        );
+                    return (
+                        <A
+                            key={link.href}
+                            pStyles={styles.pLink}
+                            href={link.href}
+                            text={link.text}></A>
+                    );
+                })}
             </nav>
             <div>
-                <button
-                    onClick={onLanguageBtnClick}
-                    data-lang="UKR"
-                    disabled={language === "UKR"}
-                    className={classNames(
-                        `${styles.btn} ${
-                            language === "UKR" ? styles.active : ""
-                        } `
-                    )}>
-                    UKR
-                </button>
-                <button
-                    onClick={onLanguageBtnClick}
-                    data-lang="ENG"
-                    disabled={language === "ENG"}
-                    className={classNames(
-                        `${styles.btn} ${
-                            language === "ENG" ? styles.active : ""
-                        } `
-                    )}>
-                    ENG
-                </button>
-                <button
-                    onClick={onLanguageBtnClick}
-                    data-lang="DK"
-                    disabled={language === "DK"}
-                    className={classNames(
-                        `${styles.btn} ${
-                            language === "DK" ? styles.active : ""
-                        } `
-                    )}>
-                    DK
-                </button>
+                {btnsLanguage().map((btn) => (
+                    <button
+                        key={btn}
+                        onClick={onLanguageBtnClick}
+                        data-lang={btn}
+                        disabled={language === btn}
+                        className={classNames(
+                            styles.btn,
+                            language === btn ? styles.active : ""
+                        )}>
+                        {btn}
+                    </button>
+                ))}
             </div>
             <BurgerMenu active={active} onBurgerMenuClick={onBurgerMenuClick} />
         </header>

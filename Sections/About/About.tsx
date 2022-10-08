@@ -188,7 +188,7 @@ function About() {
 
             <article>
                 <p>{downloadText}</p>
-                <p className={ styles.linkWrapper }>
+                <p className={styles.linkWrapper}>
                     <a
                         className={styles.linkCV}
                         target="_blank"

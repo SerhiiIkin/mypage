@@ -6,7 +6,6 @@ import CardData from "../../components/CardContent/CardData";
 
 import styles from "./index.module.scss";
 
-
 function Portfolio() {
     const projectsTitle = Multilanguage(
         "Мої проекти",
@@ -22,7 +21,7 @@ function Portfolio() {
                 <h1 className="text-center text-xl lg:text-4xl pb-2">
                     {projectsTitle}
                 </h1>
-                <div className="flex flex-wrap">
+                <div className="grid grid-cols-1 gap-y-4 gap-x-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                     {projects().map((project) => {
                         const { id, title, alt, src } = project;
 
