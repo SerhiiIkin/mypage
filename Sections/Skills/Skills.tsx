@@ -50,7 +50,7 @@ function Skills() {
     }, []);
 
     return (
-        <section className="container flex flex-wrap p-4 mx-auto ">
+        <section className="container p-4 mx-auto grid grid-cols-3 sm:grid-cols-5 xl:grid-cols-7">
             {skills().map((skill) => (
                 <Skill key={skill.text} src={skill.src} text={skill.text} />
             ))}
