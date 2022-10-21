@@ -2,9 +2,9 @@ import Multilanguage from "../Multilanguage";
 
 function CardText() {
     const titleTask = Multilanguage(
-        "Фінальне завдання з курсу Frontend basic",
-        "Final task from the course Frontend Basis",
-        "Afsluttende opgave fra kurset Frontend Basis"
+        "Завдання з курсу Frontend basic",
+        "Task from the course Frontend Basis",
+        "Opgave fra kurset Frontend Basis"
     );
     const altTask = Multilanguage(
         "Зображення завдання курсу",
@@ -57,18 +57,9 @@ function CardText() {
         "Det er min application, som jeg har lavet med React JS. Jeg henter data fra API ( mockapi.io ) og skriver dem i database (react-redux). Jeg brugte materiale UI fra ( mui.com ) for at gøre det smukkere og mere responsivt. Det er lavet med react-router-dom, så det er SPA (Single page application)"
     );
 
-    const titleShop = Multilanguage(
-        'Додаток React / Typescript "Магазин"',
-        'React / Typescript application "Shop"',
-        'React / Typescript applikation "Butik"'
-    );
+   
     const altShop = Multilanguage("Магазин", "Shop", "Butik");
-    const descriptionShop = Multilanguage(
-        "Це мій додаток, який я створив за допомогою React і використовував Typescript для більш ефективного та правильного написання коду. Я отримую дані з API (fakestoreapi.com) і записую їх у базу даних redux/toolkit за допомогою axios. Я використовував матеріал UI (tailwindcss.com), щоб зробити його більш красивим і чуйним. Це зроблено за допомогою react-router-dom, тому це SPA (односторінкова програма)",
-        "It is my application, that I make with React and used Typescript for more effective and correctly write code. I get data from API ( fakestoreapi.com ) and write them in database redux/toolkit with using axios. I used material UI ( tailwindcss.com ) for at make it more beautiful and responsive. It maked with react-router-dom, so it is SPA (Single page application)",
-        "Det er min applikation, som jeg laver med React og brugte Typescript for mere effektiv og korrekt skrive kode. Jeg henter data fra API ( fakestoreapi.com ) og skriver dem i database redux/toolkit med brug af axios. Jeg brugte materiale UI (tailwindcss.com) for at gøre det smukkere og mere responsivt. Det er lavet med react-router-dom, så det er SPA (Single page application)"
-    );
-
+    
     const titleMern = Multilanguage(
         'Додаток Mongo Db, Express, React, Node Js i TypeScript "Магазин"',
         'Mongo Db, Express, React, Node Js and TypeScript application "Shop"',
@@ -121,9 +112,9 @@ function CardText() {
     );
 
     const linkText = Multilanguage(
-        "Посилання на github",
-        "Link in github",
-        "Link i github"
+        "Переглянути проект",
+        "View the project",
+        "Se projektet"
     );
 
     return {
@@ -131,7 +122,6 @@ function CardText() {
         titleProject,
         titleConverter,
         titleManagement,
-        titleShop,
         altShop,
         altRestaurant,
         altConverter,
@@ -141,7 +131,6 @@ function CardText() {
         descriptionProject,
         descriptionConverter,
         descriptionRestaurant,
-        descriptionShop,
         linkText,
         titleMern,
         descriptionMern,

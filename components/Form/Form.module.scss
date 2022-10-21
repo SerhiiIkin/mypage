@@ -1,0 +1,15 @@
+.dialog {
+    @apply fixed top-0 left-0 h-full w-full z-10 overflow-scroll
+}
+
+.form {
+    @apply flex flex-col w-[300px] xl:w-[500px] items-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-blue-700 text-white py-2 px-8 rounded
+}
+
+.btnClose {
+    @apply absolute top-1 right-2 text-2xl
+}
+
+.errorMessage {
+ @apply text-red-400 absolute bottom-[-15px] left-2
+}

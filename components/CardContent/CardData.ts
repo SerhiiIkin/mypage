@@ -23,7 +23,7 @@ import aboutGammelSide from "../../img/Cards/mitGammelSide/about.jpg";
 import portfolioGammelSide from "../../img/Cards/mitGammelSide/portfolio.jpg";
 import contactsGammelSide from "../../img/Cards/mitGammelSide/contacts.jpg";
 
-import detteWebsted from "../../img/Cards/detteWebsted.jpg"
+import detteWebsted from "../../img/Cards/detteWebsted.jpg";
 
 function CardData() {
     const {
@@ -31,8 +31,6 @@ function CardData() {
         titleProject,
         titleConverter,
         titleManagement,
-        titleShop,
-        altShop,
         altRestaurant,
         altConverter,
         altProject,
@@ -41,7 +39,7 @@ function CardData() {
         descriptionProject,
         descriptionConverter,
         descriptionRestaurant,
-        descriptionShop,
+        altShop,
         titleMern,
         descriptionMern,
         titleChat,
@@ -77,10 +75,10 @@ function CardData() {
 
         function createContentCard(id, src, title, alt, description, link) {
             function Slide(id, src, title, alt, description, link) {
-                this.id = id,
-                this.src = src,
-                this.title = title,
-                this.alt = alt;
+                (this.id = id),
+                    (this.src = src),
+                    (this.title = title),
+                    (this.alt = alt);
                 this.description = description;
                 this.link = link;
             }
@@ -97,7 +95,14 @@ function CardData() {
             data.push(slideData);
         }
 
-        new createContentCard(1, shop, titleShop, altShop, descriptionShop, "https://serhiiikin.github.io/shop/");
+        new createContentCard(
+            1,
+            imagesMernShop(),
+            titleMern,
+            altShop,
+            descriptionMern,
+            "https://mern-shop.onrender.com"
+        );
         new createContentCard(
             2,
             restaurant,
@@ -130,16 +135,9 @@ function CardData() {
             descriptionTask,
             "https://serhiiikin.github.io/Serhii-Ikin-lesson-13/"
         );
+
         new createContentCard(
             6,
-            imagesMernShop(),
-            titleMern,
-            altShop,
-            descriptionMern,
-            "https://github.com/SerhiiIkin/MERN_shop"
-        );
-        new createContentCard(
-            7,
             imagesChat(),
             titleChat,
             altChat,
@@ -147,7 +145,7 @@ function CardData() {
             "https://github.com/SerhiiIkin/Chat_SocketServer"
         );
         new createContentCard(
-            8,
+            7,
             imagesGammelSide(),
             titleGammelSide,
             altGammelSide,
@@ -155,7 +153,7 @@ function CardData() {
             "https://serhiiikin.github.io/Portfolio/SerhiiIkinPortfolio/"
         );
         new createContentCard(
-            9,
+            8,
             detteWebsted,
             titledetteWebsted,
             altdetteWebsted,
@@ -164,7 +162,35 @@ function CardData() {
         );
 
         return data;
-    }, [altChat, altConverter, altGammelSide, altProject, altRestaurant, altShop, altTask, altdetteWebsted, descriptionChat, descriptionConverter, descriptionGammelSide, descriptionMern, descriptionProject, descriptionRestaurant, descriptionShop, descriptionTask, descriptiondetteWebsted, imagesChat, imagesGammelSide, imagesMernShop, titleChat, titleConverter, titleGammelSide, titleManagement, titleMern, titleProject, titleShop, titleTask, titledetteWebsted]);
+    }, [
+        altChat,
+        altConverter,
+        altGammelSide,
+        altProject,
+        altRestaurant,
+        altShop,
+        altTask,
+        altdetteWebsted,
+        descriptionChat,
+        descriptionConverter,
+        descriptionGammelSide,
+        descriptionMern,
+        descriptionProject,
+        descriptionRestaurant,
+        descriptionTask,
+        descriptiondetteWebsted,
+        imagesChat,
+        imagesGammelSide,
+        imagesMernShop,
+        titleChat,
+        titleConverter,
+        titleGammelSide,
+        titleManagement,
+        titleMern,
+        titleProject,
+        titleTask,
+        titledetteWebsted,
+    ]);
 
     return contentCard;
 }

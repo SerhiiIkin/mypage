@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import profilePic from "../../img/Section_Hello/profilePic.jpg";
 import HelloText from "./HelloText";
 import Loader from "../../components/Loader/Loader";
+import Form from "../../components/Form/Form";
 
 function Hello() {
     const ProfilePic = dynamic(() => import("../../components/Image/Image"), {
@@ -19,13 +20,7 @@ function Hello() {
                     <h1 className="text-3xl lg:text-5xl pb-2">{hello}</h1>
                     <h2 className="text-3xl lg:text-5xl pb-2">{greeting}</h2>
                     <p className="mb-5 text-xl lg:text-2xl">{textAbout}</p>
-                    <a
-                        href="https://t.me/IkinSerhii"
-                        target="_blank"
-                        className={styles.link}
-                        rel="noreferrer">
-                        {btnMessage}
-                    </a>
+                    <Form/>
                 </article>
                 <article className="mx-auto max-h-[50vh] sm:max-h-[80vh] flex">
                     <Suspense fallback={<Loader />}>
