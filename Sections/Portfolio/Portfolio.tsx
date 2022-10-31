@@ -53,6 +53,7 @@ function Portfolio() {
                         return (
                             <SwiperSlide key={id}>
                                 <SlideContent
+                                    key={id}
                                     id={id}
                                     src={src}
                                     title={title}

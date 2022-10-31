@@ -1,5 +1,21 @@
 .header {
-    @apply flex h-20 justify-between items-center fixed w-full z-20 px-10 py-4 bg-gradient-to-b from-blue-900 to-blue-400 left-0 text-white;
+    @apply flex justify-between sm:grid sm:grid-cols-3 sm:grid-rows-1 items-center h-20  fixed w-full z-20 px-10 py-4 bg-gradient-to-b from-blue-900 to-blue-400 left-0 text-white;
+}
+
+.nav {
+    @apply justify-self-center top-[-100vh] left-[-100vw] transition-all duration-75 flex flex-col sm:flex-row  absolute  sm:static sm:justify-center sm:items-center h-[100vh] w-full sm:w-max sm:h-fit;
+}
+
+.btns {
+    @apply justify-self-end;
+}
+
+.showMenu {
+    @apply flex flex-col absolute transition-all duration-700 top-0 left-0 justify-center items-center bg-slate-400 w-full  h-[100vh] truncate text-4xl;
+    p,
+    span {
+        @apply my-10;
+    }
 }
 
 .btn {
@@ -8,13 +24,6 @@
 
 .active {
     @apply bg-orange-500;
-}
-
-.showMenu {
-    @apply flex flex-col absolute top-0 left-0 z-30 justify-center items-center bg-slate-400 w-full  h-[100vh] truncate text-4xl;
-    p {
-        @apply my-10;
-    }
 }
 
 .pLink {
@@ -37,10 +46,6 @@
     &:after {
         @apply content-[''] h-[2px] w-full left-0 absolute  bottom-[-10px] sm:bottom-[-2px] bg-gradient-to-r from-green-400 to-orange-500;
     }
-}
-
-.nav {
-    @apply hidden sm:flex;
 }
 
 .authorName:not(:focus):not(:active),

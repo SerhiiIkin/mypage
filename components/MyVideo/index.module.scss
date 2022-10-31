@@ -1,5 +1,5 @@
 .videoContainer {
-    @apply flex flex-col items-center py-2 px-6 max-w-full
+    @apply flex flex-col items-center py-10 px-6 max-w-full
 }
 
 .title {
@@ -7,7 +7,7 @@
 }
 
 .video {
-    @apply w-[50vw] h-[50vh]
+    @apply w-[70vw] h-[50vh]
 }
 
 .description {

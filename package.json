@@ -3,9 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "npx next dev -H 192.168.8.102",
+        "start": "npx next dev -H 192.168.8.102",
         "build": "next build",
-        "start": "next start",
+        "startBuild": "next start",
         "lint": "next lint"
     },
     "dependencies": {

@@ -48,27 +48,27 @@ function About() {
         downloadLabelAnsøgning,
     } = AboutText();
 
-    function LanguageList(props) {
+    function LanguageList({ languageList }) {
         return (
             <ul className="list-disc">
-                {props.languageList.map((lang) => {
+                {languageList.map((lang) => {
                     return <li key={lang}>{lang}</li>;
                 })}
             </ul>
         );
     }
 
-    function SkillsList(props) {
+    function SkillsList({ skillsList }) {
         return (
             <ul className="list-disc">
-                {props.skillsList.map((skill) => {
+                {skillsList.map((skill) => {
                     return <li key={skill}>{skill}</li>;
                 })}
             </ul>
         );
     }
 
-    function Contacts(props) {
+    function Contacts({ mypage }) {
         return (
             <ul className="list-disc">
                 <li>
@@ -108,7 +108,7 @@ function About() {
                         rel="noreferrer"
                         target="_blank"
                         href="https://serhiiikin.github.io/Portfolio/SerhiiIkinPortfolio/">
-                        {props.mypage}
+                        {mypage}
                     </a>
                 </li>
             </ul>

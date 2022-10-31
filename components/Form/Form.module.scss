@@ -1,15 +1,28 @@
 .dialog {
-    @apply fixed top-0 left-0 h-full w-full z-10 overflow-scroll
+    @apply fixed top-0 left-0 h-full w-full z-10 overflow-scroll bg-gray-400/75;
 }
 
 .form {
-    @apply flex flex-col w-[300px] xl:w-[500px] items-center absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-blue-700 text-white py-2 px-8 rounded
+    @apply flex flex-col w-[300px] xl:w-[500px] items-center absolute left-[50%] translate-x-[-50%] translate-y-[-50%] bg-blue-700 text-white py-2 px-8 rounded;
+    top: calc(100px + 50%);
 }
 
 .btnClose {
-    @apply absolute top-1 right-2 text-2xl
+    @apply absolute top-1 right-2 text-2xl hover:xl:text-orange-600;
 }
 
 .errorMessage {
- @apply text-red-400 absolute bottom-[-15px] left-2
+    @apply text-red-400 absolute bottom-[-15px] left-2;
+}
+
+.btn_blue {
+    @apply rounded px-4 py-2 bg-blue-500 hover:xl:bg-green-300 disabled:bg-transparent;
+}
+
+.input {
+    @apply border border-gray-600 p-1 rounded ml-2  mt-1 text-black;
+}
+
+.labelInput {
+    @apply pb-2 mb-4 text-center flex flex-col w-full relative;
 }

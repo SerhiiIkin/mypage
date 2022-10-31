@@ -87,7 +87,8 @@ function Header() {
                     );
                 })}
             </nav>
-            <div>
+            
+            <div className={styles.btns}>
                 {btnsLanguage().map((btn) => (
                     <button
                         key={btn}
@@ -102,6 +103,7 @@ function Header() {
                     </button>
                 ))}
             </div>
+
             <BurgerMenu active={active} onBurgerMenuClick={onBurgerMenuClick} />
         </header>
     );

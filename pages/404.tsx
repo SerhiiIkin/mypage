@@ -3,7 +3,7 @@ import Multilanguage from "../components/Multilanguage";
 import HeaderText from "../Sections/Header/HeaderText";
 import A from "../components/A/A";
 
-import styles from "./404.module.scss";
+import styles from "../styles/404.module.scss";
 
 function NotFounded() {
     const { home } = HeaderText();

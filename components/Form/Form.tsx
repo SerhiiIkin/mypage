@@ -1,9 +1,10 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, MouseEvent, useMemo, useState } from "react";
 import axios from "../../axios";
 import validator from "email-validator";
 import HelloText from "../../Sections/Hello/HelloText";
 import styles from "./Form.module.scss";
 import LIttleLoader from "../LIttleLoader/LIttleLoader";
+import { log } from "console";
 
 function Form() {
     const {
@@ -105,26 +106,38 @@ function Form() {
         }
     }
 
+    function dialog(event: MouseEvent) {
+        document.body.style.overflow = open ? "" : "hidden";
+        setOpen((prev) => !prev);
+    }
+
+    function stopPropagation(event: MouseEvent) {
+        event.stopPropagation();
+    }
+
     return (
         <>
-            <button onClick={() => setOpen(true)} className="btn-blue">
+            <button onClick={dialog} className={styles.btn_blue}>
                 {btnMessage}
             </button>
-            <dialog open={open} className={styles.dialog}>
-                <form onSubmit={submitHandler} className={styles.form}>
+            <dialog open={open} onClick={dialog} className={styles.dialog}>
+                <form
+                    onClick={stopPropagation}
+                    onSubmit={submitHandler}
+                    className={styles.form}>
                     <button
                         type="button"
-                        onClick={() => setOpen(false)}
+                        onClick={dialog}
                         className={styles.btnClose}>
                         X
                     </button>
-                    <label htmlFor="title" className="labelInput">
+                    <label htmlFor="title" className={styles.labelInput}>
                         {titleWrite}
                         <input
                             type="text"
                             name="title"
                             id="title"
-                            className="input"
+                            className={styles.input}
                             value={title}
                             onChange={inputTitleHandler}
                         />
@@ -134,12 +147,12 @@ function Form() {
                             </p>
                         )}
                     </label>
-                    <label htmlFor="email" className="labelInput">
+                    <label htmlFor="email" className={styles.labelInput}>
                         {emailWrite}
                         <input
                             type="text"
                             id="email"
-                            className="input"
+                            className={styles.input}
                             value={email}
                             onChange={inputEmailHandler}
                         />
@@ -149,12 +162,12 @@ function Form() {
                             </p>
                         )}
                     </label>
-                    <label htmlFor="text" className="labelInput">
+                    <label htmlFor="text" className={styles.labelInput}>
                         {textWrite}
                         <textarea
                             id="text"
                             rows={3}
-                            className="input"
+                            className={styles.input}
                             value={text}
                             onChange={inputTextHandler}
                         />
@@ -167,7 +180,7 @@ function Form() {
                     <button
                         disabled={loading}
                         type="submit"
-                        className="btn-blue">
+                        className={styles.btn_blue}>
                         {loading ? <LIttleLoader /> : btnSend}
                     </button>
                 </form>
