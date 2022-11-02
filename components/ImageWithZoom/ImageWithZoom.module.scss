@@ -1,7 +1,15 @@
 .imgContainer {
-    @apply fixed  w-full h-full top-0 left-0 z-10 bg-slate-400 overflow-scroll;
+    @apply fixed  w-full h-full top-0 left-0 z-20 bg-slate-400 overflow-scroll;
 }
 
-.imgWrapper {
-    @apply absolute top-[90px] left-[50%] translate-x-[-50%] p-2 w-[95vw] lg:w-[70vw] xl:w-[60vw];
+.imgActive {
+    @apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] p-2 max-h-[85vh] aspect-auto w-[95vw] lg:w-[70vw] xl:w-[60vw] cursor-zoom-out;
+}
+
+.imgBody {
+    @apply cursor-zoom-in xl:hover:outline-dashed outline-blue-500 outline-1;
+}
+
+.btnClose {
+    @apply absolute top-[-40px] right-[-40px] text-red-500 text-5xl;
 }

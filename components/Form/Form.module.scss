@@ -1,10 +1,9 @@
 .dialog {
-    @apply fixed top-0 left-0 h-full w-full z-10 overflow-scroll bg-gray-400/75;
+    @apply fixed top-0 left-0 h-full w-full z-20 overflow-scroll bg-gray-400/75;
 }
 
 .form {
-    @apply flex flex-col w-[300px] xl:w-[500px] items-center absolute left-[50%] translate-x-[-50%] translate-y-[-50%] bg-blue-700 text-white py-2 px-8 rounded;
-    top: calc(100px + 50%);
+    @apply flex flex-col w-[300px] xl:w-[500px] items-center absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] bg-blue-700 text-white py-2 px-8 rounded;
 }
 
 .btnClose {

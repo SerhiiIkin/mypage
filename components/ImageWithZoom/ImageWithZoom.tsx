@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState } from "react";
+import {  useState } from "react";
 import Image from "../Image/Image";
 
 import styles from "./ImageWithZoom.module.scss";
@@ -15,11 +15,11 @@ function ImageWithZoom({ src, alt }) {
     return (
         <div
             onClick={onImgClick}
-            className={classNames(active ? styles.imgContainer : "")}>
+            className={classNames(active && styles.imgContainer)}>
             <div
+                title="click to open or close image"
                 className={classNames(
-                    !active ? "cursor-zoom-in" : "cursor-zoom-out",
-                    active ? styles.imgWrapper : ""
+                    active ? styles.imgActive : styles.imgBody
                 )}>
                 <Image src={src} alt={alt} />
             </div>

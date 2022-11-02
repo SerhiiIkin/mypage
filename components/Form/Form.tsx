@@ -2,9 +2,9 @@ import { ChangeEvent, FormEvent, MouseEvent, useMemo, useState } from "react";
 import axios from "../../axios";
 import validator from "email-validator";
 import HelloText from "../../Sections/Hello/HelloText";
-import styles from "./Form.module.scss";
 import LIttleLoader from "../LIttleLoader/LIttleLoader";
-import { log } from "console";
+
+import styles from "./Form.module.scss";
 
 function Form() {
     const {

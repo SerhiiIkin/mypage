@@ -70,13 +70,17 @@ function About() {
 
     function Contacts({ mypage }) {
         return (
-            <ul className="list-disc">
+            <ul>
                 <li>
                     <a
                         target="_blank"
                         href="https://goo.gl/maps/JufpzTgudt54LfKM9"
                         rel="noreferrer">
                         Kibæk,Danmark
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </a>
                 </li>
                 <li>
@@ -85,6 +89,10 @@ function About() {
                         rel="noreferrer"
                         href="https://t.me/IkinSerhii">
                         +4550246519 (Telegram)
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </a>
                 </li>
                 <li>
@@ -93,6 +101,10 @@ function About() {
                         rel="noreferrer"
                         href="mailto:messileonl@gmail.com">
                         messileonl@gmail.com
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </a>
                 </li>
                 <li>
@@ -101,6 +113,10 @@ function About() {
                         target="_blank"
                         href="https://www.linkedin.com/in/serhii-ikin-608054227/">
                         Linkedin Serhii Ikin
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </a>
                 </li>
                 <li>
@@ -109,6 +125,10 @@ function About() {
                         target="_blank"
                         href="https://serhiiikin.github.io/Portfolio/SerhiiIkinPortfolio/">
                         {mypage}
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </a>
                 </li>
             </ul>

@@ -19,14 +19,65 @@
     strong {
         @apply pb-2;
     }
-
     a {
-        @apply text-orange-500 transition-all duration-500 xl:hover:text-blue-400;
+        @apply text-orange-500 xl:hover:text-blue-500 py-1 px-2 duration-700;
     }
 }
 
 .colOne {
     @apply md:pr-4 md:row-span-3 row-start-2;
+    li {
+        &:nth-child(2) {
+            filter: hue-rotate(45deg);
+        }
+        &:nth-child(3) {
+            filter: hue-rotate(70deg);
+        }
+        &:nth-child(4) {
+            filter: hue-rotate(180deg);
+        }
+        &:nth-child(5) {
+            filter: hue-rotate(270deg);
+        }
+    }
+    a {
+        @apply text-[#3fa5aa] xl:hover:text-blue-500  relative inline-block py-3 px-4 overflow-hidden;
+        transition: 0.5s;
+
+        &:hover {
+            @apply bg-[#03e9f4] text-[#050801];
+            box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+        }
+
+        span {
+            @apply absolute block;
+            &:nth-child(1) {
+                @apply top-0 left-0 w-full h-[2px] animate-leftLine;
+
+                background: linear-gradient(90deg, transparent, #03e9f4);
+            }
+            &:nth-child(2) {
+                @apply top-[-100%] right-0 w-[2px] h-full animate-topLine;
+
+                background: linear-gradient(180deg, transparent, #03e9f4);
+                animation-delay: 0.25s;
+            }
+            &:nth-child(3) {
+                @apply bottom-0 right-0 w-full h-[2px] animate-rightLine;
+
+                background: linear-gradient(270deg, transparent, #03e9f4);
+                animation-delay: 0.5s;
+            }
+            &:nth-child(4) {
+                @apply bottom-[-100%] left-0 w-[2px] h-full animate-bottomLine;
+
+                background: linear-gradient(360deg, transparent, #03e9f4);
+                animation-delay: 0.75s;
+            }
+        }
+    }
 }
 
 .colTwo {
@@ -47,5 +98,5 @@
 }
 
 .linkWrapper {
-    @apply flex flex-col sm:flex-row items-start
+    @apply flex flex-col sm:flex-row items-start;
 }

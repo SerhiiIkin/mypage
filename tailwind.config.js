@@ -6,7 +6,48 @@ module.exports = {
         "./Sections/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            animation: {
+                leftLine: "leftLine 1s linear infinite",
+                topLine: "topLine 1s linear infinite",
+                rightLine: "rightLine 1s linear infinite",
+                bottomLine: "bottomLine 1s linear infinite",
+            },
+            keyframes: {
+                leftLine: {
+                    "0%": {
+                        left: "-100%",
+                    },
+                    "50%, 100%": {
+                        left: "100%",
+                    },
+                },
+                topLine: {
+                    "0%": {
+                        top: "-100%",
+                    },
+                    "50%, 100%": {
+                        top: "100%",
+                    },
+                },
+                rightLine: {
+                    "0%": {
+                        right: "-100%",
+                    },
+                    "50%, 100%": {
+                        right: "100%",
+                    },
+                },
+                bottomLine: {
+                    "0%": {
+                        bottom: "-100%",
+                    },
+                    "50%, 100%": {
+                        bottom: "100%",
+                    },
+                },
+            },
+        },
         screens: {
             ss: "450px",
             sm: "640px",

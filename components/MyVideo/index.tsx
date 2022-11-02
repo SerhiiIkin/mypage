@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import Loader from "../Loader/Loader";
 import Multilanguage from "../Multilanguage";
+
 import styles from "./index.module.scss";
 
 function MyVideo() {
