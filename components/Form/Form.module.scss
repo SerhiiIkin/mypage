@@ -15,7 +15,7 @@
 }
 
 .btn_blue {
-    @apply rounded px-4 py-2 bg-blue-500 hover:xl:bg-green-300 disabled:bg-transparent;
+    @apply rounded px-4 py-2 bg-blue-500 hover:xl:bg-green-300 disabled:bg-transparent disabled:hover:bg-transparent;
 }
 
 .input {

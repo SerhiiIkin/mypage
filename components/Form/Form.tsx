@@ -1,8 +1,16 @@
-import { ChangeEvent, FormEvent, MouseEvent, useMemo, useState } from "react";
+import {
+    ChangeEvent,
+    FormEvent,
+    MouseEvent,
+    useEffect,
+    useMemo,
+    useState,
+} from "react";
 import axios from "../../axios";
 import validator from "email-validator";
 import HelloText from "../../Sections/Hello/HelloText";
 import LIttleLoader from "../LIttleLoader/LIttleLoader";
+import Notification from "../Notification/Notification";
 
 import styles from "./Form.module.scss";
 
@@ -15,17 +23,26 @@ function Form() {
         textWrite,
         emailWrite,
         errorMessage,
+        btnSend,
+        btnSendTryAgain,
+        messageSendSuccess,
     } = HelloText();
 
     const [open, setOpen] = useState(false);
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
     const [email, setEmail] = useState("");
-    const [btnSend, setBtnSend] = useState("Send");
     const [loading, setLoading] = useState(false);
     const [errorTitle, setErrorTitle] = useState(false);
     const [errorText, setErrorText] = useState(false);
     const [errorEmail, setErrorEmail] = useState(false);
+    const [isOpenNotification, setIsOpenNotification] = useState(false);
+    const [textNotification, setTextNotification] = useState("");
+    const [btnSendMessage, setBtnSendMessage] = useState(btnSend);
+
+    useEffect(() => {
+        setBtnSendMessage(btnSend)
+    }, [btnSend]);
 
     async function submitHandler(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -42,24 +59,32 @@ function Form() {
             setLoading(true);
 
             try {
-                const mail = await axios.post("/api/sendemail", {
+                await axios.post("/api/sendemail", {
                     email,
                     title,
                     text,
                 });
-
-                setBtnSend(mail.data.message);
+                setIsOpenNotification(true);
+                setTextNotification(messageSendSuccess);
                 setLoading(false);
                 setTimeout(() => {
-                    setBtnSend("Send");
                     setOpen(false);
                     setText("");
                     setEmail("");
                     setTitle("");
+                    setBtnSendMessage(btnSend);
                 }, 3000);
+                setTimeout(() => {
+                    setIsOpenNotification(false);
+                }, 5000);
             } catch (error) {
-                setBtnSend(errorMessage);
+                setIsOpenNotification(true);
+                setTextNotification(errorMessage);
+                setBtnSendMessage(btnSendTryAgain);
                 setLoading(false);
+                setTimeout(() => {
+                    setIsOpenNotification(false);
+                }, 5000);
             }
         }
     }
@@ -117,6 +142,10 @@ function Form() {
 
     return (
         <>
+            <Notification
+                textNotification={textNotification}
+                isOpen={isOpenNotification}
+            />
             <button onClick={dialog} className={styles.btn_blue}>
                 {btnMessage}
             </button>
@@ -166,7 +195,7 @@ function Form() {
                         {textWrite}
                         <textarea
                             id="text"
-                            rows={3}
+                            rows={5}
                             className={styles.input}
                             value={text}
                             onChange={inputTextHandler}
@@ -181,7 +210,7 @@ function Form() {
                         disabled={loading}
                         type="submit"
                         className={styles.btn_blue}>
-                        {loading ? <LIttleLoader /> : btnSend}
+                        {loading ? <LIttleLoader /> : btnSendMessage}
                     </button>
                 </form>
             </dialog>

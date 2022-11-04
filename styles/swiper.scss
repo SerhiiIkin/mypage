@@ -18,18 +18,18 @@
 
 .swiper-button-prev,
 .swiper-button-next {
-    &:after {
+    &::after {
         @apply bg-blue-500 py-1 px-2 rounded-xl text-white;
     }
     &:hover::after {
         @media (min-width: 1281px) {
-            @apply bg-orange-500 text-blue-300 duration-500;
+            @apply bg-orange-500 text-blue-500 duration-500;
         }
     }
 }
 
 .swiper-button-next {
-    &:after {
+    &::after {
         content: ">" !important;
     }
 
@@ -37,7 +37,7 @@
 }
 
 .swiper-button-prev {
-    &:after {
+    &::after {
         content: "<" !important;
     }
     left: 10px !important;

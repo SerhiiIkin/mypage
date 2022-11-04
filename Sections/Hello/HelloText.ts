@@ -54,6 +54,16 @@ function HelloText() {
         "Fejl ved afsendelse af besked"
     );
 
+    const btnSend = Multilanguage("Відправити", "Send", "Sende");
+
+    const btnSendTryAgain = Multilanguage(
+        "Спробувати ще раз",
+        "Try again",
+        "Prøv igen"
+    );
+
+    const messageSendSuccess = Multilanguage("Повідомлення вдало відправлено!", "The message is successfully sent!", "Beskeden sendt med succes!")
+
     return {
         hello,
         greeting,
@@ -64,7 +74,10 @@ function HelloText() {
         incorrectEmail,
         textWrite,
         emailWrite,
-        errorMessage
+        errorMessage,
+        btnSend,
+        btnSendTryAgain,
+        messageSendSuccess
     };
 }
 export default HelloText;
