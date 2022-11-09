@@ -1,4 +1,5 @@
 import classNames from "classnames";
+
 import styles from "./Footer.module.scss";
 
 function Footer() {

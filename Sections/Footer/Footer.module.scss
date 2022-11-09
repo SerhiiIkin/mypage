@@ -1,5 +1,5 @@
 .ico {
-    @apply flex relative pl-[45px] pb-4 text-white xl:hover:text-blue-400;
+    @apply flex relative pl-[45px] pb-4 text-white xl:hover:text-blue-400 xl:hover:duration-500;
     &::before {
         @apply content-[""] bg-no-repeat absolute h-[30px] w-[30px] left-0;
     }

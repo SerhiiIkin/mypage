@@ -66,8 +66,11 @@ function Header() {
 
     return (
         <header className={styles.header}>
-            <h1 className={styles.authorName}>{text.fullName}</h1>
-            <span className=" hidden sm:inline"></span>
+            <div className={styles.containerName}>
+                <h1 data-text={text.fullName} className={styles.authorName}>
+                    {text.fullName}
+                </h1>
+            </div>
             <nav
                 onClick={() => setActive(false)}
                 className={classNames(active ? styles.showMenu : styles.nav)}>
@@ -87,7 +90,7 @@ function Header() {
                     );
                 })}
             </nav>
-            
+
             <div className={styles.btns}>
                 {btnsLanguage().map((btn) => (
                     <button

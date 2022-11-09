@@ -11,23 +11,21 @@ function Hello() {
     const ProfilePic = dynamic(() => import("../../components/Image/Image"), {
         suspense: true,
     });
-    const { hello, greeting, textAbout, btnMessage } = HelloText();
+    const {  textAbout } = HelloText();
 
     return (
-        <section className="bg-gray-800">
+        <section className={styles.background}>
             <div className={styles.wrapper}>
-                <article className="pr-2 pb-4">
-                    <h1 className="text-3xl lg:text-5xl pb-2">{hello}</h1>
-                    <h2 className="text-3xl lg:text-5xl pb-2">{greeting}</h2>
-                    <p className="mb-5 text-xl lg:text-2xl">{textAbout}</p>
+                <article className={styles.textContainer}>
+                    <p className={styles.text}>{textAbout}</p>
                     <Form/>
                 </article>
-                <article className="mx-auto max-h-[50vh] sm:max-h-[80vh] flex">
+                <article className={styles.imgContainer}>
                     <Suspense fallback={<Loader />}>
                         <ProfilePic
                             src={profilePic}
                             alt="Author of picture"
-                            styles="object-contain"
+                            styles={styles.img}
                         />
                     </Suspense>
                 </article>

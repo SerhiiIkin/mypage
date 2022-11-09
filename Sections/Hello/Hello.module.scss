@@ -4,3 +4,23 @@
 .wrapper {
     @apply flex flex-col justify-between container py-10 px-4 sm:flex-row mx-auto text-white;
 }
+
+.background {
+    @apply bg-gray-800;
+}
+
+.textContainer {
+    @apply pr-2 pb-4;
+}
+
+.text {
+    @apply mb-5 text-xl lg:text-2xl
+}
+
+.imgContainer {
+    @apply mx-auto max-h-[50vh] sm:max-h-[80vh] flex
+}
+
+.img {
+    @apply object-contain rounded-xl
+}
