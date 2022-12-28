@@ -57,9 +57,8 @@ function CardText() {
         "Det er min application, som jeg har lavet med React JS. Jeg henter data fra API ( mockapi.io ) og skriver dem i database (react-redux). Jeg brugte materiale UI fra ( mui.com ) for at gøre det smukkere og mere responsivt. Det er lavet med react-router-dom, så det er SPA (Single page application)"
     );
 
-   
     const altShop = Multilanguage("Магазин", "Shop", "Butik");
-    
+
     const titleMern = Multilanguage(
         'Додаток Mongo Db, Express, React, Node Js i TypeScript "Магазин"',
         'Mongo Db, Express, React, Node Js and TypeScript application "Shop"',
@@ -111,6 +110,14 @@ function CardText() {
         'Med tiden, får jeg mere erfaring, har jeg et ønske om at ændre noget til det bedre. Jeg udviklede dette websted på framework kaldet "Next JS". Ved at bruge denne framework udviklede jeg et enkeltsidet websted med mulighed for at skifte sprog uden at genindlæse siden, hvilket jeg anser for meget bedre for et flersproget websted. Alle billeder indlæses parallelt, det vil sige, at brugeren ikke behøver at vente, indtil hele siden er indlæst. I stedet for billeder vil han midlertidigt se en spinner. Brug af Tailwind Css framework reducerer mængden af ​​kode i stilarter markant.  Nogle billeder kan åbnes i fuld skærm for at se detaljerne. På siden om mig kan du finde en video om mig. Hvis brugeren går til en ukendt side, får han en 404-side, som jeg har designet.'
     );
 
+    const titleWorldBaristaCup = Multilanguage("World Barista Cup");
+    const altWorldBaristaCup = Multilanguage("World Barista Cup");
+    const descriptionWorldBaristaCup = Multilanguage(
+        "Тестове завдання, яке на мою думку заслуговує місце в моєму портфоліо. Використовуючи bootstrap і jQuery, є слайдер і пошук по сайту.",
+        "A test task that I think deserves a place in my portfolio. Using bootstrap and jQuery, there is a slider and site search.",
+        "En testopgave, som jeg synes fortjener en plads i min portfolio. Ved at bruge bootstrap og jQuery er der en skyder og webstedssøgning."
+    );
+
     const linkText = Multilanguage(
         "Переглянути проект",
         "View the project",
@@ -143,6 +150,9 @@ function CardText() {
         titledetteWebsted,
         altdetteWebsted,
         descriptiondetteWebsted,
+        titleWorldBaristaCup,
+        altWorldBaristaCup,
+        descriptionWorldBaristaCup,
     };
 }
 export default CardText;

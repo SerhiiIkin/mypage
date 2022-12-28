@@ -25,6 +25,10 @@ import contactsGammelSide from "../../img/Cards/mitGammelSide/contacts.jpg";
 
 import detteWebsted from "../../img/Cards/detteWebsted.jpg";
 
+import hovedWorldBaristaCup from "../../img/Cards/world-barista-cup/hoved.jpg";
+import paginationWorldBaristaCup from "../../img/Cards/world-barista-cup/paginnation.jpg";
+import searchMobilWorldBaristaCup from "../../img/Cards/world-barista-cup/search-mobil.jpg";
+
 function CardData() {
     const {
         titleTask,
@@ -51,6 +55,9 @@ function CardData() {
         titledetteWebsted,
         altdetteWebsted,
         descriptiondetteWebsted,
+        titleWorldBaristaCup,
+        altWorldBaristaCup,
+        descriptionWorldBaristaCup,
     } = CardText();
 
     const imagesGammelSide = useCallback(
@@ -69,6 +76,15 @@ function CardData() {
     );
 
     const imagesChat = useCallback(() => [login, chat], []);
+
+    const imagesWorldBaristaCup = useCallback(
+        () => [
+            hovedWorldBaristaCup,
+            paginationWorldBaristaCup,
+            searchMobilWorldBaristaCup,
+        ],
+        []
+    );
 
     const contentCard = useCallback(() => {
         const data: ICardContent[] = [];
@@ -161,6 +177,15 @@ function CardData() {
             "https://mypage-portfolio.vercel.app/"
         );
 
+        new createContentCard(
+            9,
+            imagesWorldBaristaCup(),
+            titleWorldBaristaCup,
+            altWorldBaristaCup,
+            descriptionWorldBaristaCup,
+            "https://serhiiikin.github.io/world-barista-cup/src/"
+        );
+
         return data;
     }, [
         altChat,
@@ -170,6 +195,7 @@ function CardData() {
         altRestaurant,
         altShop,
         altTask,
+        altWorldBaristaCup,
         altdetteWebsted,
         descriptionChat,
         descriptionConverter,
@@ -178,10 +204,12 @@ function CardData() {
         descriptionProject,
         descriptionRestaurant,
         descriptionTask,
+        descriptionWorldBaristaCup,
         descriptiondetteWebsted,
         imagesChat,
         imagesGammelSide,
         imagesMernShop,
+        imagesWorldBaristaCup,
         titleChat,
         titleConverter,
         titleGammelSide,
@@ -189,6 +217,7 @@ function CardData() {
         titleMern,
         titleProject,
         titleTask,
+        titleWorldBaristaCup,
         titledetteWebsted,
     ]);
 
