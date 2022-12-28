@@ -4,6 +4,7 @@ import CardData from "../../components/CardContent/CardData";
 import CardDetailContent from "../../components/CardContent/CardDetailContent";
 
 import styles from "./projectDetail.module.scss";
+
 import NotFounded from "../404";
 
 function ProjectDetail() {
@@ -12,7 +13,7 @@ function ProjectDetail() {
     const dataCard = CardData();
     const selectedCard = dataCard().filter((data) => data.id === +id)[0];
 
-    if (isNaN(+id) || +id > dataCard().length) return <NotFounded />
+    if (isNaN(+id) || +id > dataCard().length) return <NotFounded />;
 
     return (
         <LayoutIndex>

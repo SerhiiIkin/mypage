@@ -9,6 +9,10 @@
     @apply text-xl font-bold xl:text-3xl text-center pb-2;
 }
 
+.imgWrapper {
+    @apply flex flex-col aspect-auto gap-4;
+}
+
 .link {
     @apply bg-orange-500 p-2 rounded-lg xl:hover:bg-blue-400;
 }

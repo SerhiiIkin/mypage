@@ -22,15 +22,25 @@ function CardDetailContent({
     return (
         <div className={styles.wrapper}>
             <h2 className={styles.title}>{title}</h2>
-            {!Array.isArray(src) && <Image src={src} quality="90" alt={alt} />}
-            {Array.isArray(src) &&
-                src.map((img, index) => (
-                    <>
-                        <Suspense fallback={<Loader />}>
-                            <Pic key={index} src={img} quality="90" alt={alt} />
-                        </Suspense>
-                    </>
-                ))}
+            <div className={styles.imgWrapper}>
+                {!Array.isArray(src) && (
+                    <Image src={src} quality="90" alt={alt} />
+                )}
+                {Array.isArray(src) &&
+                    src.map((img, index) => (
+                        <>
+                            <Suspense fallback={<Loader />}>
+                                <Pic
+                                    key={index}
+                                    src={img}
+                                    quality="90"
+                                    alt={alt}
+                                />
+                            </Suspense>
+                        </>
+                    ))}
+            </div>
+
             <p>{description}</p>
             <a
                 className={styles.link}
