@@ -29,6 +29,12 @@ import hovedWorldBaristaCup from "../../img/Cards/world-barista-cup/hoved.jpg";
 import paginationWorldBaristaCup from "../../img/Cards/world-barista-cup/paginnation.jpg";
 import searchMobilWorldBaristaCup from "../../img/Cards/world-barista-cup/search-mobil.jpg";
 
+import hovedTodoListAngular from "../../img/Cards/todo-list-angular/main.jpg";
+import addTodoTodoListAngular from "../../img/Cards/todo-list-angular/addTodo.jpg";
+import editTodoTodoListAngular from "../../img/Cards/todo-list-angular/editTodo.jpg";
+import databaseTodoListAngular from "../../img/Cards/todo-list-angular/database.jpg";
+import serverTodoListAngular from "../../img/Cards/todo-list-angular/server.jpg";
+
 function CardData() {
     const {
         titleTask,
@@ -58,6 +64,9 @@ function CardData() {
         titleWorldBaristaCup,
         altWorldBaristaCup,
         descriptionWorldBaristaCup,
+        titleTodoListAngular,
+        altodoListAngular,
+        descriptionTodoListAngular,
     } = CardText();
 
     const imagesGammelSide = useCallback(
@@ -82,6 +91,17 @@ function CardData() {
             hovedWorldBaristaCup,
             paginationWorldBaristaCup,
             searchMobilWorldBaristaCup,
+        ],
+        []
+    );
+
+    const imagesTodoListAngular = useCallback(
+        () => [
+            hovedTodoListAngular,
+            addTodoTodoListAngular,
+            editTodoTodoListAngular,
+            databaseTodoListAngular,
+            serverTodoListAngular,
         ],
         []
     );
@@ -151,7 +171,6 @@ function CardData() {
             descriptionTask,
             "https://serhiiikin.github.io/Serhii-Ikin-lesson-13/"
         );
-
         new createContentCard(
             6,
             imagesChat(),
@@ -176,7 +195,6 @@ function CardData() {
             descriptiondetteWebsted,
             "https://mypage-portfolio.vercel.app/"
         );
-
         new createContentCard(
             9,
             imagesWorldBaristaCup(),
@@ -184,6 +202,14 @@ function CardData() {
             altWorldBaristaCup,
             descriptionWorldBaristaCup,
             "https://serhiiikin.github.io/world-barista-cup/src/"
+        );
+        new createContentCard(
+            10,
+            imagesTodoListAngular(),
+            titleTodoListAngular,
+            altodoListAngular,
+            descriptionTodoListAngular,
+            "https://github.com/SerhiiIkin/angular-todo-list"
         );
 
         return data;
@@ -197,6 +223,7 @@ function CardData() {
         altTask,
         altWorldBaristaCup,
         altdetteWebsted,
+        altodoListAngular,
         descriptionChat,
         descriptionConverter,
         descriptionGammelSide,
@@ -204,11 +231,13 @@ function CardData() {
         descriptionProject,
         descriptionRestaurant,
         descriptionTask,
+        descriptionTodoListAngular,
         descriptionWorldBaristaCup,
         descriptiondetteWebsted,
         imagesChat,
         imagesGammelSide,
         imagesMernShop,
+        imagesTodoListAngular,
         imagesWorldBaristaCup,
         titleChat,
         titleConverter,
@@ -217,6 +246,7 @@ function CardData() {
         titleMern,
         titleProject,
         titleTask,
+        titleTodoListAngular,
         titleWorldBaristaCup,
         titledetteWebsted,
     ]);

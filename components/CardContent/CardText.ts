@@ -118,6 +118,16 @@ function CardText() {
         "En testopgave, som jeg synes fortjener en plads i min portfolio. Ved at bruge bootstrap og jQuery er der en skyder og webstedssøgning."
     );
 
+    const titleTodoListAngular = Multilanguage(
+        "Todo list Angular + ASP.NET Web Api + Sql Server"
+    );
+    const altodoListAngular = Multilanguage("todo list angular");
+    const descriptionTodoListAngular = Multilanguage(
+        'Я розробив звичайний "Todo list" використовуючи фреймворк "Angular", для серверної частини я використовував "ASP.NET Web Api" і для баз даних я використовував "Sql Server". Повна функціональна можливість, додавати, редагувати і видаляти "Todo"',
+        'I designed the usual  "Todo list" using the framework "Angular ", for the server part I used "ASP.NET Web Api" and for databases I used "SQL Server ".Full functional ability, add, edit and delete "Todo "',
+        'Jeg designede den sædvanlige "todo-list " ved hjælp af framework "Angular", til serverdelen jeg brugte "ASP.NET Web API" og til databaser brugte jeg "SQL Server". Fuld funktionel evne, tilføjning, rediger og sletning "todo"'
+    );
+
     const linkText = Multilanguage(
         "Переглянути проект",
         "View the project",
@@ -153,6 +163,9 @@ function CardText() {
         titleWorldBaristaCup,
         altWorldBaristaCup,
         descriptionWorldBaristaCup,
+        titleTodoListAngular,
+        altodoListAngular,
+        descriptionTodoListAngular,
     };
 }
 export default CardText;

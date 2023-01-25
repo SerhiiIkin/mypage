@@ -16,6 +16,9 @@ import nodejs from "../../img/Section_Skills/nodejs.svg";
 import typescript from "../../img/Section_Skills/typescript.svg";
 import tailwindcss from "../../img/Section_Skills/tailwindcss.svg";
 import nextjs from "../../img/Section_Skills/nextjs.svg";
+import angular from "../../img/Section_Skills/angular.svg";
+import cSharp from "../../img/Section_Skills/csharp.svg"
+import bootstrap from "../../img/Section_Skills/bootstrap.svg"
 
 import { useCallback } from "react";
 
@@ -45,12 +48,15 @@ function Skills() {
         data.push(new createSkill(typescript, "Typescript"));
         data.push(new createSkill(tailwindcss, "Tailwindcss"));
         data.push(new createSkill(nextjs, "Next Js"));
+        data.push(new createSkill(angular, "Angular"));
+        data.push(new createSkill(cSharp, "C#"));
+        data.push(new createSkill(bootstrap, "Bootstrap"));
 
         return data;
     }, []);
 
     return (
-        <section className="container p-4 mx-auto grid grid-cols-3 sm:grid-cols-5 xl:grid-cols-7">
+        <section className="container pl-2 gap-1 mx-auto grid grid-cols-3 sm:grid-cols-5 xl:grid-cols-7">
             {skills().map((skill) => (
                 <Skill key={skill.text} src={skill.src} text={skill.text} />
             ))}
