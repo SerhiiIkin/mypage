@@ -47,7 +47,7 @@ function Portfolio() {
                         },
                     }}
                     modules={[Pagination, Navigation, EffectCoverflow]}>
-                    {slideData().map((slide) => {
+                    {slideData().reverse().map((slide) => {
                         const { id, src, title, alt } = slide;
 
                         return (
