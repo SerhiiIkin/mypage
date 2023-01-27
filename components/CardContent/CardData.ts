@@ -35,6 +35,10 @@ import editTodoTodoListAngular from "../../img/Cards/todo-list-angular/editTodo.
 import databaseTodoListAngular from "../../img/Cards/todo-list-angular/database.jpg";
 import serverTodoListAngular from "../../img/Cards/todo-list-angular/server.jpg";
 
+import hovedTodoListVue from "../../img/Cards/todo-list-vue/main.jpg";
+import addTodoListVue from "../../img/Cards/todo-list-vue/addTodo.jpg";
+import editTodoListVue from "../../img/Cards/todo-list-vue/editTodo.jpg";
+
 function CardData() {
     const {
         titleTask,
@@ -67,6 +71,9 @@ function CardData() {
         titleTodoListAngular,
         altodoListAngular,
         descriptionTodoListAngular,
+        titleTodoListVue,
+        altodoListVue,
+        descriptionTodoListVue,
     } = CardText();
 
     const imagesGammelSide = useCallback(
@@ -105,6 +112,10 @@ function CardData() {
         ],
         []
     );
+    const imagesTodoListVue = useCallback(
+        () => [hovedTodoListVue, addTodoListVue, editTodoListVue],
+        []
+    );
 
     const contentCard = useCallback(() => {
         const data: ICardContent[] = [];
@@ -133,44 +144,49 @@ function CardData() {
 
         new createContentCard(
             1,
-            imagesMernShop(),
-            titleMern,
-            altShop,
-            descriptionMern,
-            "https://mern-shop.onrender.com"
-        );
-        new createContentCard(
-            2,
-            restaurant,
-            titleManagement,
-            altRestaurant,
-            descriptionRestaurant,
-            "https://serhiiikin.github.io/ManagementRestaurant/"
-        );
-        new createContentCard(
-            3,
-            converter,
-            titleConverter,
-            altConverter,
-            descriptionConverter,
-            "https://serhiiikin.github.io/Currency_converter/"
-        );
-        new createContentCard(
-            4,
-            kursusHtmlProject,
-            titleProject,
-            altProject,
-            descriptionProject,
-            "https://serhiiikin.github.io/ProjectKursus/app/"
-        );
-        new createContentCard(
-            5,
             kursusLessons,
             titleTask,
             altTask,
             descriptionTask,
             "https://serhiiikin.github.io/Serhii-Ikin-lesson-13/"
         );
+
+        new createContentCard(
+            2,
+            kursusHtmlProject,
+            titleProject,
+            altProject,
+            descriptionProject,
+            "https://serhiiikin.github.io/ProjectKursus/app/"
+        );
+
+        new createContentCard(
+            3,
+            imagesGammelSide(),
+            titleGammelSide,
+            altGammelSide,
+            descriptionGammelSide,
+            "https://serhiiikin.github.io/Portfolio/SerhiiIkinPortfolio/"
+        );
+
+        new createContentCard(
+            4,
+            converter,
+            titleConverter,
+            altConverter,
+            descriptionConverter,
+            "https://serhiiikin.github.io/Currency_converter/"
+        );
+
+        new createContentCard(
+            5,
+            restaurant,
+            titleManagement,
+            altRestaurant,
+            descriptionRestaurant,
+            "https://serhiiikin.github.io/ManagementRestaurant/"
+        );
+
         new createContentCard(
             6,
             imagesChat(),
@@ -179,14 +195,16 @@ function CardData() {
             descriptionChat,
             "https://github.com/SerhiiIkin/Chat_SocketServer"
         );
+
         new createContentCard(
             7,
-            imagesGammelSide(),
-            titleGammelSide,
-            altGammelSide,
-            descriptionGammelSide,
-            "https://serhiiikin.github.io/Portfolio/SerhiiIkinPortfolio/"
+            imagesMernShop(),
+            titleMern,
+            altShop,
+            descriptionMern,
+            "https://mern-shop.onrender.com"
         );
+
         new createContentCard(
             8,
             detteWebsted,
@@ -195,6 +213,7 @@ function CardData() {
             descriptiondetteWebsted,
             "https://mypage-portfolio.vercel.app/"
         );
+
         new createContentCard(
             9,
             imagesWorldBaristaCup(),
@@ -203,6 +222,7 @@ function CardData() {
             descriptionWorldBaristaCup,
             "https://serhiiikin.github.io/world-barista-cup/src/"
         );
+
         new createContentCard(
             10,
             imagesTodoListAngular(),
@@ -210,6 +230,15 @@ function CardData() {
             altodoListAngular,
             descriptionTodoListAngular,
             "https://github.com/SerhiiIkin/angular-todo-list"
+        );
+        
+        new createContentCard(
+            11,
+            imagesTodoListVue(),
+            titleTodoListVue,
+            altodoListVue,
+            descriptionTodoListVue,
+            "https://github.com/SerhiiIkin/vue-todolist"
         );
 
         return data;
@@ -224,6 +253,7 @@ function CardData() {
         altWorldBaristaCup,
         altdetteWebsted,
         altodoListAngular,
+        altodoListVue,
         descriptionChat,
         descriptionConverter,
         descriptionGammelSide,
@@ -232,12 +262,14 @@ function CardData() {
         descriptionRestaurant,
         descriptionTask,
         descriptionTodoListAngular,
+        descriptionTodoListVue,
         descriptionWorldBaristaCup,
         descriptiondetteWebsted,
         imagesChat,
         imagesGammelSide,
         imagesMernShop,
         imagesTodoListAngular,
+        imagesTodoListVue,
         imagesWorldBaristaCup,
         titleChat,
         titleConverter,
@@ -247,6 +279,7 @@ function CardData() {
         titleProject,
         titleTask,
         titleTodoListAngular,
+        titleTodoListVue,
         titleWorldBaristaCup,
         titledetteWebsted,
     ]);

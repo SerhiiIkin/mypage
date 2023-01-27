@@ -119,13 +119,23 @@ function CardText() {
     );
 
     const titleTodoListAngular = Multilanguage(
-        "Todo list Angular + ASP.NET Web Api + Sql Server"
+        "Todo list Angular + ASP.NET Web Api + Sql Server + TailwindCss"
     );
     const altodoListAngular = Multilanguage("todo list angular");
     const descriptionTodoListAngular = Multilanguage(
-        'Я розробив звичайний "Todo list" використовуючи фреймворк "Angular", для серверної частини я використовував "ASP.NET Web Api" і для баз даних я використовував "Sql Server". Повна функціональна можливість, додавати, редагувати і видаляти "Todo"',
-        'I designed the usual  "Todo list" using the framework "Angular ", for the server part I used "ASP.NET Web Api" and for databases I used "SQL Server ".Full functional ability, add, edit and delete "Todo "',
-        'Jeg designede den sædvanlige "todo-list " ved hjælp af framework "Angular", til serverdelen jeg brugte "ASP.NET Web API" og til databaser brugte jeg "SQL Server". Fuld funktionel evne, tilføjning, rediger og sletning "todo"'
+        'Я розробив звичайний "Todo list" використовуючи фреймворк "Angular + TailwindCss", для серверної частини я використовував "ASP.NET Web Api" і для баз даних я використовував "Sql Server". Повна функціональна можливість, додавати, редагувати і видаляти "Todo"',
+        'I designed the usual  "Todo list" using the framework "Angular + TailwindCss", for the server part I used "ASP.NET Web Api" and for databases I used "SQL Server ".Full functional ability, add, edit and delete "Todo "',
+        'Jeg designede den sædvanlige "todo-list " ved hjælp af framework "Angular + TailwindCss", til serverdelen jeg brugte "ASP.NET Web API" og til databaser brugte jeg "SQL Server". Fuld funktionel evne, tilføjning, rediger og sletning "todo"'
+    );
+
+    const titleTodoListVue = Multilanguage(
+        "Todo list Vue + ASP.NET Web Api + Sql Server + Bootstrap"
+    );
+    const altodoListVue = Multilanguage("todo list vue");
+    const descriptionTodoListVue = Multilanguage(
+        'Я розробив звичайний "Todo list" використовуючи фреймворк "Vue + Bootstrap", для серверної частини я використовував "ASP.NET Web Api" і для баз даних я використовував "Sql Server". Повна функціональна можливість, додавати, редагувати і видаляти "Todo"',
+        'I designed the usual  "Todo list" using the framework "Vue + Bootstrap", for the server part I used "ASP.NET Web Api" and for databases I used "SQL Server ".Full functional ability, add, edit and delete "Todo "',
+        'Jeg designede den sædvanlige "todo-list " ved hjælp af framework "Vue  + Bootstrap", til serverdelen jeg brugte "ASP.NET Web API" og til databaser brugte jeg "SQL Server". Fuld funktionel evne, tilføjning, rediger og sletning "todo"'
     );
 
     const linkText = Multilanguage(
@@ -166,6 +176,9 @@ function CardText() {
         titleTodoListAngular,
         altodoListAngular,
         descriptionTodoListAngular,
+        titleTodoListVue,
+        altodoListVue,
+        descriptionTodoListVue
     };
 }
 export default CardText;

@@ -22,7 +22,7 @@ function Portfolio() {
                     {projectsTitle}
                 </h1>
                 <div className="grid grid-cols-1 gap-y-4 gap-x-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                    {projects().map((project) => {
+                    {projects().reverse().map((project) => {
                         const { id, title, alt, src } = project;
 
                         return (
