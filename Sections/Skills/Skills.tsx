@@ -57,7 +57,7 @@ function Skills() {
 
     return (
         <section className="container pl-2 gap-1 mx-auto grid grid-cols-3 sm:grid-cols-5 xl:grid-cols-7">
-            {skills().map((skill) => (
+            {skills().reverse().map((skill) => (
                 <Skill key={skill.text} src={skill.src} text={skill.text} />
             ))}
         </section>
