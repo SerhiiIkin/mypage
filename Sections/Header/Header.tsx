@@ -21,8 +21,11 @@ function Header() {
     const { route } = useRouter();
     const [active, setActive] = useState(false);
 
-    function onBurgerMenuClick() {
-        setActive((prev) => !prev);
+    function onMenuClick() {
+        if (window.innerWidth < 800) {
+            setActive((prev) => !prev);
+            document.body.classList.toggle("lock");
+        }
     }
 
     function onLanguageBtnClick(event: MouseEvent<HTMLButtonElement>) {
@@ -72,7 +75,7 @@ function Header() {
                 </h1>
             </div>
             <nav
-                onClick={() => setActive(false)}
+                onClick={onMenuClick}
                 className={classNames(active ? styles.showMenu : styles.nav)}>
                 {navBarLinks().map((link) => {
                     if (route === link.href)
@@ -107,7 +110,7 @@ function Header() {
                 ))}
             </div>
 
-            <BurgerMenu active={active} onBurgerMenuClick={onBurgerMenuClick} />
+            <BurgerMenu active={active} onMenuClick={onMenuClick} />
         </header>
     );
 }

@@ -1,11 +1,4 @@
-import {
-    ChangeEvent,
-    FormEvent,
-    MouseEvent,
-    useEffect,
-    useMemo,
-    useState,
-} from "react";
+import { ChangeEvent, FormEvent, MouseEvent, useEffect, useState } from "react";
 import axios from "../../axios";
 import validator from "email-validator";
 import HelloText from "../../Sections/Hello/HelloText";
@@ -13,6 +6,7 @@ import LIttleLoader from "../LIttleLoader/LIttleLoader";
 import Notification from "../Notification/Notification";
 
 import styles from "./Form.module.scss";
+import FormIsHuman from "../FormIsHuman/FormIsHuman";
 
 function Form() {
     const {
@@ -26,22 +20,32 @@ function Form() {
         btnSend,
         btnSendTryAgain,
         messageSendSuccess,
+        isHuman,
+        errorTextHuman,
     } = HelloText();
 
     const [open, setOpen] = useState(false);
+
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
     const [email, setEmail] = useState("");
+    const [checkbox, setCheckbox] = useState(false);
+
     const [loading, setLoading] = useState(false);
+
     const [errorTitle, setErrorTitle] = useState(false);
     const [errorText, setErrorText] = useState(false);
     const [errorEmail, setErrorEmail] = useState(false);
+    const [errorCheckBox, setErrorCheckBox] = useState(false);
+
     const [isOpenNotification, setIsOpenNotification] = useState(false);
     const [textNotification, setTextNotification] = useState("");
     const [btnSendMessage, setBtnSendMessage] = useState(btnSend);
 
+    const [openCheckBox, setOpenCheckBox] = useState(false);
+
     useEffect(() => {
-        setBtnSendMessage(btnSend)
+        setBtnSendMessage(btnSend);
     }, [btnSend]);
 
     async function submitHandler(event: FormEvent<HTMLFormElement>) {
@@ -53,9 +57,12 @@ function Form() {
         if (!title.trim().length) {
             setErrorTitle(true);
         }
+        if (!checkbox) {
+            setErrorCheckBox(true);
+        }
         if (!email.trim().length) {
             setErrorEmail(true);
-        } else if (!errorTitle && !errorEmail && !errorText) {
+        } else if (!errorTitle && !errorEmail && !errorText && !errorCheckBox) {
             setLoading(true);
 
             try {
@@ -131,13 +138,25 @@ function Form() {
         }
     }
 
-    function dialog(event: MouseEvent) {
-        document.body.style.overflow = open ? "" : "hidden";
+    function dialog() {
+        document.body.classList.toggle("lock");
         setOpen((prev) => !prev);
     }
 
     function stopPropagation(event: MouseEvent) {
         event.stopPropagation();
+    }
+
+    function isMatch(value: boolean) {
+        setCheckbox(value);
+        setOpenCheckBox(!value);
+        setErrorCheckBox(!value);
+    }
+
+    function inputCheckboxHandler(event: ChangeEvent<HTMLInputElement>) {
+        !checkbox && setOpenCheckBox(true);
+
+        checkbox && setCheckbox(!checkbox);
     }
 
     return (
@@ -206,12 +225,31 @@ function Form() {
                             </p>
                         )}
                     </label>
+                    <label className={styles.labelInput} htmlFor="isHuman">
+                        {isHuman}
+                        <input
+                            type="checkbox"
+                            checked={checkbox}
+                            name="isHuman"
+                            id="isHuman"
+                            onChange={inputCheckboxHandler}
+                        />
+                        {errorCheckBox && (
+                            <p className={styles.errorMessage}>
+                                {errorTextHuman}
+                            </p>
+                        )}
+                    </label>
                     <button
                         disabled={loading}
                         type="submit"
                         className={styles.btn_blue}>
                         {loading ? <LIttleLoader /> : btnSendMessage}
                     </button>
+                    <FormIsHuman
+                        openCheckBox={openCheckBox}
+                        isMatch={isMatch}
+                    />
                 </form>
             </dialog>
         </>

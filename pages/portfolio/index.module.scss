@@ -1,5 +1,5 @@
 .link {
-    @apply relative inline-flex pr-[25px] items-center text-xs md:text-base text-orange-400;
+    @apply inline-flex  text-orange-400;
 
     svg {
         @apply translate-y-[2px] stroke-orange-400 max-h-[21px];

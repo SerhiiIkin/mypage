@@ -1,10 +1,10 @@
 import classNames from "classnames";
 import styles from "./BurgerMenu.module.scss";
 
-function BurgerMenu({ active, onBurgerMenuClick }) {
+function BurgerMenu({ active, onMenuClick }) {
     return (
         <button
-            onClick={onBurgerMenuClick}
+            onClick={onMenuClick}
             className={classNames(styles.btn, active ? styles.active : "")}>
             <span></span>
         </button>

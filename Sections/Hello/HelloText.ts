@@ -1,7 +1,6 @@
 import Multilanguage from "../../components/Multilanguage";
 
 function HelloText() {
-  
     const textAbout = Multilanguage(
         "Я Front-End розробник. Під час створення сайту розвиваю та вдосконалюю свої навички. Вам потрібен сайт? Тоді зв'яжіться зі мною!",
         "I'm Front-End Developer. At the time of creating a site, I develop and improve my skills. Do you need a site? Then contact me!",
@@ -43,6 +42,13 @@ function HelloText() {
         "Forkert e-mailadresse indtastet"
     );
 
+    const isHuman = Multilanguage("Я людина", "I am human", "Jeg er menneske");
+    const errorTextHuman = Multilanguage(
+        "Підтвердіть що ви людина :)",
+        "Confirm that you are human :)",
+        "Bekræft, at du er et menneske"
+    );
+
     const errorMessage = Multilanguage(
         "Помилка відправки повідомлення",
         "Error sending message",
@@ -57,7 +63,11 @@ function HelloText() {
         "Prøv igen"
     );
 
-    const messageSendSuccess = Multilanguage("Повідомлення вдало відправлено!", "The message is successfully sent!", "Beskeden sendt med succes!")
+    const messageSendSuccess = Multilanguage(
+        "Повідомлення вдало відправлено!",
+        "The message is successfully sent!",
+        "Beskeden sendt med succes!"
+    );
 
     return {
         textAbout,
@@ -70,7 +80,9 @@ function HelloText() {
         errorMessage,
         btnSend,
         btnSendTryAgain,
-        messageSendSuccess
+        messageSendSuccess,
+        isHuman,
+errorTextHuman
     };
 }
 export default HelloText;

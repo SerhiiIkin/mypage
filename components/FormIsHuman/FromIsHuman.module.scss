@@ -1,0 +1,25 @@
+.isHuman {
+    @apply absolute -bottom-32 grid grid-cols-3 bg-cyan-600 p-2 gap-1 rounded max-w-sm;
+
+    label {
+        position: relative;
+        input {
+            @apply absolute bottom-1.5 right-0 z-10  hidden;
+            &:checked {
+                @apply block;
+            }
+        }
+
+        img {
+            @apply w-10 aspect-square;
+        }
+    }
+
+    button {
+        @apply justify-self-end col-start-3 bg-blue-600 p-1 rounded;
+    }
+
+    span {
+        @apply text-sm col-span-2 text-red-400;
+    }
+}

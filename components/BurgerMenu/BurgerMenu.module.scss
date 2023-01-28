@@ -1,5 +1,5 @@
 .btn {
-    @apply block sm:hidden relative w-8 h-8 m-1;
+    @apply menu:hidden block  relative w-8 h-8 m-1;
 
     &::before,
     &::after,

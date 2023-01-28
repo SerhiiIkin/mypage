@@ -2,7 +2,7 @@ import A from "../A/A";
 import Multilanguage from "../Multilanguage";
 import Arrow from "../Arrow/Arrow";
 import { ICardContent } from "../../modules/modules";
-import Image from "next/image";
+import Image from "../Image/Image";
 
 function CardContent({ id, src, alt, title, styles }: ICardContent) {
     const linkText = Multilanguage("Більше", "More", "Mere");

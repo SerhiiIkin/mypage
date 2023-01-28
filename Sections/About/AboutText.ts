@@ -26,6 +26,7 @@ function AboutText() {
         "Mine færdigheder"
     );
     const skillsList = [];
+
     addNewItem(
         skillsList,
         "HTML: семантика, специфікація, гумова та адаптивна верстка, методологія BEM",
@@ -91,7 +92,7 @@ function AboutText() {
         "Save the state of the program on the example redux and redux-thunk, redux/toolkit",
         "Gem programmets tilstand på eksemplet redux and redux-thunk, redux/toolkit"
     );
-    addNewItem(skillsList, "Typescript, Next Js");
+    addNewItem(skillsList, "Вивчаю самостійно: Typescript, Next Js, Angular, Vue, C#, ASP.NET","I study myself: Typescript, Next Js, Angular, Vue, C#, ASP.NET", "Jeg studerer selv: Typescript, Next Js, Angular, Vue, C#, ASP.NET");
 
     // Language block
     const language = Multilanguage(
@@ -171,7 +172,7 @@ function AboutText() {
     const agricultureTime = Multilanguage(
         "5 років, 2017 - дотепер",
         "5 years, 2017 - until now",
-        "5 år, 2017 - indtil nu"
+        "5 år, 2017 - 28.02.2023"
     );
     const agricultureDescription = Multilanguage(
         "Працівник свинячої ферми",
@@ -180,7 +181,6 @@ function AboutText() {
     );
 
     // Edication
-
     const edication = Multilanguage("Навчання", "Edication", "Uddannelse");
     const strongEdication = Multilanguage(
         "Національний університет біоресурсів та природокористування України",

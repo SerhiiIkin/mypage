@@ -1,9 +1,9 @@
 .header {
-    @apply flex justify-between sm:grid sm:grid-cols-3 sm:grid-rows-1 items-center h-20  fixed w-full z-20 px-10 py-4 bg-gradient-to-b from-blue-900 to-blue-400 left-0 text-white;
+    @apply flex justify-between menu:grid menu:grid-cols-3 menu:grid-rows-1 items-center h-20  fixed w-full z-20 px-10 py-4 bg-gradient-to-b from-blue-900 to-blue-400 left-0 text-white;
 }
 
 .nav {
-    @apply justify-self-center top-[-100vh] left-[-100vw] transition-all duration-75 flex flex-col sm:flex-row  absolute  sm:static sm:justify-center sm:items-center h-[100vh] w-full sm:w-max sm:h-fit;
+    @apply top-[-100vh] left-[-100vw]  menu:flex menu:justify-self-center fixed  menu:static;
 }
 
 .btns {
@@ -11,7 +11,7 @@
 }
 
 .showMenu {
-    @apply flex flex-col absolute transition-all duration-700 top-0 left-0 justify-center items-center bg-slate-400 w-full  h-[100vh] truncate text-4xl;
+    @apply flex flex-col h-full overflow-scroll fixed transition-all duration-700 top-0 left-0  items-center bg-slate-400 w-full   text-4xl;
     p,
     span {
         @apply my-10;
@@ -49,14 +49,18 @@
 }
 
 .containerName {
-    @apply relative  items-center justify-center font-sans hidden sm:flex;
+    @apply relative  items-center justify-center font-sans hidden menu:flex;
 }
 
 .authorName {
-    @apply absolute uppercase text-orange-400 text-2xl;
+    @apply absolute uppercase text-orange-400 text-2xl pointer-events-none;
     &:after {
         @apply content-[attr(data-text)] absolute bottom-[6px] left-0 origin-bottom rotate-180 opacity-80 text-transparent;
-        background-image: linear-gradient(0deg, rgb(171, 55, 13) 0, transparent 95%);
+        background-image: linear-gradient(
+            0deg,
+            rgb(171, 55, 13) 0,
+            transparent 95%
+        );
         background-clip: border-box;
         -webkit-background-clip: text;
     }

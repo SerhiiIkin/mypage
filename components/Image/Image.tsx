@@ -1,18 +1,22 @@
-import dynamic from "next/dynamic";
-import { Suspense, useMemo } from "react";
+import { Suspense } from "react";
 import { IImage } from "../../modules/modules";
 import Loader from "../Loader/Loader";
-import Img from "next/image";
+import dynamic from "next/dynamic";
 
-function Image({ quality, alt, src, styles, onImgClick }: IImage) {
+function Image({ quality, alt, src, styles, onImgClick, priority }: IImage) {
+    const Pic = dynamic(() => import("next/image"), {
+        suspense: true,
+    });
+
     return (
         <Suspense fallback={<Loader />}>
-            <Img
+            <Pic
                 onClick={onImgClick}
                 src={src}
                 className={styles}
                 quality={quality}
                 alt={alt}
+                priority={priority}
             />
         </Suspense>
     );

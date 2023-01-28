@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import "swiper/css/navigation";
+@import "swiper/css/effect-coverflow";
 
 html,
 body {
@@ -47,4 +50,8 @@ body {
 
 textarea {
     resize: none;
+}
+
+body.lock {
+    overflow: hidden;
 }

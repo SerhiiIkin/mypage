@@ -1,4 +1,6 @@
 import Skill from "../../components/Skill/Skill";
+
+//icons
 import html from "../../img/Section_Skills/html.svg";
 import css from "../../img/Section_Skills/css.svg";
 import js from "../../img/Section_Skills/js.svg";
@@ -41,10 +43,10 @@ function Skills() {
         data.push(new createSkill(figma, "Figma"));
         data.push(new createSkill(vscode, "Vs Code"));
         data.push(new createSkill(pixelPerfect, "Pixel Perfect"));
-        data.push(new createSkill(react, "React"));
-        data.push(new createSkill(redux, "Redux / Toolkit"));
         data.push(new createSkill(webpack, "Webpack"));
         data.push(new createSkill(nodejs, "Node Js"));
+        data.push(new createSkill(react, "React"));
+        data.push(new createSkill(redux, "Redux/Toolkit"));
         data.push(new createSkill(typescript, "Typescript"));
         data.push(new createSkill(tailwindcss, "Tailwindcss"));
         data.push(new createSkill(nextjs, "Next Js"));
@@ -56,7 +58,7 @@ function Skills() {
     }, []);
 
     return (
-        <section className="container pl-2 gap-1 mx-auto grid grid-cols-3 sm:grid-cols-5 xl:grid-cols-7">
+        <section className="container py-4 px-2 gap-2 mx-auto grid grid-cols-3 sm:grid-cols-5 xl:grid-cols-7">
             {skills().reverse().map((skill) => (
                 <Skill key={skill.text} src={skill.src} text={skill.text} />
             ))}

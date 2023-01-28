@@ -36,6 +36,7 @@ export interface IImage {
     src: StaticImageData;
     styles?: string;
     onImgClick?: () => void;
+    priority?: boolean
 }
 
 export interface ISlider {
