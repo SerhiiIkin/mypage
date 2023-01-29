@@ -1,5 +1,9 @@
 .isHuman {
-    @apply absolute -bottom-32 grid grid-cols-3 bg-cyan-600 p-2 gap-1 rounded max-w-sm;
+    @apply absolute -bottom-12 grid grid-cols-3 bg-cyan-600 p-2 gap-1 rounded max-w-sm;
+
+    &__header {
+        @apply col-span-3 flex justify-between items-center;
+    }
 
     label {
         position: relative;

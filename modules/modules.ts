@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import { ReactElement } from "react";
+import { Dispatch, ReactElement, SetStateAction } from "react";
 
 export interface LanguageState {
     language: string;
@@ -55,4 +55,10 @@ export interface ISlideData {
     slideData: ICardContent[];
     children: ReactElement;
     slideId: number;
+}
+
+export interface IFormIsHuman {
+    isMatch: (value: boolean) => void;
+    openCheckBox: boolean;
+    setOpenCheckBox: Dispatch<SetStateAction<boolean>>;
 }

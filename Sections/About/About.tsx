@@ -1,4 +1,4 @@
-import Image from "../../components/Image/Image";
+import Image from "next/image";
 import HeaderText from "../../Sections/Header/HeaderText";
 import AboutText from "../../Sections/About/AboutText";
 import ImageWithZoom from "../../components/ImageWithZoom/ImageWithZoom";

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import bird from "./img/bird.jpg";
 import birds from "./img/birds.jpg";
 import cat1 from "./img/cat1.jpg";
@@ -7,19 +5,15 @@ import cat2 from "./img/cat2.jpg";
 import cat3 from "./img/cat3.jpg";
 import rabbit from "./img/rabbit.jpg";
 
-
 import useCheckBoxHook from "../../hooks/useCheckboxHook";
 import { useState, MouseEvent } from "react";
-import Multilanguage from "../Multilanguage";
+import TextFormIsHuman from "./TextFormIsHuman";
+import Image from "next/image";
+import { IFormIsHuman } from "../../modules/modules";
 
 import styles from "./FromIsHuman.module.scss";
 
-interface IFormIsHuman {
-    isMatch: (value: boolean) => void;
-    openCheckBox: boolean;
-}
-
-function FormIsHuman({ isMatch, openCheckBox }: IFormIsHuman) {
+function FormIsHuman({ isMatch, openCheckBox, setOpenCheckBox }: IFormIsHuman) {
     const isBird = useCheckBoxHook();
     const isBirds = useCheckBoxHook();
     const isCat1 = useCheckBoxHook();
@@ -27,13 +21,9 @@ function FormIsHuman({ isMatch, openCheckBox }: IFormIsHuman) {
     const isCat3 = useCheckBoxHook();
     const isRabbit = useCheckBoxHook();
 
-    const  errorMessage  = Multilanguage(
-        "Не коректно вибрані картинки",
-        "Incorrectly selected pictures",
-        "Forkert valgte billeder"
-    );
+    const { title, errorMessage } = TextFormIsHuman();
 
-    const [error, setError] = useState(errorMessage);
+    const [error, setError] = useState("");
 
     function onOkClick(event: MouseEvent<HTMLButtonElement>) {
         if (
@@ -58,10 +48,19 @@ function FormIsHuman({ isMatch, openCheckBox }: IFormIsHuman) {
         }
     }
 
+    function onCloseBtnClick() {
+        setOpenCheckBox(false);
+    }
+
     return (
         <>
             {openCheckBox && (
                 <div className={styles.isHuman}>
+                    <div className={styles.isHuman__header}>
+                        <h2>{title}</h2>
+                        <button onClick={onCloseBtnClick}>&times;</button>
+                    </div>
+
                     <label htmlFor="bird">
                         <input
                             type="checkbox"

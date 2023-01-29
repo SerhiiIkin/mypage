@@ -1,11 +1,9 @@
-import dynamic from "next/dynamic";
-
 import profilePic from "../../img/Section_Hello/profilePic.jpg";
 import HelloText from "./HelloText";
 import Form from "../../components/Form/Form";
+import Image from "next/image";
 
 import styles from "./Hello.module.scss";
-import Image from "../../components/Image/Image";
 
 function Hello() {
     const { textAbout } = HelloText();
@@ -21,8 +19,7 @@ function Hello() {
                     <Image
                         src={profilePic}
                         alt="Author of picture"
-                        styles={styles.img}
-                        priority
+                        className={styles.img}
                     />
                 </article>
             </div>

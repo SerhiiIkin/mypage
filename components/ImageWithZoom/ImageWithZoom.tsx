@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import {  useState } from "react";
-import Image from "../Image/Image";
+import Image from "next/image";
 
 import styles from "./ImageWithZoom.module.scss";
 

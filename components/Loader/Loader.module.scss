@@ -2,22 +2,23 @@
     color: official;
     display: inline-block;
     position: relative;
-    width: 80px;
-    height: 80px;
+    top: -47px;
+    left: -40px;
+
     & div {
         transform-origin: 40px 40px;
         animation: lds-spinner 1.2s linear infinite;
     }
     & div:after {
-        content: " ";
+       content: " ";
         display: block;
         position: absolute;
-        top: 3px;
+        top: 27px;
         left: 37px;
-        width: 6px;
-        height: 18px;
+        width: 2px;
+        height: 8px;
         border-radius: 20%;
-        background: rgb(16, 4, 175);
+        background: rgb(193, 192, 198);
     }
     & div:nth-child(1) {
         transform: rotate(0deg);

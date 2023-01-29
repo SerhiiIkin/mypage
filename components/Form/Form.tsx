@@ -2,11 +2,11 @@ import { ChangeEvent, FormEvent, MouseEvent, useEffect, useState } from "react";
 import axios from "../../axios";
 import validator from "email-validator";
 import HelloText from "../../Sections/Hello/HelloText";
-import LIttleLoader from "../LIttleLoader/LIttleLoader";
+import Loader from "../Loader/Loader";
 import Notification from "../Notification/Notification";
+import FormIsHuman from "../FormIsHuman/FormIsHuman";
 
 import styles from "./Form.module.scss";
-import FormIsHuman from "../FormIsHuman/FormIsHuman";
 
 function Form() {
     const {
@@ -79,6 +79,7 @@ function Form() {
                     setText("");
                     setEmail("");
                     setTitle("");
+                    setCheckbox(false);
                     setBtnSendMessage(btnSend);
                 }, 3000);
                 setTimeout(() => {
@@ -244,9 +245,10 @@ function Form() {
                         disabled={loading}
                         type="submit"
                         className={styles.btn_blue}>
-                        {loading ? <LIttleLoader /> : btnSendMessage}
+                        {loading ? <Loader /> : btnSendMessage}
                     </button>
                     <FormIsHuman
+                        setOpenCheckBox={setOpenCheckBox}
                         openCheckBox={openCheckBox}
                         isMatch={isMatch}
                     />
