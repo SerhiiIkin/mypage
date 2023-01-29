@@ -3,7 +3,7 @@
 }
 
 .form {
-    @apply flex flex-col  items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-700 text-white py-2 px-8 rounded;
+    @apply flex flex-col min-w-[17.5rem]  items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-700 text-white py-2 px-8 rounded;
 }
 
 .btnClose {

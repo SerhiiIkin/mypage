@@ -1,5 +1,4 @@
 import Image from "next/image";
-
 import { ICardContent } from "../../modules/modules";
 import CardText from "./CardText";
 import { Pagination, Autoplay } from "swiper";
@@ -18,7 +17,11 @@ function CardDetailContent({
     return (
         <div className={styles.wrapper}>
             <h2 className={styles.title}>{title}</h2>
-            {!Array.isArray(src) && <Image src={src} quality="90" alt={alt} />}
+            {!Array.isArray(src) && (
+                <div className={styles.imgContainer}>
+                    <Image src={src} quality="90" alt={alt} />
+                </div>
+            )}
             {Array.isArray(src) && (
                 <Swiper
                     spaceBetween={150}
@@ -48,19 +51,21 @@ function CardDetailContent({
                     {src.map((img, index) => {
                         return (
                             <SwiperSlide className="py-10" key={index}>
-                                <Image
-                                    key={index}
-                                    src={img}
-                                    quality="90"
-                                    alt={alt}
-                                />
+                                <div className={styles.imgContainer}>
+                                    <Image
+                                        key={index}
+                                        src={img}
+                                        quality="90"
+                                        alt={alt}
+                                    />
+                                </div>
                             </SwiperSlide>
                         );
                     })}
                 </Swiper>
             )}
 
-            <p>{description}</p>
+            <p className="mt-4">{description}</p>
             <a
                 className={styles.link}
                 target="_blank"

@@ -12,7 +12,7 @@ function CardContent({ id, src, alt, title, styles }: ICardContent) {
     return (
         <div className={styles.content}>
             <div className={styles.imgContainer}>
-                <Image src={src} quality="50" alt={alt} />
+                <Image src={src} quality="50" alt={alt} priority/>
             </div>
             <div className={styles.textContainer}>
                 <h2 className={styles.h2}>{title}</h2>

@@ -20,6 +20,7 @@ function Hello() {
                         src={profilePic}
                         alt="Author of picture"
                         className={styles.img}
+                        priority
                     />
                 </article>
             </div>
