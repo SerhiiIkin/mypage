@@ -1,10 +1,7 @@
-import Image from "../Image/Image";
+import Image from "next/image";
 
 import { ICardContent } from "../../modules/modules";
 import CardText from "./CardText";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-import Loader from "../Loader/Loader";
 import { Pagination, Autoplay } from "swiper";
 import { SwiperSlide, Swiper } from "swiper/react";
 
@@ -17,9 +14,6 @@ function CardDetailContent({
     link,
 }: ICardContent) {
     const { linkText } = CardText();
-    const Pic = dynamic(() => import("../../components/Image/Image"), {
-        suspense: true,
-    });
 
     return (
         <div className={styles.wrapper}>
@@ -54,14 +48,12 @@ function CardDetailContent({
                     {src.map((img, index) => {
                         return (
                             <SwiperSlide className="py-10" key={index}>
-                                <Suspense fallback={<Loader />}>
-                                    <Pic
-                                        key={index}
-                                        src={img}
-                                        quality="90"
-                                        alt={alt}
-                                    />
-                                </Suspense>
+                                <Image
+                                    key={index}
+                                    src={img}
+                                    quality="90"
+                                    alt={alt}
+                                />
                             </SwiperSlide>
                         );
                     })}

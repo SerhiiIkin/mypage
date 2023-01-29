@@ -57,12 +57,17 @@ function Form() {
         if (!title.trim().length) {
             setErrorTitle(true);
         }
+
+        if (!validator.validate(email)) {
+            setErrorEmail(true);
+        }
+
         if (!checkbox) {
             setErrorCheckBox(true);
+            return;
         }
-        if (!email.trim().length) {
-            setErrorEmail(true);
-        } else if (!errorTitle && !errorEmail && !errorText && !errorCheckBox) {
+
+        if (!errorTitle && !errorEmail && !errorText && !errorCheckBox) {
             setLoading(true);
 
             try {
@@ -73,7 +78,6 @@ function Form() {
                 });
                 setIsOpenNotification(true);
                 setTextNotification(messageSendSuccess);
-                setLoading(false);
                 setTimeout(() => {
                     setOpen(false);
                     setText("");
@@ -84,6 +88,7 @@ function Form() {
                 }, 3000);
                 setTimeout(() => {
                     setIsOpenNotification(false);
+                    setLoading(false);
                 }, 5000);
             } catch (error) {
                 setIsOpenNotification(true);
@@ -155,9 +160,14 @@ function Form() {
     }
 
     function inputCheckboxHandler(event: ChangeEvent<HTMLInputElement>) {
-        !checkbox && setOpenCheckBox(true);
-
-        checkbox && setCheckbox(!checkbox);
+        if (checkbox) {
+            setCheckbox(!checkbox);
+            setErrorCheckBox(false);
+        } else {
+            setOpenCheckBox(true);
+            setErrorCheckBox(true);
+            setCheckbox(false);
+        }
     }
 
     return (
