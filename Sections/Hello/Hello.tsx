@@ -7,6 +7,7 @@ import styles from "./Hello.module.scss";
 
 function Hello() {
     const { textAbout } = HelloText();
+    
 
     return (
         <section className={styles.background}>

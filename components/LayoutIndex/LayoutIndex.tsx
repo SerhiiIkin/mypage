@@ -4,6 +4,7 @@ import Header from "../../Sections/Header/Header";
 import ScrollToTop from "react-scroll-to-top";
 
 import styles from "./LayoutIndex.module.scss";
+import Chat from "../Chat/Chat";
 
 function LayoutIndex({ children }) {
     return (

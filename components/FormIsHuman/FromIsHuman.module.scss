@@ -15,7 +15,7 @@
         }
 
         img {
-            @apply w-10 aspect-square;
+            @apply aspect-square min-w-[5rem] min-h-[5rem] max-w-[5rem] max-h-[5rem];
         }
     }
 

@@ -21,6 +21,7 @@ import nextjs from "../../img/Section_Skills/nextjs.svg";
 import angular from "../../img/Section_Skills/angular.svg";
 import cSharp from "../../img/Section_Skills/csharp.svg"
 import bootstrap from "../../img/Section_Skills/bootstrap.svg"
+import blazor from "../../img/Section_Skills/blazor.svg"
 
 import { useCallback } from "react";
 
@@ -53,12 +54,13 @@ function Skills() {
         data.push(new createSkill(angular, "Angular"));
         data.push(new createSkill(cSharp, "C#"));
         data.push(new createSkill(bootstrap, "Bootstrap"));
+        data.push(new createSkill(blazor, "Blazor"));
 
         return data;
     }, []);
 
     return (
-        <section className="container py-4 px-2 gap-2 mx-auto grid grid-cols-3 sm:grid-cols-5 xl:grid-cols-7">
+        <section className="container py-4 px-2 gap-x-2 gap-y-4 mx-auto grid grid-cols-3 sm:grid-cols-5 xl:grid-cols-7">
             {skills().reverse().map((skill) => (
                 <Skill key={skill.text} src={skill.src} text={skill.text} />
             ))}

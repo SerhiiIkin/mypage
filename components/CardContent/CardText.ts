@@ -138,6 +138,16 @@ function CardText() {
         'Jeg designede den sædvanlige "todo-list " ved hjælp af framework "Vue  + Bootstrap", til serverdelen jeg brugte "ASP.NET Web API" og til databaser brugte jeg "SQL Server". Fuld funktionel evne, tilføjning, rediger og sletning "todo"'
     );
 
+    const titleTodoListBlazor = Multilanguage(
+        "Todo list Blazor WebAssembly + Sql Server + Bootstrap"
+    );
+    const altodoListBlazor = Multilanguage("todo list blazor webAssembly");
+    const descriptionTodoListBlazor = Multilanguage(
+        'Я розробив звичайний "Todo list" використовуючи фреймворк "Blazor WebAssembly + Bootstrap",  для баз даних я використовував "Sql Server". Повна функціональна можливість, додавати, редагувати і видаляти "Todo"',
+        'I designed the usual  "Todo list" using the framework "Blazor WebAssembly + Bootstrap",  for databases I used "SQL Server ". Full functional ability, add, edit and delete "Todo "',
+        'Jeg designede den sædvanlige "todo-list " ved hjælp af framework "Blazor WebAssembly  + Bootstrap", til databaser brugte jeg "SQL Server". Fuld funktionel evne, tilføjning, rediger og sletning "todo"'
+    );
+
     const linkText = Multilanguage(
         "Переглянути проект",
         "View the project",
@@ -178,7 +188,10 @@ function CardText() {
         descriptionTodoListAngular,
         titleTodoListVue,
         altodoListVue,
-        descriptionTodoListVue
+        descriptionTodoListVue,
+        titleTodoListBlazor,
+        altodoListBlazor,
+        descriptionTodoListBlazor
     };
 }
 export default CardText;

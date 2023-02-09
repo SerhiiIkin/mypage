@@ -92,7 +92,7 @@ function AboutText() {
         "Save the state of the program on the example redux and redux-thunk, redux/toolkit",
         "Gem programmets tilstand på eksemplet redux and redux-thunk, redux/toolkit"
     );
-    addNewItem(skillsList, "Вивчаю самостійно: Typescript, Next Js, Angular, Vue, C#, ASP.NET","I study myself: Typescript, Next Js, Angular, Vue, C#, ASP.NET", "Jeg studerer selv: Typescript, Next Js, Angular, Vue, C#, ASP.NET");
+    addNewItem(skillsList, "Вивчаю самостійно: Typescript, Next Js, Angular, Vue, C#, ASP.NET, Blazor","I study myself: Typescript, Next Js, Angular, Vue, C#, ASP.NET, Blazor", "Jeg studerer selv: Typescript, Next Js, Angular, Vue, C#, ASP.NET, Blazor");
 
     // Language block
     const language = Multilanguage(

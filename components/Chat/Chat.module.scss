@@ -1,0 +1,19 @@
+.chat {
+    @apply fixed bottom-0 right-20 bg-black text-white p-2 rounded;
+
+    &__btnClose2 {
+        @apply -top-5 -right-5 text-black;
+    }
+
+    &__btnRoll {
+        @apply absolute w-8 h-8 top-2 right-2 after:absolute after:w-4 after:h-0.5 after:left-1/4 after:bg-white;
+    }
+}
+
+.inputChatText {
+    @apply mr-2 rounded p-1 text-black;
+}
+
+.h2 {
+    @apply text-center pb-2;
+}

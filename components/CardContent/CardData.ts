@@ -39,6 +39,10 @@ import hovedTodoListVue from "../../img/Cards/todo-list-vue/main.jpg";
 import addTodoListVue from "../../img/Cards/todo-list-vue/addTodo.jpg";
 import editTodoListVue from "../../img/Cards/todo-list-vue/editTodo.jpg";
 
+import hovedTodoListBlazor from "../../img/Cards/todo-list-blazor/main.jpg";
+import addTodoListBlazor from "../../img/Cards/todo-list-blazor/addTodo.jpg";
+import editTodoListBlazor from "../../img/Cards/todo-list-blazor/editTodo.jpg";
+
 function CardData() {
     const {
         titleTask,
@@ -74,6 +78,9 @@ function CardData() {
         titleTodoListVue,
         altodoListVue,
         descriptionTodoListVue,
+        titleTodoListBlazor,
+        altodoListBlazor,
+        descriptionTodoListBlazor,
     } = CardText();
 
     const imagesGammelSide = useCallback(
@@ -114,6 +121,10 @@ function CardData() {
     );
     const imagesTodoListVue = useCallback(
         () => [hovedTodoListVue, addTodoListVue, editTodoListVue],
+        []
+    );
+    const imagesTodoListBlazor = useCallback(
+        () => [hovedTodoListBlazor, addTodoListBlazor, editTodoListBlazor],
         []
     );
 
@@ -231,7 +242,7 @@ function CardData() {
             descriptionTodoListAngular,
             "https://github.com/SerhiiIkin/angular-todo-list"
         );
-        
+
         new createContentCard(
             11,
             imagesTodoListVue(),
@@ -239,6 +250,14 @@ function CardData() {
             altodoListVue,
             descriptionTodoListVue,
             "https://github.com/SerhiiIkin/vue-todolist"
+        );
+        new createContentCard(
+            12,
+            imagesTodoListBlazor(),
+            titleTodoListBlazor,
+            altodoListBlazor,
+            descriptionTodoListBlazor,
+            "https://github.com/SerhiiIkin/blazor-todolist"
         );
 
         return data;
