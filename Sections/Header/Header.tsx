@@ -95,8 +95,9 @@ function Header() {
             </nav>
 
             <div className={styles.btns}>
-                {btnsLanguage().map((btn) => (
+                {btnsLanguage().map((btn, index) => (
                     <button
+                        type="button"
                         key={btn}
                         onClick={onLanguageBtnClick}
                         data-lang={btn}

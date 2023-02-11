@@ -4,6 +4,7 @@ import styles from "./BurgerMenu.module.scss";
 function BurgerMenu({ active, onMenuClick }) {
     return (
         <button
+            type="button"
             onClick={onMenuClick}
             className={classNames(styles.btn, active ? styles.active : "")}>
             <span></span>

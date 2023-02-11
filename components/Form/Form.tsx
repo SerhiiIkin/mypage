@@ -176,7 +176,7 @@ function Form() {
                 textNotification={textNotification}
                 isOpen={isOpenNotification}
             />
-            <button onClick={dialog} className={styles.btn_blue}>
+            <button type="button" onClick={dialog} className={styles.btn_blue}>
                 {btnMessage}
             </button>
             <dialog open={open} onClick={dialog} className={styles.dialog}>
