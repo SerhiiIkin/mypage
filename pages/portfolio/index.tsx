@@ -21,21 +21,23 @@ function Portfolio() {
                 <h1 className="text-center text-xl lg:text-4xl pb-2">
                     {projectsTitle}
                 </h1>
-                <div className="grid grid-cols-1 gap-y-4 gap-x-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-                    {projects().reverse().map((project) => {
-                        const { id, title, alt, src } = project;
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4  xl:gap-x-8 ">
+                    {projects()
+                        .reverse()
+                        .map((project) => {
+                            const { id, title, alt, src } = project;
 
-                        return (
-                            <CardContent
-                                id={id}
-                                key={id}
-                                title={title}
-                                alt={alt}
-                                src={src}
-                                styles={styles}
-                            />
-                        );
-                    })}
+                            return (
+                                <CardContent
+                                    id={id}
+                                    key={id}
+                                    title={title}
+                                    alt={alt}
+                                    src={src}
+                                    styles={styles}
+                                />
+                            );
+                        })}
                 </div>
             </section>
         </LayoutIndex>

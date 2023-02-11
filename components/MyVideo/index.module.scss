@@ -1,15 +1,15 @@
 .videoContainer {
-    @apply flex flex-col items-center py-10 px-6 max-w-full
+    @apply flex flex-col items-center py-10 px-6 max-w-full;
 }
 
 .title {
-    @apply text-2xl lg:text-4xl font-bold pb-2
+    @apply text-2xl lg:text-4xl font-bold pb-2;
 }
 
 .video {
-    @apply w-[80vw] aspect-video
+    @apply w-[80vw] aspect-video rounded;
 }
 
 .description {
-    @apply pb-2
+    @apply pb-2;
 }

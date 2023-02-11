@@ -1,14 +1,7 @@
-import { Suspense } from "react";
-import dynamic from "next/dynamic";
-import Loader from "../Loader/Loader";
 import Multilanguage from "../Multilanguage";
-
 import styles from "./index.module.scss";
 
 function MyVideo() {
-    const MyVideo = dynamic(() => import("./Video"), {
-        suspense: true,
-    });
     const title = Multilanguage(
         "Відео про мене",
         "Video about me",
@@ -24,9 +17,12 @@ function MyVideo() {
         <div className={styles.videoContainer}>
             <h2 className={styles.title}>{title}</h2>
             <p className={styles.description}>{description}</p>
-            <Suspense fallback={<Loader />}>
-                <MyVideo styles={styles.video} />
-            </Suspense>
+            <iframe
+                className={styles.video}
+                src="https://www.youtube.com/embed/yv31AS3ihlU"
+                title="YouTube video player"
+                allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen></iframe>
         </div>
     );
 }

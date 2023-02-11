@@ -60,7 +60,7 @@ function Skills() {
     }, []);
 
     return (
-        <section className="container py-4 px-2 gap-x-2 gap-y-4 mx-auto grid grid-cols-3 sm:grid-cols-5 xl:grid-cols-7">
+        <section className="container py-4 px-2 gap-x-2 gap-y-6 mx-auto  flex flex-wrap">
             {skills().reverse().map((skill) => (
                 <Skill key={skill.text} src={skill.src} text={skill.text} />
             ))}

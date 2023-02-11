@@ -47,6 +47,7 @@ module.exports = {
                     },
                 },
             },
+            
         },
         screens: {
             ss: "450px",
