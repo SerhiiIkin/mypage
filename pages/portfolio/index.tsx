@@ -21,7 +21,7 @@ function Portfolio() {
                 <h1 className="text-center text-xl lg:text-4xl pb-2">
                     {projectsTitle}
                 </h1>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4  xl:gap-x-8 ">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 xl:gap-x-8">
                     {projects()
                         .reverse()
                         .map((project) => {
