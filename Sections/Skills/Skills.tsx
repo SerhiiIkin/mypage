@@ -19,9 +19,9 @@ import typescript from "../../img/Section_Skills/typescript.svg";
 import tailwindcss from "../../img/Section_Skills/tailwindcss.svg";
 import nextjs from "../../img/Section_Skills/nextjs.svg";
 import angular from "../../img/Section_Skills/angular.svg";
-import cSharp from "../../img/Section_Skills/csharp.svg"
-import bootstrap from "../../img/Section_Skills/bootstrap.svg"
-import blazor from "../../img/Section_Skills/blazor.svg"
+import cSharp from "../../img/Section_Skills/csharp.svg";
+import bootstrap from "../../img/Section_Skills/bootstrap.svg";
+import blazor from "../../img/Section_Skills/blazor.svg";
 
 import { useCallback } from "react";
 
@@ -60,10 +60,12 @@ function Skills() {
     }, []);
 
     return (
-        <section className="container py-4 px-2 gap-x-2 gap-y-6 mx-auto  flex flex-wrap">
-            {skills().reverse().map((skill) => (
-                <Skill key={skill.text} src={skill.src} text={skill.text} />
-            ))}
+        <section className="container py-4 px-2 gap-x-2 gap-y-6 mx-auto  grid grid-cols-3  ss:grid-cols-4 sm:grid-cols-5 md:grid-cols-6 ">
+            {skills()
+                .reverse()
+                .map((skill) => (
+                    <Skill key={skill.text} src={skill.src} text={skill.text} />
+                ))}
         </section>
     );
 }
