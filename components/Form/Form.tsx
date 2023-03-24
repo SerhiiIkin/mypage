@@ -255,7 +255,7 @@ function Form() {
                         disabled={loading}
                         type="submit"
                         className={styles.btn_blue}>
-                        {loading ? <Loader /> : btnSendMessage}
+                        {loading ? <Loader className="-top-[3rem] -left-[2.5rem]" /> : btnSendMessage}
                     </button>
                     <FormIsHuman
                         setOpenCheckBox={setOpenCheckBox}

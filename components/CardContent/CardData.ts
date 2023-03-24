@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { lazy, useCallback, useMemo } from "react";
 import { ICardContent } from "../../modules/modules";
 import CardText from "./CardText";
 
@@ -8,40 +8,8 @@ import shop from "../../img/Cards/shop.jpg";
 import converter from "../../img/Cards/Currency_converter.jpg";
 import restaurant from "../../img/Cards/ManagementRestaurant.jpg";
 
-import addProduct from "../../img/Cards/Mern_shop/addProduct.jpg";
-import auth_admin from "../../img/Cards/Mern_shop/auth_admin.jpg";
-import auth from "../../img/Cards/Mern_shop/auth.jpg";
-import hoved from "../../img/Cards/Mern_shop/hoved.jpg";
-import mobile_hoved from "../../img/Cards/Mern_shop/mobile_hoved.jpg";
-import product from "../../img/Cards/Mern_shop/product.jpg";
-
-import login from "../../img/Cards/React_Chat_Socket/login.jpg";
-import chat from "../../img/Cards/React_Chat_Socket/chat.jpg";
-
-import homeGammelSide from "../../img/Cards/mitGammelSide/home.jpg";
-import aboutGammelSide from "../../img/Cards/mitGammelSide/about.jpg";
-import portfolioGammelSide from "../../img/Cards/mitGammelSide/portfolio.jpg";
-import contactsGammelSide from "../../img/Cards/mitGammelSide/contacts.jpg";
-
 import detteWebsted from "../../img/Cards/detteWebsted.jpg";
 
-import hovedWorldBaristaCup from "../../img/Cards/world-barista-cup/hoved.jpg";
-import paginationWorldBaristaCup from "../../img/Cards/world-barista-cup/paginnation.jpg";
-import searchMobilWorldBaristaCup from "../../img/Cards/world-barista-cup/search-mobil.jpg";
-
-import hovedTodoListAngular from "../../img/Cards/todo-list-angular/main.jpg";
-import addTodoTodoListAngular from "../../img/Cards/todo-list-angular/addTodo.jpg";
-import editTodoTodoListAngular from "../../img/Cards/todo-list-angular/editTodo.jpg";
-import databaseTodoListAngular from "../../img/Cards/todo-list-angular/database.jpg";
-import serverTodoListAngular from "../../img/Cards/todo-list-angular/server.jpg";
-
-import hovedTodoListVue from "../../img/Cards/todo-list-vue/main.jpg";
-import addTodoListVue from "../../img/Cards/todo-list-vue/addTodo.jpg";
-import editTodoListVue from "../../img/Cards/todo-list-vue/editTodo.jpg";
-
-import hovedTodoListBlazor from "../../img/Cards/todo-list-blazor/main.jpg";
-import addTodoListBlazor from "../../img/Cards/todo-list-blazor/addTodo.jpg";
-import editTodoListBlazor from "../../img/Cards/todo-list-blazor/editTodo.jpg";
 
 function CardData() {
     const {
@@ -81,52 +49,96 @@ function CardData() {
         titleTodoListBlazor,
         altodoListBlazor,
         descriptionTodoListBlazor,
+        titlePosts,
+        altPosts,
+        descriptionPosts,
     } = CardText();
 
-    const imagesGammelSide = useCallback(
-        () => [
-            homeGammelSide,
-            aboutGammelSide,
-            portfolioGammelSide,
-            contactsGammelSide,
-        ],
+    const imagesGammelSide = useMemo(
+        () => {
+            const images = [];
+            images.push(addImportImg("mitGammelSide/", "home.jpg"));
+            images.push(addImportImg("mitGammelSide/", "about.jpg"));
+            images.push(addImportImg("mitGammelSide/", "portfolio.jpg"));
+            images.push(addImportImg("mitGammelSide/", "contacts.jpg"));
+            return images;
+        },
         []
     );
 
-    const imagesMernShop = useCallback(
-        () => [hoved, addProduct, auth_admin, auth, mobile_hoved, product],
+    const imagesMernShop = useMemo(
+        () => {
+            const images = [];
+            images.push(addImportImg("Mern_shop/", "addProduct.jpg"));
+            images.push(addImportImg("Mern_shop/", "auth_admin.jpg"));
+            images.push(addImportImg("Mern_shop/", "auth.jpg"));
+            images.push(addImportImg("Mern_shop/", "hoved.jpg"));
+            images.push(addImportImg("Mern_shop/", "mobile_hoved.jpg"));
+            images.push(addImportImg("Mern_shop/", "product.jpg"));
+            return images;
+        },
         []
     );
 
-    const imagesChat = useCallback(() => [login, chat], []);
+    const imagesChat = useMemo(() => {
+        const images = [];
+        images.push(addImportImg("React_Chat_Socket/", "login.jpg"));
+        images.push(addImportImg("React_Chat_Socket/", "chat.jpg"));
+        return images;
+    }, []);
 
-    const imagesWorldBaristaCup = useCallback(
-        () => [
-            hovedWorldBaristaCup,
-            paginationWorldBaristaCup,
-            searchMobilWorldBaristaCup,
-        ],
-        []
-    );
+    const imagesWorldBaristaCup = useMemo(() => {
+        const images = [];
+        images.push(addImportImg("world-barista-cup/", "hoved.jpg"));
+        images.push(addImportImg("world-barista-cup/", "paginnation.jpg"));
+        images.push(addImportImg("world-barista-cup/", "search-mobil.jpg"));
+        return images;
+    }, []);
 
-    const imagesTodoListAngular = useCallback(
-        () => [
-            hovedTodoListAngular,
-            addTodoTodoListAngular,
-            editTodoTodoListAngular,
-            databaseTodoListAngular,
-            serverTodoListAngular,
-        ],
-        []
-    );
-    const imagesTodoListVue = useCallback(
-        () => [hovedTodoListVue, addTodoListVue, editTodoListVue],
-        []
-    );
-    const imagesTodoListBlazor = useCallback(
-        () => [hovedTodoListBlazor, addTodoListBlazor, editTodoListBlazor],
-        []
-    );
+    const imagesTodoListAngular = useMemo(() => {
+        const images = [];
+        images.push(addImportImg("todo-list-angular/", "main.jpg"));
+        images.push(addImportImg("todo-list-angular/", "addTodo.jpg"));
+        images.push(addImportImg("todo-list-angular/", "editTodo.jpg"));
+        images.push(addImportImg("todo-list-angular/", "database.jpg"));
+        images.push(addImportImg("todo-list-angular/", "server.jpg"));
+        return images;
+    }, []);
+    const imagesTodoListVue = useMemo(() => {
+        const images = [];
+        images.push(addImportImg("todo-list-vue/", "main.jpg"));
+        images.push(addImportImg("todo-list-vue/", "addTodo.jpg"));
+        images.push(addImportImg("todo-list-vue/", "editTodo.jpg"));
+        return images;
+    }, []);
+    const imagesTodoListBlazor = useMemo(() => {
+        const images = [];
+        images.push(addImportImg("todo-list-blazor/", "main.jpg"));
+        images.push(addImportImg("todo-list-blazor/", "addTodo.jpg"));
+        images.push(addImportImg("todo-list-blazor/", "editTodo.jpg"));
+        return images;
+    }, []);
+
+    const imagesPosts = useMemo(() => {
+        const images = [];
+        images.push(addImportImg("Posts/", "main.jpg"));
+        images.push(addImportImg("Posts/", "login.jpg"));
+        images.push(addImportImg("Posts/", "registration.jpg"));
+        images.push(addImportImg("Posts/", "createPost.jpg"));
+        images.push(addImportImg("Posts/", "singlePost.jpg"));
+        images.push(addImportImg("Posts/", "singlePost__comments.jpg"));
+        images.push(addImportImg("Posts/", "server.jpg"));
+        images.push(addImportImg("Posts/", "server_2.jpg"));
+        images.push(addImportImg("Posts/", "database_users.jpg"));
+        images.push(addImportImg("Posts/", "database_posts.jpg"));
+        images.push(addImportImg("Posts/", "database_comments.jpg"));
+        images.push(addImportImg("Posts/", "database_ChildrenComments.jpg"));
+        return images;
+    }, []);
+
+    function addImportImg(folder: string, imgName: string) {
+        return require(`../../img/Cards/${folder}${imgName}`);
+    }
 
     const contentCard = useCallback(() => {
         const data: ICardContent[] = [];
@@ -173,7 +185,7 @@ function CardData() {
 
         new createContentCard(
             3,
-            imagesGammelSide(),
+            imagesGammelSide,
             titleGammelSide,
             altGammelSide,
             descriptionGammelSide,
@@ -200,7 +212,7 @@ function CardData() {
 
         new createContentCard(
             6,
-            imagesChat(),
+            imagesChat,
             titleChat,
             altChat,
             descriptionChat,
@@ -209,7 +221,7 @@ function CardData() {
 
         new createContentCard(
             7,
-            imagesMernShop(),
+            imagesMernShop,
             titleMern,
             altShop,
             descriptionMern,
@@ -227,7 +239,7 @@ function CardData() {
 
         new createContentCard(
             9,
-            imagesWorldBaristaCup(),
+            imagesWorldBaristaCup,
             titleWorldBaristaCup,
             altWorldBaristaCup,
             descriptionWorldBaristaCup,
@@ -236,7 +248,7 @@ function CardData() {
 
         new createContentCard(
             10,
-            imagesTodoListAngular(),
+            imagesTodoListAngular,
             titleTodoListAngular,
             altodoListAngular,
             descriptionTodoListAngular,
@@ -245,7 +257,7 @@ function CardData() {
 
         new createContentCard(
             11,
-            imagesTodoListVue(),
+            imagesTodoListVue,
             titleTodoListVue,
             altodoListVue,
             descriptionTodoListVue,
@@ -253,11 +265,19 @@ function CardData() {
         );
         new createContentCard(
             12,
-            imagesTodoListBlazor(),
+            imagesTodoListBlazor,
             titleTodoListBlazor,
             altodoListBlazor,
             descriptionTodoListBlazor,
             "https://github.com/SerhiiIkin/blazor-todolist"
+        );
+        new createContentCard(
+            13,
+            imagesPosts,
+            titlePosts,
+            altPosts,
+            descriptionPosts,
+            "https://github.com/SerhiiIkin/Posts"
         );
 
         return data;

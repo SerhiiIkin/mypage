@@ -21,6 +21,14 @@ export interface ICardContent {
     link?: string;
 }
 
+export interface IBankData {
+    cc: string,
+    exchangedate: string,
+    r030: number,
+    rate: number,
+    txt:string
+}
+
 export interface ILink {
     href: string;
     text: string;

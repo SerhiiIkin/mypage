@@ -1,8 +1,9 @@
+import classNames from "classnames";
 import styles from "./Loader.module.scss";
 
-function Loader() {
+function Loader({className}:{className?:string}) {
     return (
-        <div className={styles.lds_spinner}>
+        <div className={classNames(styles.lds_spinner, className)}>
             <div></div>
             <div></div>
             <div></div>

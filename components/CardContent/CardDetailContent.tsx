@@ -19,7 +19,7 @@ function CardDetailContent({
             <h2 className={styles.title}>{title}</h2>
             {!Array.isArray(src) && (
                 <div className={styles.imgContainer}>
-                    <Image src={src} quality="90" alt={alt} />
+                    <Image src={src} quality="50" priority alt={alt} />
                 </div>
             )}
             {Array.isArray(src) && (
@@ -55,8 +55,9 @@ function CardDetailContent({
                                     <Image
                                         key={index}
                                         src={img}
-                                        quality="90"
+                                        quality="50"
                                         alt={alt}
+                                        priority
                                     />
                                 </div>
                             </SwiperSlide>

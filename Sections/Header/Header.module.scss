@@ -1,5 +1,5 @@
 .header {
-    @apply flex justify-between menu:grid menu:grid-cols-3 menu:grid-rows-1 items-center h-20  fixed w-full z-20 px-10 py-4 bg-gradient-to-b from-blue-900 to-blue-400 left-0 text-white;
+    @apply flex justify-between menu:grid menu:grid-cols-3 menu:grid-rows-1 items-center h-20  fixed w-full z-20 px-10 py-4 bg-gradient-to-b from-blue-900 to-blue-400 left-0 text-white top-6;
 }
 
 .nav {

@@ -5,6 +5,7 @@ import ScrollToTop from "react-scroll-to-top";
 
 import styles from "./LayoutIndex.module.scss";
 import Chat from "../Chat/Chat";
+import LinkUkraine from "../LinkUkraine/LinkUkraine";
 
 function LayoutIndex({ children }) {
     return (
@@ -14,7 +15,7 @@ function LayoutIndex({ children }) {
                 <meta name="description" content="Serhii Ikin page" />
                 <meta name="keywords" content="Serhii,Ikin, react, next" />
             </Head>
-
+            <LinkUkraine />
             <Header />
             <main className={styles.main}>{children}</main>
             <ScrollToTop smooth className={styles.arrow} />

@@ -148,6 +148,16 @@ function CardText() {
         'Jeg designede den sædvanlige "todo-list " ved hjælp af framework "Blazor WebAssembly  + Bootstrap", til databaser brugte jeg "SQL Server". Fuld funktionel evne, tilføjning, rediger og sletning "todo"'
     );
 
+    const titlePosts = Multilanguage(
+        "React app + C# .Net Core 6 Web API + SQL Server"
+    );
+    const altPosts = Multilanguage("posts");
+    const descriptionPosts = Multilanguage(
+        "Я розробив Full stack програму, в на базі бібліотеки React, для серверної частини я використовував .NET Web API і для збереження даних баду даних SQL Server. Є можливість створення нового користувача із фото, фото я зберігаю на сервері. Користувач може переглянути всі пости, а також створити свій власний також із картинкою. Користувач має можливість коментувати пости, додавати вподобайку або забирати, відповідати на коментарі. Всі пости або коментарі створенні даним користувачем можуть редагуватись або видалятись. Авторизація користувача зберігається на протязі доби.",
+        "I developed a full stack program, based on the React library, for the server part I used .NET Web API and for saving data, I used a SQL Server database. It is possible to create a new user from a photo, I save the photo on the server. The user can view all the posts and also create his own also with a picture. The user has the opportunity to comment on posts, add or remove favorites, reply to comments. All posts or comments created by this user can be edited or deleted. User authorization is stored for 24 hours.",
+        "Jeg udviklede et full stack program, baseret på React biblioteket, til serverdelen brugte jeg .NET Web API og til at gemme data brugte jeg en SQL Server database. Det er muligt at oprette en ny bruger fra et billede, jeg gemmer billedet på serveren. Brugeren kan se alle indlæg og også oprette sine egne også med et billede. Brugeren har mulighed for at kommentere på indlæg, tilføje eller fjerne favoritter, svare på kommentarer. Alle indlæg eller kommentarer oprettet af denne bruger kan redigeres eller slettes. Brugergodkendelse gemmes i 24 timer."
+    );
+
     const linkText = Multilanguage(
         "Переглянути проект",
         "View the project",
@@ -191,7 +201,10 @@ function CardText() {
         descriptionTodoListVue,
         titleTodoListBlazor,
         altodoListBlazor,
-        descriptionTodoListBlazor
+        descriptionTodoListBlazor,
+        titlePosts,
+        altPosts,
+        descriptionPosts,
     };
 }
 export default CardText;
