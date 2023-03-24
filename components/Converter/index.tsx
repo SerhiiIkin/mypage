@@ -77,7 +77,7 @@ function Converter() {
             }
         }
         getValuta();
-    }, []);
+    }, [errorMessage]);
 
     const filteredValuta = useMemo(
         () =>

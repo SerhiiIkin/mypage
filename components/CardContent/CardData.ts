@@ -10,7 +10,6 @@ import restaurant from "../../img/Cards/ManagementRestaurant.jpg";
 
 import detteWebsted from "../../img/Cards/detteWebsted.jpg";
 
-
 function CardData() {
     const {
         titleTask,
@@ -54,31 +53,25 @@ function CardData() {
         descriptionPosts,
     } = CardText();
 
-    const imagesGammelSide = useMemo(
-        () => {
-            const images = [];
-            images.push(addImportImg("mitGammelSide/", "home.jpg"));
-            images.push(addImportImg("mitGammelSide/", "about.jpg"));
-            images.push(addImportImg("mitGammelSide/", "portfolio.jpg"));
-            images.push(addImportImg("mitGammelSide/", "contacts.jpg"));
-            return images;
-        },
-        []
-    );
+    const imagesGammelSide = useMemo(() => {
+        const images = [];
+        images.push(addImportImg("mitGammelSide/", "home.jpg"));
+        images.push(addImportImg("mitGammelSide/", "about.jpg"));
+        images.push(addImportImg("mitGammelSide/", "portfolio.jpg"));
+        images.push(addImportImg("mitGammelSide/", "contacts.jpg"));
+        return images;
+    }, []);
 
-    const imagesMernShop = useMemo(
-        () => {
-            const images = [];
-            images.push(addImportImg("Mern_shop/", "addProduct.jpg"));
-            images.push(addImportImg("Mern_shop/", "auth_admin.jpg"));
-            images.push(addImportImg("Mern_shop/", "auth.jpg"));
-            images.push(addImportImg("Mern_shop/", "hoved.jpg"));
-            images.push(addImportImg("Mern_shop/", "mobile_hoved.jpg"));
-            images.push(addImportImg("Mern_shop/", "product.jpg"));
-            return images;
-        },
-        []
-    );
+    const imagesMernShop = useMemo(() => {
+        const images = [];
+        images.push(addImportImg("Mern_shop/", "addProduct.jpg"));
+        images.push(addImportImg("Mern_shop/", "auth_admin.jpg"));
+        images.push(addImportImg("Mern_shop/", "auth.jpg"));
+        images.push(addImportImg("Mern_shop/", "hoved.jpg"));
+        images.push(addImportImg("Mern_shop/", "mobile_hoved.jpg"));
+        images.push(addImportImg("Mern_shop/", "product.jpg"));
+        return images;
+    }, []);
 
     const imagesChat = useMemo(() => {
         const images = [];
@@ -321,6 +314,10 @@ function CardData() {
         titleTodoListVue,
         titleWorldBaristaCup,
         titledetteWebsted,
+        imagesPosts,
+        titlePosts,
+        altPosts,
+        descriptionPosts,
     ]);
 
     return contentCard;
