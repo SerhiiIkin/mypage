@@ -1,5 +1,5 @@
 import Converter from "../../components/Converter";
-import HelpUkraineText from "./helpUkraineText";
+import HelpUkraineText from "./HelpUkraineText";
 import Image from "next/image";
 import donateForm from "../../img/Section_HelpUkraine/donateform.jpg";
 import becreftFrom from "../../img/Section_HelpUkraine/bekreftform.jpg";

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect, useMemo, ChangeEvent } from "react";
 import { environments } from "../../environments";
 import { IBankData } from "../../modules/modules";
-import helpUkraineText from "../../Sections/HelpUkraine/helpUkraineText";
+import helpUkraineText from "../../Sections/HelpUkraine/HelpUkraineText";
 import Loader from "../Loader/Loader";
 import Select from "../Select/Select";
 
