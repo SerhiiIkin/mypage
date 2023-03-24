@@ -318,6 +318,10 @@ function CardData() {
         titlePosts,
         altPosts,
         descriptionPosts,
+        altodoListBlazor,
+        descriptionTodoListBlazor,
+        imagesTodoListBlazor,
+        titleTodoListBlazor,
     ]);
 
     return contentCard;

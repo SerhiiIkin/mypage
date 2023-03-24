@@ -1,6 +1,6 @@
 import Multilanguage from "../../components/Multilanguage";
 
-export default function helpUkraineText() {
+export default function HelpUkraineText() {
     const title = Multilanguage(
         "Як допомогти Українській армії?",
         "How to help the Ukrainian army?",
