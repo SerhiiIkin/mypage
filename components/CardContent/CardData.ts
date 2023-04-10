@@ -4,7 +4,6 @@ import CardText from "./CardText";
 
 import kursusHtmlProject from "../../img/Cards/kursus-project-eng.jpg";
 import kursusLessons from "../../img/Cards/kursus-lessons-project.jpg";
-import shop from "../../img/Cards/shop.jpg";
 import converter from "../../img/Cards/Currency_converter.jpg";
 import restaurant from "../../img/Cards/ManagementRestaurant.jpg";
 
@@ -122,10 +121,8 @@ function CardData() {
         images.push(addImportImg("Posts/", "singlePost__comments.jpg"));
         images.push(addImportImg("Posts/", "server.jpg"));
         images.push(addImportImg("Posts/", "server_2.jpg"));
-        images.push(addImportImg("Posts/", "database_users.jpg"));
-        images.push(addImportImg("Posts/", "database_posts.jpg"));
-        images.push(addImportImg("Posts/", "database_comments.jpg"));
-        images.push(addImportImg("Posts/", "database_ChildrenComments.jpg"));
+        images.push(addImportImg("Posts/", "postgresql.jpg"));
+        images.push(addImportImg("Posts/", "docker.jpg"));
         return images;
     }, []);
 
