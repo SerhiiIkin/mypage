@@ -164,6 +164,8 @@ function CardText() {
         "Se projektet"
     );
 
+    const linkDescription = Multilanguage("Цей проект можливо переглянути онлайн за посилання нижче.","This project can be viewed online at the link below.", "Dette projekt kan ses online på nedenstående link.");
+
     return {
         titleTask,
         titleProject,
@@ -205,6 +207,7 @@ function CardText() {
         titlePosts,
         altPosts,
         descriptionPosts,
+        linkDescription
     };
 }
 export default CardText;

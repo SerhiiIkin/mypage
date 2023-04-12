@@ -12,7 +12,7 @@ function CardDetailContent({
     description,
     link,
 }: ICardContent) {
-    const { linkText } = CardText();
+    const { linkText, linkDescription } = CardText();
 
     return (
         <div className={styles.wrapper}>
@@ -67,6 +67,8 @@ function CardDetailContent({
             )}
 
             <p className="mt-4">{description}</p>
+
+            {link.includes("onrender") && <p>{linkDescription}</p>}
             <a
                 className={styles.link}
                 target="_blank"
