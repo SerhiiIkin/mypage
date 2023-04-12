@@ -211,11 +211,11 @@ function CardData() {
 
         new createContentCard(
             7,
-            imagesMernShop,
-            titleMern,
-            altShop,
-            descriptionMern,
-            "https://mern-shop.onrender.com"
+            imagesWorldBaristaCup,
+            titleWorldBaristaCup,
+            altWorldBaristaCup,
+            descriptionWorldBaristaCup,
+            "https://serhiiikin.github.io/world-barista-cup/src/"
         );
 
         new createContentCard(
@@ -229,11 +229,11 @@ function CardData() {
 
         new createContentCard(
             9,
-            imagesWorldBaristaCup,
-            titleWorldBaristaCup,
-            altWorldBaristaCup,
-            descriptionWorldBaristaCup,
-            "https://serhiiikin.github.io/world-barista-cup/src/"
+            imagesTodoListBlazor,
+            titleTodoListBlazor,
+            altodoListBlazor,
+            descriptionTodoListBlazor,
+            "https://github.com/SerhiiIkin/blazor-todolist"
         );
 
         new createContentCard(
@@ -253,13 +253,14 @@ function CardData() {
             descriptionTodoListVue,
             "https://github.com/SerhiiIkin/vue-todolist"
         );
+
         new createContentCard(
             12,
-            imagesTodoListBlazor,
-            titleTodoListBlazor,
-            altodoListBlazor,
-            descriptionTodoListBlazor,
-            "https://github.com/SerhiiIkin/blazor-todolist"
+            imagesMernShop,
+            titleMern,
+            altShop,
+            descriptionMern,
+            "https://mern-shop.onrender.com"
         );
         new createContentCard(
             13,
@@ -267,7 +268,7 @@ function CardData() {
             titlePosts,
             altPosts,
             descriptionPosts,
-            "https://github.com/SerhiiIkin/Posts"
+            "https://posts-client.onrender.com/"
         );
 
         return data;
