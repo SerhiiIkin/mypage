@@ -2,9 +2,9 @@ import Multilanguage from "../../components/Multilanguage";
 
 function HelloText() {
     const textAbout = Multilanguage(
-        "Я Front-End розробник. Під час створення сайту розвиваю та вдосконалюю свої навички. Вам потрібен сайт? Тоді зв'яжіться зі мною!",
-        "I'm Front-End Developer. At the time of creating a site, I develop and improve my skills. Do you need a site? Then contact me!",
-        "Jeg er Front-end udvikler. På tidspunktet for oprettelse af et websted, udvikler og forbedrer jeg mine færdigheder. Har du brug for en side? Så kontakt mig!"
+        "Я full-stack розробник. Я розробляю різні проекти на різних фреймворках для отримання досвіду, тому що мені цікаво це.",
+        "I am a full-stack developer. I develop different projects on different frameworks to gain experience because I am interested in it.",
+        "Jeg er en fuld stack udvikler. Jeg udvikler forskellige projekter på forskellige frameworks for at få erfaring, fordi jeg er interesseret i det."
     );
     const btnMessage = Multilanguage(
         "Написати мені на почту",

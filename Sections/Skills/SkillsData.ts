@@ -18,6 +18,7 @@ import nextjs from "../../img/Section_Skills/nextjs.svg";
 import angular from "../../img/Section_Skills/angular.svg";
 import cSharp from "../../img/Section_Skills/csharp.svg";
 import bootstrap from "../../img/Section_Skills/bootstrap.svg";
+import vue from "../../img/Section_Skills/vue.svg"
 import blazor from "../../img/Section_Skills/blazor.svg";
 import docker from "../../img/Section_Skills/docker.svg";
 import jest from "../../img/Section_Skills/jest-js.svg";
@@ -48,6 +49,7 @@ function SkillsData() {
     data.push(new createSkill(typescript, "Typescript"));
     data.push(new createSkill(tailwindcss, "Tailwindcss"));
     data.push(new createSkill(nextjs, "Next Js"));
+    data.push(new createSkill(vue, "Vue"));
     data.push(new createSkill(angular, "Angular"));
     data.push(new createSkill(cSharp, "C#"));
     data.push(new createSkill(bootstrap, "Bootstrap"));

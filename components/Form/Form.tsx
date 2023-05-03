@@ -1,4 +1,12 @@
-import { ChangeEvent, FormEvent, MouseEvent, useEffect, useState } from "react";
+import {
+    ChangeEvent,
+    FormEvent,
+    MouseEvent,
+    useEffect,
+    useMemo,
+    useRef,
+    useState,
+} from "react";
 import axios from "../../axios";
 import validator from "email-validator";
 import HelloText from "../../Sections/Hello/HelloText";
@@ -44,6 +52,17 @@ function Form() {
 
     const [openCheckBox, setOpenCheckBox] = useState(false);
 
+    const dialogRef = useRef(null)
+
+    const isErrors = useMemo(() => {
+        return !(
+            !text.trim().length ||
+            !title.trim().length ||
+            !validator.validate(email) ||
+            !checkbox
+        );
+    }, [text, title, checkbox]);
+
     useEffect(() => {
         setBtnSendMessage(btnSend);
     }, [btnSend]);
@@ -51,23 +70,8 @@ function Form() {
     async function submitHandler(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
-        if (!text.trim().length) {
-            setErrorText(true);
-        }
-        if (!title.trim().length) {
-            setErrorTitle(true);
-        }
-
-        if (!validator.validate(email)) {
-            setErrorEmail(true);
-        }
-
-        if (!checkbox) {
-            setErrorCheckBox(true);
-            return;
-        }
-
-        if (!errorTitle && !errorEmail && !errorText && !errorCheckBox) {
+        validation();
+        if (isErrors) {
             setLoading(true);
 
             try {
@@ -99,6 +103,23 @@ function Form() {
                     setIsOpenNotification(false);
                 }, 5000);
             }
+        }
+    }
+
+    function validation() {
+        if (!text.trim().length) {
+            setErrorText(true);
+        }
+        if (!title.trim().length) {
+            setErrorTitle(true);
+        }
+
+        if (!validator.validate(email)) {
+            setErrorEmail(true);
+        }
+
+        if (!checkbox) {
+            setErrorCheckBox(true);
         }
     }
 
@@ -144,9 +165,14 @@ function Form() {
         }
     }
 
-    function dialog() {
-        document.body.classList.toggle("lock");
-        setOpen((prev) => !prev);
+    function openDialog() {
+        document.body.classList.add("lock");
+        dialogRef.current.showModal()
+    }
+
+    function closeDialog() {
+        document.body.classList.remove("lock");
+        dialogRef.current.close()
     }
 
     function stopPropagation(event: MouseEvent) {
@@ -170,23 +196,30 @@ function Form() {
         }
     }
 
+    function onResetClick() {
+        setTitle("");
+        setText("");
+        setEmail("");
+        setCheckbox(false);
+    }
+
     return (
         <>
             <Notification
                 textNotification={textNotification}
                 isOpen={isOpenNotification}
             />
-            <button type="button" onClick={dialog} className={styles.btn_blue}>
+            <button type="button" onClick={openDialog} className={styles.btn_blue}>
                 {btnMessage}
             </button>
-            <dialog open={open} onClick={dialog} className={styles.dialog}>
+            <dialog ref={dialogRef}  onClick={closeDialog} className={styles.dialog}>
                 <form
                     onClick={stopPropagation}
                     onSubmit={submitHandler}
                     className={styles.form}>
                     <button
                         type="button"
-                        onClick={dialog}
+                        onClick={closeDialog}
                         className={styles.btnClose}>
                         X
                     </button>
@@ -251,12 +284,26 @@ function Form() {
                             </p>
                         )}
                     </label>
-                    <button
-                        disabled={loading}
-                        type="submit"
-                        className={styles.btn_blue}>
-                        {loading ? <Loader className="-top-[3rem] -left-[2.5rem]" /> : btnSendMessage}
-                    </button>
+                    <div className={styles.btns}>
+                        {loading ? (
+                            <Loader className={styles.loader} />
+                        ) : (
+                            <button
+                                disabled={!isErrors}
+                                type="submit"
+                                className={styles.btn_blue}>
+                                {btnSendMessage}
+                            </button>
+                        )}
+
+                        <button
+                            onClick={onResetClick}
+                            className={styles.btn_reset}
+                            type="button">
+                            Reset
+                        </button>
+                    </div>
+
                     <FormIsHuman
                         setOpenCheckBox={setOpenCheckBox}
                         openCheckBox={openCheckBox}

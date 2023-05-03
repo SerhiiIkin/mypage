@@ -2,8 +2,6 @@
     color: official;
     display: inline-block;
     position: relative;
-    // top: -2.9375rem;
-    // left: -2.5rem;
 
     & div {
         transform-origin: 40px 40px;
@@ -18,7 +16,7 @@
         width: 2px;
         height: 8px;
         border-radius: 20%;
-        background: rgb(35, 16, 131);
+        background: rgb(35, 18, 116);
     }
     & div:nth-child(1) {
         transform: rotate(0deg);

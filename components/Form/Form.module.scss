@@ -1,9 +1,11 @@
 .dialog {
-    @apply fixed top-0 left-0 h-full w-full z-20 overflow-scroll bg-gray-400/75;
+    @apply  max-w-full max-h-full w-full h-full bg-gray-400/75;
+    
 }
 
 .form {
-    @apply flex flex-col min-w-[17.5rem]  items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-700 text-white py-2 px-8 rounded;
+    @apply flex flex-col min-w-[17.5rem]  items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-700 text-white py-2 px-8 rounded ;
+    
 }
 
 .btnClose {
@@ -14,8 +16,20 @@
     @apply text-red-400 absolute -bottom-4 left-2 text-xs;
 }
 
+.btn_blue, .btn_reset {
+    @apply rounded px-4 py-2
+}
+
 .btn_blue {
-    @apply rounded px-4 py-2 bg-blue-500 hover:xl:bg-green-300 hover:duration-500 disabled:bg-transparent disabled:hover:bg-transparent;
+    @apply  bg-blue-500 xl:hover:bg-green-300 duration-500  disabled:xl:hover:bg-red-400 disabled:cursor-not-allowed;
+}
+
+.btn_reset {
+    @apply  bg-red-800 xl:hover:bg-red-600 duration-300
+}
+
+.btns {
+    @apply flex justify-between w-full
 }
 
 .input {
@@ -26,5 +40,12 @@
     @apply pb-2  mb-4 last-of-type:mb-6 last-of-type:flex-row  text-center flex flex-col w-full relative;
     & > input[type="checkbox"] {
         @apply ml-2;
+    }
+}
+
+.loader {
+    @apply  -top-[3rem] -left-[2.5rem] h-10;
+    & div::after {
+        background: white;
     }
 }
