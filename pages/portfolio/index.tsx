@@ -17,7 +17,7 @@ function Portfolio() {
 
     return (
         <LayoutIndex>
-            <section className="container mx-auto px-2 py-10">
+            <section className="container mx-auto p-2">
                 <h1 className="text-center text-xl lg:text-4xl pb-2">
                     {projectsTitle}
                 </h1>

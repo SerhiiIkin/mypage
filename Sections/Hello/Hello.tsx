@@ -11,7 +11,7 @@ function Hello() {
 
     return (
         <section className={styles.background}>
-            <div className={styles.wrapper}>
+            <section className={styles.wrapper}>
                 <article className={styles.textContainer}>
                     <p className={styles.text}>{textAbout}</p>
                     <Form />
@@ -24,7 +24,7 @@ function Hello() {
                         priority
                     />
                 </article>
-            </div>
+            </section>
         </section>
     );
 }
