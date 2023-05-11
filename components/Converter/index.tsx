@@ -124,7 +124,7 @@ function Converter() {
     if (error) return <div>{error}</div>;
 
     return (
-        <div className="inline-grid grid-cols-2 xl:grid-cols-4 gap-2">
+        <div className="inline-grid ss:grid-cols-2 lg:grid-cols-4 gap-2">
             <input
                 type="text"
                 value={inputOne}

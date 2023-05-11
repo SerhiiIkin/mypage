@@ -1,6 +1,7 @@
-import { SyntheticEvent, useId, useMemo } from "react";
+import { SyntheticEvent, useMemo } from "react";
 import { IBankData } from "../../modules/modules";
 import styles from "./MySelect.module.scss";
+import classNames from "classnames";
 
 interface SelectProps {
     filteredValuta: IBankData[];
@@ -18,9 +19,6 @@ function MySelect({
     isChecked,
     onClickOption,
 }: SelectProps) {
-    const id = useId()
-    
-
     const currentValueName = useMemo(() => {
         if (value === "1") {
             return "UKR";
@@ -30,15 +28,7 @@ function MySelect({
     }, [value]);
 
     return (
-        <label htmlFor={`${id}`} className={styles.select}>
-            <input
-                id={`${id}`}
-                checked={isChecked}
-                onChange={onChange}
-                className="hidden"
-                type="checkbox"
-            />
-
+        <div onClick={onChange} onBlurCapture={onChange} className={styles.select}>
             <div>{currentValueName}</div>
 
             {isChecked && (
@@ -68,9 +58,14 @@ function MySelect({
                     })}
                 </div>
             )}
-            
-            <span></span>
-        </label>
+
+            <span
+                className={classNames(
+                    isChecked
+                        ? "after:-rotate-90 after:duration-300"
+                        : "after:rotate-90 after:duration-300"
+                )}></span>
+        </div>
     );
 }
 
