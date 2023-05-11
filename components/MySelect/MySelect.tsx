@@ -1,4 +1,4 @@
-import { SyntheticEvent, useMemo } from "react";
+import { SyntheticEvent, useMemo, useState } from "react";
 import { IBankData } from "../../modules/modules";
 import styles from "./MySelect.module.scss";
 import classNames from "classnames";
@@ -10,6 +10,7 @@ interface SelectProps {
     onChange: () => void;
     onClickOption: (e: SyntheticEvent<EventTarget>) => void;
     isChecked: boolean;
+    onBlur: () => void;
 }
 
 function MySelect({
@@ -18,6 +19,7 @@ function MySelect({
     onChange,
     isChecked,
     onClickOption,
+    onBlur,
 }: SelectProps) {
     const currentValueName = useMemo(() => {
         if (value === "1") {
@@ -28,36 +30,27 @@ function MySelect({
     }, [value]);
 
     return (
-        <div onClick={onChange} onBlurCapture={onChange} className={styles.select}>
+        <div
+            onClick={onChange}
+            onBlur={onBlur}
+            tabIndex={0}
+            className={styles.select}>
             <div>{currentValueName}</div>
 
-            {isChecked && (
-                <div className={styles.containerContent}>
-                    {filteredValuta.map((v) => {
-                        if (v.cc === "DKK") {
-                            return (
-                                <div
-                                    onClick={onClickOption}
-                                    className={styles.option}
-                                    key={v.rate}
-                                    data-value={v.rate}>
-                                    {v.cc}
-                                </div>
-                            );
-                        } else {
-                            return (
-                                <div
-                                    onClick={onClickOption}
-                                    className={styles.option}
-                                    key={v.rate}
-                                    data-value={v.rate}>
-                                    {v.cc}
-                                </div>
-                            );
-                        }
-                    })}
-                </div>
-            )}
+            <ul
+                className={`${styles.containerContent} ${
+                    isChecked ? styles.open : ""
+                }`}>
+                {filteredValuta.map((v) => (
+                    <li
+                        onClick={onClickOption}
+                        className={styles.option}
+                        key={v.rate}
+                        data-value={v.rate}>
+                        {v.cc}
+                    </li>
+                ))}
+            </ul>
 
             <span
                 className={classNames(

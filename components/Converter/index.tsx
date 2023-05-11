@@ -26,6 +26,11 @@ function Converter() {
 
     const { errorMessage } = helpUkraineText();
 
+    function onBlur() {
+        setIsCheckedSelectOne(false);
+        setIsCheckedSelectTwo(false);
+    }
+
     function selectOneChange() {
         setIsCheckedSelectOne((prev) => !prev);
     }
@@ -63,24 +68,27 @@ function Converter() {
             );
         }
     }
-    function onChangeSelectOne(e: SyntheticEvent<HTMLDivElement>) {
-        if (!(e.target instanceof HTMLDivElement)) {
+    function onChangeSelectOne(e: SyntheticEvent<HTMLLIElement>) {
+        if (!(e.target instanceof HTMLLIElement)) {
             return;
         }
+        e.stopPropagation();
         setSelectOne(e.target.dataset.value);
         setInputOne(
             calculateAnotherInput(selectTwo, +inputTwo, +e.target.dataset.value)
         );
+        setIsCheckedSelectOne(false)
     }
-    function onChangeSelectTwo(e: SyntheticEvent<HTMLDivElement>) {
-        if (!(e.target instanceof HTMLDivElement)) {
+    function onChangeSelectTwo(e: SyntheticEvent<HTMLLIElement>) {
+        if (!(e.target instanceof HTMLLIElement)) {
             return;
         }
-
+        e.stopPropagation();
         setSelectTwo(e.target.dataset.value);
         setInputTwo(
             calculateAnotherInput(selectOne, +inputOne, +e.target.dataset.value)
         );
+        setIsCheckedSelectTwo(false)
     }
 
     useEffect(() => {
@@ -139,6 +147,7 @@ function Converter() {
                 onChange={selectOneChange}
                 filteredValuta={filteredValuta}
                 isChecked={isCheckedSelectOne}
+                onBlur={onBlur}
             />
             <input
                 type="text"
@@ -153,6 +162,7 @@ function Converter() {
                 onChange={selectTwoChange}
                 onClickOption={onChangeSelectTwo}
                 filteredValuta={filteredValuta}
+                onBlur={onBlur}
             />
         </div>
     );

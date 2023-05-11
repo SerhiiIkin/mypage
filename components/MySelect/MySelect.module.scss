@@ -5,12 +5,15 @@
         &::after {
             @apply content-[">"] absolute top-1/2 -translate-y-1/2 right-2;
         }
-        
     }
 }
 
 .containerContent {
-    @apply absolute top-full left-0 bg-yellow-400 p-1 w-full rounded-xl z-10;
+    @apply hidden absolute top-full left-0 w-full bg-yellow-400 p-1  rounded-xl z-10;
+}
+
+.open {
+    @apply block;
 }
 
 .option {
