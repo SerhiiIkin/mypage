@@ -52,7 +52,8 @@ function Form() {
 
     const [openCheckBox, setOpenCheckBox] = useState(false);
 
-    const dialogRef = useRef(null)
+    const dialogRef = useRef(null);
+    const textAriaRef = useRef(null);
 
     const isErrors = useMemo(() => {
         return !(
@@ -167,12 +168,12 @@ function Form() {
 
     function openDialog() {
         document.body.classList.add("lock");
-        dialogRef.current.showModal()
+        dialogRef.current.showModal();
     }
 
     function closeDialog() {
         document.body.classList.remove("lock");
-        dialogRef.current.close()
+        dialogRef.current.close();
     }
 
     function stopPropagation(event: MouseEvent) {
@@ -203,16 +204,30 @@ function Form() {
         setCheckbox(false);
     }
 
+    useEffect(() => {
+        if (textAriaRef.current) {
+            textAriaRef.current.style.height = `30px`;
+            const scrollHeight = textAriaRef.current.scrollHeight;
+            textAriaRef.current.style.height = scrollHeight + "px";
+        }
+    }, [textAriaRef.current, text]);
+
     return (
         <>
             <Notification
                 textNotification={textNotification}
                 isOpen={isOpenNotification}
             />
-            <button type="button" onClick={openDialog} className={styles.btn_blue}>
+            <button
+                type="button"
+                onClick={openDialog}
+                className={styles.btn_blue}>
                 {btnMessage}
             </button>
-            <dialog ref={dialogRef}  onClick={closeDialog} className={styles.dialog}>
+            <dialog
+                ref={dialogRef}
+                onClick={closeDialog}
+                className={styles.dialog}>
                 <form
                     onClick={stopPropagation}
                     onSubmit={submitHandler}
@@ -258,10 +273,11 @@ function Form() {
                         {textWrite}
                         <textarea
                             id="text"
-                            rows={5}
-                            className={styles.input}
+                            className={`${styles.input} ${styles.textArea}`}
                             value={text}
+                            rows={1}
                             onChange={inputTextHandler}
+                            ref={textAriaRef}
                         />
                         {errorText && (
                             <p className={styles.errorMessage}>
