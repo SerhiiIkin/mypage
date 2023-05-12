@@ -32,8 +32,6 @@ function Form() {
         errorTextHuman,
     } = HelloText();
 
-    const [open, setOpen] = useState(false);
-
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
     const [email, setEmail] = useState("");
@@ -84,7 +82,6 @@ function Form() {
                 setIsOpenNotification(true);
                 setTextNotification(messageSendSuccess);
                 setTimeout(() => {
-                    setOpen(false);
                     setText("");
                     setEmail("");
                     setTitle("");
@@ -205,12 +202,12 @@ function Form() {
     }
 
     useEffect(() => {
-        if (textAriaRef.current) {
-            textAriaRef.current.style.height = `30px`;
+        if (textAriaRef.current.scrollHeight > 0) {
+            textAriaRef.current.style.height = 0 + "px";
             const scrollHeight = textAriaRef.current.scrollHeight;
             textAriaRef.current.style.height = scrollHeight + "px";
         }
-    }, [textAriaRef.current, text]);
+    }, [textAriaRef.current?.scrollHeight]);
 
     return (
         <>
@@ -304,10 +301,7 @@ function Form() {
                         {loading ? (
                             <Loader className={styles.loader} />
                         ) : (
-                            <button
-                                disabled={!isErrors}
-                                type="submit"
-                                className={styles.btn_blue}>
+                            <button type="submit" className={styles.btn_blue}>
                                 {btnSendMessage}
                             </button>
                         )}

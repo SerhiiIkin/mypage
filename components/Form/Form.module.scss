@@ -4,7 +4,7 @@
 }
 
 .form {
-    @apply flex flex-col min-w-[17.5rem]  items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-700 text-white py-2 px-8 rounded ;
+    @apply flex flex-col min-w-[17.5rem] md:min-w-[30rem]  items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-700 text-white py-2 px-8 rounded max-h-full overflow-y-scroll;
     
 }
 
@@ -44,12 +44,12 @@
 }
 
 .loader {
-    @apply  -top-[3rem] -left-[2.5rem] h-10;
+    @apply  -top-[1rem]  h-10;
     & div::after {
         background: white;
     }
 }
 
 .textArea {
-    @apply overflow-hidden;
+    @apply overflow-hidden py-2 ;
 }
