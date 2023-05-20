@@ -1,5 +1,5 @@
 .isHuman {
-    @apply absolute -bottom-12 grid grid-cols-3 bg-cyan-600 p-2 gap-1 rounded max-w-sm;
+    @apply absolute bottom-0 grid grid-cols-3 bg-cyan-600 p-2 gap-1 rounded max-w-sm;
 
     &__header {
         @apply col-span-3 flex justify-between items-center;
@@ -24,6 +24,6 @@
     }
 
     span {
-        @apply text-sm col-span-2 text-red-400;
+        @apply text-sm col-span-2  text-red-400 inline-block;
     }
 }
