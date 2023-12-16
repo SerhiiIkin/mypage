@@ -50,6 +50,12 @@ function CardData() {
         titlePosts,
         altPosts,
         descriptionPosts,
+        titleCryptana,
+        altCryptana,
+        descriptionCryptana,
+        titleCalc,
+        altCalc,
+        descriptionCalc,
     } = CardText();
 
     const imagesGammelSide = useMemo(() => {
@@ -96,6 +102,7 @@ function CardData() {
         images.push(addImportImg("todo-list-angular/", "server.jpg"));
         return images;
     }, []);
+
     const imagesTodoListVue = useMemo(() => {
         const images = [];
         images.push(addImportImg("todo-list-vue/", "main.jpg"));
@@ -103,6 +110,7 @@ function CardData() {
         images.push(addImportImg("todo-list-vue/", "editTodo.jpg"));
         return images;
     }, []);
+
     const imagesTodoListBlazor = useMemo(() => {
         const images = [];
         images.push(addImportImg("todo-list-blazor/", "main.jpg"));
@@ -123,6 +131,23 @@ function CardData() {
         images.push(addImportImg("Posts/", "server_2.jpg"));
         images.push(addImportImg("Posts/", "postgresql.jpg"));
         images.push(addImportImg("Posts/", "docker.jpg"));
+        return images;
+    }, []);
+
+    const imagesCryptana = useMemo(() => {
+        const images = [];
+        images.push(addImportImg("cryptana-invest/", "main.jpg"));
+        images.push(addImportImg("cryptana-invest/", "burger-menu.jpg"));
+        images.push(addImportImg("cryptana-invest/", "slider.jpg"));
+        images.push(addImportImg("cryptana-invest/", "footer.jpg"));
+        return images;
+    }, []);
+
+    const imagesCalcPhp = useMemo(() => {
+        const images = [];
+        images.push(addImportImg("calculator-php/", "main.jpg"));
+        images.push(addImportImg("calculator-php/", "error.jpg"));
+        images.push(addImportImg("calculator-php/", "result.jpg"));
         return images;
     }, []);
 
@@ -220,6 +245,15 @@ function CardData() {
 
         new createContentCard(
             8,
+            imagesCryptana,
+            titleCryptana,
+            altCryptana,
+            descriptionCryptana,
+            "https://github.com/SerhiiIkin/Cryptana-Invest"
+        );
+
+        new createContentCard(
+            9,
             detteWebsted,
             titledetteWebsted,
             altdetteWebsted,
@@ -228,7 +262,7 @@ function CardData() {
         );
 
         new createContentCard(
-            9,
+            10,
             imagesTodoListBlazor,
             titleTodoListBlazor,
             altodoListBlazor,
@@ -237,7 +271,7 @@ function CardData() {
         );
 
         new createContentCard(
-            10,
+            11,
             imagesTodoListAngular,
             titleTodoListAngular,
             altodoListAngular,
@@ -246,7 +280,7 @@ function CardData() {
         );
 
         new createContentCard(
-            11,
+            12,
             imagesTodoListVue,
             titleTodoListVue,
             altodoListVue,
@@ -255,20 +289,30 @@ function CardData() {
         );
 
         new createContentCard(
-            12,
+            13,
             imagesMernShop,
             titleMern,
             altShop,
             descriptionMern,
             "https://mern-shop.onrender.com"
         );
+
         new createContentCard(
-            13,
+            14,
             imagesPosts,
             titlePosts,
             altPosts,
             descriptionPosts,
             "https://posts-client.onrender.com/"
+        );
+
+        new createContentCard(
+            15,
+            imagesCalcPhp,
+            titleCalc,
+            altCalc,
+            descriptionCalc,
+            "https://github.com/SerhiiIkin/calculator-php"
         );
 
         return data;

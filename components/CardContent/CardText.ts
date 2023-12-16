@@ -158,13 +158,33 @@ function CardText() {
         "Jeg udviklede et full stack program, baseret på React biblioteket og til den visuelle del bruger jeg Tailwind Css, til serverdelen brugte jeg .NET Web API og til at gemme data en Postgresql database. Jeg tilføjede også Docker- og docker-compose.yml-filer for at se programmet i docker-beholderen.. Det er muligt at oprette en ny bruger fra et billede, jeg gemmer billedet på serveren. Brugeren kan se alle indlæg og også oprette sine egne også med et billede. Brugeren har mulighed for at kommentere på indlæg, tilføje eller fjerne favoritter, svare på kommentarer. Alle indlæg eller kommentarer oprettet af denne bruger kan redigeres eller slettes. Brugergodkendelse gemmes i 24 timer."
     );
 
+    const titleCryptana = Multilanguage("Cryptana-Invest");
+    const altCryptana = Multilanguage("cryptana");
+    const descriptionCryptana = Multilanguage(
+        "Звичайний односторінковий сайт із власним слайдером!",
+        "A simple one-page site with its own slider!",
+        "En enkel side på én side med sin egen skyder!"
+    );
+
+    const titleCalc = Multilanguage("Calculator Php");
+    const altCalc = Multilanguage("calculator");
+    const descriptionCalc = Multilanguage(
+        "Розпочав вивчати PHP і це перша моя сторінка на PHP.",
+        "I started learning PHP and this is my first PHP page.",
+        "Jeg begyndte at lære PHP, og dette er min første PHP-side."
+    );
+
     const linkText = Multilanguage(
         "Переглянути проект",
         "View the project",
         "Se projektet"
     );
 
-    const linkDescription = Multilanguage("Цей проект можливо переглянути онлайн за посилання нижче.","This project can be viewed online at the link below.", "Dette projekt kan ses online på nedenstående link.");
+    const linkDescription = Multilanguage(
+        "Цей проект можливо переглянути онлайн за посилання нижче.",
+        "This project can be viewed online at the link below.",
+        "Dette projekt kan ses online på nedenstående link."
+    );
 
     return {
         titleTask,
@@ -207,7 +227,13 @@ function CardText() {
         titlePosts,
         altPosts,
         descriptionPosts,
-        linkDescription
+        linkDescription,
+        titleCryptana,
+        altCryptana,
+        descriptionCryptana,
+        titleCalc,
+        altCalc,
+        descriptionCalc,
     };
 }
 export default CardText;
