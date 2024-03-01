@@ -14,7 +14,7 @@ import {
     useRef,
 } from "react";
 import { messageT } from "../../modules/modules";
-import { setMessages, setUser } from "../../store/Slices/userSlice";
+import { setMessages } from "../../store/Slices/userSlice";
 import MessagesContainer from "../ui/MessagesContainer";
 import UserChatText from "./UserChatText";
 

@@ -124,7 +124,7 @@ function LoginForm() {
     }
 
     async function socketInitializer() {
-        await fetch("/api/chat/socket");
+        await fetch("api/chat/socket");
         const localToken = localStorage.getItem("token")?.length
             ? localStorage.getItem("token").includes("expiry")
                 ? JSON.parse(localStorage.getItem("token"))

@@ -45,7 +45,7 @@ function Dashboard() {
             router.push("./");
             return;
         }
-        const response = await fetch("/api/auth/checkJWT", {
+        const response = await fetch("api/auth/checkJWT", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -57,7 +57,7 @@ function Dashboard() {
             router.push("./");
             return;
         }
-        await fetch("/api/chat/socket");
+        await fetch("api/chat/socket");
 
         socket.emit("get_users");
         socket.emit("online");
