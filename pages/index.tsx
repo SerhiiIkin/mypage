@@ -12,25 +12,26 @@ function Index() {
         (state: RootState) => state.socket.isInit
     );
     const dispatch = useAppDispatch();
+
     async function init() {
-        if (!socketInit) {
-            try {
-                const res = await fetch("/api/chat/socket");
-                console.log(res);
-                
-                if (!res.ok) {
-                    console.log(`Error fetching /api/chat/socket: ${res.statusText}`);
-                    throw new Error(res.statusText);
-                }
-            } catch (error) {
-                console.log('Error:', error);
+        try {
+            const res = await fetch("api/chat/socket");
+
+            if (!res.ok) {
+                console.log(
+                    `Error fetching /api/chat/socket: ${res.statusText}`
+                );
+                throw new Error(res.statusText);
             }
-        };
+        } catch (error) {
+            console.log("Error:", error);
+        }
+
         dispatch(changeStatus());
     }
 
     useEffect(() => {
-        init();
+        !socketInit && init();
     }, []);
 
     return (
