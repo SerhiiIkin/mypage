@@ -18,7 +18,7 @@ import { tokenT, userT } from "../../modules/modules";
 import { io } from "socket.io-client";
 import LoginFormText from "./LoginFormText";
 
-let socket = io("https://mypage-portfolio.vercel.app/");
+let socket = io(process.env.NEXT_PUBLIC_SERVER);
 
 function LoginForm() {
     const { loginform, placeholderForm, submitForm, errorMessage } =
