@@ -18,7 +18,7 @@ import { tokenT, userT } from "../../modules/modules";
 import { io } from "socket.io-client";
 import LoginFormText from "./LoginFormText";
 
-let socket = io();
+let socket = io("https://mypage-portfolio.vercel.app/");
 
 function LoginForm() {
     const { loginform, placeholderForm, submitForm, errorMessage } =
@@ -128,7 +128,7 @@ function LoginForm() {
             setIsOpenForm((prev) => !prev);
         }
     }
-    
+
     const socketInit = useCallback(async () => {
         const localToken = localStorage.getItem("token")?.length
             ? localStorage.getItem("token").includes("expiry")

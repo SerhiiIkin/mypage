@@ -13,7 +13,7 @@ import LinkUkraine from "../../components/LinkUkraine/LinkUkraine";
 
 
 
-let socket = io(location.host);
+let socket = io("https://mypage-portfolio.vercel.app/");
 
 function Dashboard() {
     const users = useAppSelector((state: RootState) => state.users.users);
@@ -78,6 +78,8 @@ function Dashboard() {
     }, []);
 
     useEffect(() => {
+        
+        
         socketInit();
     }, []);
 
@@ -97,10 +99,10 @@ function Dashboard() {
             console.log(err.message);
           
             // some additional description, for example the status code of the initial HTTP response
-           // console.log(err.description);
+            console.log(err.description);
           
             // some additional context, for example the XMLHttpRequest object
-            //console.log(err.context);
+            console.log(err.context);
           });
 
         socket.on("new_user_joined", (users: userT[]) => {

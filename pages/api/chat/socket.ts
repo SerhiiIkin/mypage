@@ -1,3 +1,4 @@
+import { error } from "console";
 import { messageT, userT } from "../../../modules/modules";
 import { Server } from "socket.io";
 
@@ -18,6 +19,8 @@ export default function SocketHandler(req: any, res: any) {
     res.socket.server.io = io;
 
     io.on("connection", (socket) => {
+        console.log("a client connected");
+
         socket.on("join_room", (user) => {
             socket.join(user.roomId);
 
@@ -82,6 +85,5 @@ export default function SocketHandler(req: any, res: any) {
     });
 
     console.log("Socket server was started!");
-
     res.end();
 }
