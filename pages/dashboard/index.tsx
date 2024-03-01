@@ -11,7 +11,7 @@ import MyChat from "../../components/MyChat";
 import Header from "../../Sections/Header/Header";
 import LinkUkraine from "../../components/LinkUkraine/LinkUkraine";
 
-let socket = io(process.env.NEXT_PUBLIC_SERVER);
+let socket = io("https://myserver-e0fy.onrender.com");
 
 function Dashboard() {
     const users = useAppSelector((state: RootState) => state.users.users);

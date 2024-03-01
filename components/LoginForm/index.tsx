@@ -18,7 +18,7 @@ import { tokenT, userT } from "../../modules/modules";
 import { io } from "socket.io-client";
 import LoginFormText from "./LoginFormText";
 
-let socket = io(process.env.NEXT_PUBLIC_SERVER);
+let socket = io("https://myserver-e0fy.onrender.com");
 
 function LoginForm() {
     const { loginform, placeholderForm, submitForm, errorMessage } =
