@@ -19,8 +19,8 @@ function LoginForm() {
         LoginFormText();
     const dispatch = useAppDispatch();
     const { messages, username } = useAppSelector((state) => state.user);
-    const loginName = process.env.NEXT_PUBLIC_MYLOGIN;
-    const pass = process.env.NEXT_PUBLIC_MYPASSWORD;
+    const loginName = process.env.NEXT_MYLOGIN;
+    const pass = process.env.NEXT_MYPASSWORD;
     const router = useRouter();
     const [usernameInput, setUsername] = useState("");
     const [password, setPassword] = useState("");

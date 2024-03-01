@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import { tokenT } from "../../../modules/modules";
 
 export default function userLogin(req: any, res: any) {
-    const secret = process.env.NEXT_PUBLIC_SECRET;
+    const secret = process.env.NEXT_SECRET;
 
     const token: tokenT = {
         value: jwt.sign(req.body.roomId, secret),

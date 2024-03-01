@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MutableRefObject, useEffect,  } from "react";
+import { MutableRefObject,  } from "react";
 import { userT } from "../../modules/modules";
 
 function MessagesContainer({

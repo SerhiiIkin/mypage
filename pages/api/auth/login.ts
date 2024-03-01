@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
 
 export default function login(req: any, res: any) {
-    const loginName = process.env.NEXT_PUBLIC_MYLOGIN;
-    const pass = process.env.NEXT_PUBLIC_MYPASSWORD;
-    const secret = process.env.NEXT_PUBLIC_SECRET;
+    const loginName = process.env.NEXT_MYLOGIN;
+    const pass = process.env.NEXT_MYPASSWORD;
+    const secret = process.env.NEXT_SECRET;
 
     if (req.body.usernameInput === loginName && req.body.password === pass) {
         const token = jwt.sign(loginName, secret);
