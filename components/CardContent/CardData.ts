@@ -386,6 +386,15 @@ function CardData() {
         titleGastroPub,
         altGastroPub,
         descriptionGastroPub,
+        altCalc,
+        altCryptana,
+        descriptionCalc,
+        descriptionCryptana,
+        imagesCalcPhp,
+        imagesCryptana,
+        imagesGastroPub,
+        titleCalc,
+        titleCryptana,
     ]);
 
     return contentCard;

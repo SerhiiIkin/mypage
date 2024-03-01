@@ -60,7 +60,7 @@ function Form() {
             !validator.validate(email) ||
             !checkbox
         );
-    }, [text, title, checkbox]);
+    }, [text, title, checkbox,email]);
 
     useEffect(() => {
         setBtnSendMessage(btnSend);

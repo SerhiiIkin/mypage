@@ -171,7 +171,7 @@ function LoginForm() {
 
     useEffect(() => {
         socketInitializer();
-    }, []);
+    }, [socketInitializer]);
 
     return (
         <>

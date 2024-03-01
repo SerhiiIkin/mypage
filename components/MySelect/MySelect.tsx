@@ -27,7 +27,7 @@ function MySelect({
         }
 
         return filteredValuta.find((v) => v.rate === +value).cc;
-    }, [value]);
+    }, [value,filteredValuta]);
 
     return (
         <div

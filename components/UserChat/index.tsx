@@ -122,7 +122,7 @@ function UserChat({
             socket.off("online");
             socket.off("offline");
         };
-    }, [socket]);
+    }, [socket,dispatch]);
 
     useEffect(() => {
         if (containerRef?.current)

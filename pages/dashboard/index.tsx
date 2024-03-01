@@ -78,7 +78,7 @@ function Dashboard() {
 
     useEffect(() => {
         socketInitializer();
-    }, []);
+    }, [socketInitializer]);
 
     useEffect(() => {
         socket.on("new_user_joined", (users: userT[]) => {
