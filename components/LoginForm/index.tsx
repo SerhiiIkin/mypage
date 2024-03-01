@@ -128,6 +128,7 @@ function LoginForm() {
             setIsOpenForm((prev) => !prev);
         }
     }
+    
     const socketInit = useCallback(async () => {
         const localToken = localStorage.getItem("token")?.length
             ? localStorage.getItem("token").includes("expiry")
