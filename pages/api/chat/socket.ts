@@ -4,6 +4,8 @@ import { Server } from "socket.io";
 export default function SocketHandler(req: any, res: any) {
     if (res.socket.server.io) {
         res.end();
+        console.log("Socket server already started!");
+
         return;
     }
 
@@ -26,8 +28,6 @@ export default function SocketHandler(req: any, res: any) {
                 socket.broadcast.emit("new_user_joined", users);
             }
         });
-
-        
 
         socket.on("online", () => {
             socket.broadcast.emit("online");
@@ -79,6 +79,8 @@ export default function SocketHandler(req: any, res: any) {
             }, 24 * 60 * 60 * 1000);
         });
     });
+
+    console.log("Socket server was started!");
 
     res.end();
 }
