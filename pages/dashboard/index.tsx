@@ -11,8 +11,6 @@ import MyChat from "../../components/MyChat";
 import Header from "../../Sections/Header/Header";
 import LinkUkraine from "../../components/LinkUkraine/LinkUkraine";
 
-
-
 let socket = io("https://mypage-portfolio.vercel.app/");
 
 function Dashboard() {
@@ -78,32 +76,30 @@ function Dashboard() {
     }, []);
 
     useEffect(() => {
-        
-        
         socketInit();
     }, []);
 
     useEffect(() => {
         socket.on("connect", () => {
             console.log(socket);
-            
+
             if (socket.recovered) {
-              // any event missed during the disconnection period will be received now
+                // any event missed during the disconnection period will be received now
             } else {
-              // new or unrecoverable session
+                // new or unrecoverable session
             }
-          });
+        });
 
         socket.on("connect_error", (err) => {
             // the reason of the error, for example "xhr poll error"
             console.log(err.message);
-          
+
             // some additional description, for example the status code of the initial HTTP response
-            console.log(err.description);
-          
+            //  console.log(err.description);
+
             // some additional context, for example the XMLHttpRequest object
-            console.log(err.context);
-          });
+            //console.log(err.context);
+        });
 
         socket.on("new_user_joined", (users: userT[]) => {
             if (users.length !== 0) {
