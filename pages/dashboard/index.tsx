@@ -81,7 +81,7 @@ function Dashboard() {
         return () => {
             socketInitializer();
         };
-    }, []);
+    }, [socketInitializer]);
 
     useEffect(() => {
         socket.on("new_user_joined", (users: userT[]) => {
@@ -111,7 +111,7 @@ function Dashboard() {
             socket.off("new_user_joined");
             socket.off("receive_msg");
         };
-    }, [socket,dispatch]);
+    }, [dispatch]);
 
     return (
         <>

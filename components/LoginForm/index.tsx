@@ -174,7 +174,7 @@ function LoginForm() {
         return () => {
             socketInitializer();
         };
-    }, []);
+    }, [socketInitializer]);
 
     return (
         <>
