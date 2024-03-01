@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -34,7 +34,7 @@ function Dashboard() {
         setUserRoomId(user.roomId);
     }
 
-    async function socketInitializer() {
+    const socketInit = useCallback(async () => {
         const loginName = process.env.NEXT_PUBLIC_MYLOGIN;
         const localToken = localStorage.getItem("token")?.length
             ? localStorage.getItem("token").includes("expiry")
@@ -57,7 +57,6 @@ function Dashboard() {
             router.push("./");
             return;
         }
-        await fetch("api/chat/socket");
 
         socket.emit("get_users");
         socket.emit("online");
@@ -74,14 +73,11 @@ function Dashboard() {
         window.addEventListener("beforeunload", () => {
             socket.emit("offline");
         });
-    }
+    }, []);
 
     useEffect(() => {
-        socketInitializer();
-        return () => {
-            socketInitializer();
-        };
-    }, [socketInitializer]);
+        socketInit();
+    }, []);
 
     useEffect(() => {
         socket.on("new_user_joined", (users: userT[]) => {

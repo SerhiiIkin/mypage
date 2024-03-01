@@ -1,5 +1,11 @@
 "use client";
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import {
+    ChangeEvent,
+    FormEvent,
+    useCallback,
+    useEffect,
+    useState,
+} from "react";
 import { useRouter } from "next/router";
 import Eye from "../ui/svg/Eye";
 import Chat from "../ui/svg/Chat";
@@ -122,9 +128,7 @@ function LoginForm() {
             setIsOpenForm((prev) => !prev);
         }
     }
-
-    async function socketInitializer() {
-        await fetch("api/chat/socket");
+    const socketInit = useCallback(async () => {
         const localToken = localStorage.getItem("token")?.length
             ? localStorage.getItem("token").includes("expiry")
                 ? JSON.parse(localStorage.getItem("token"))
@@ -152,7 +156,7 @@ function LoginForm() {
                 dispatch(setUser(user));
             });
         }
-    }
+    }, []);
 
     function userNameHandler(event: ChangeEvent<HTMLInputElement>) {
         const value = event.target.value;
@@ -170,11 +174,8 @@ function LoginForm() {
     }
 
     useEffect(() => {
-        socketInitializer();
-        return () => {
-            socketInitializer();
-        };
-    }, [socketInitializer]);
+        socketInit();
+    }, []);
 
     return (
         <>
