@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 export default function login(req: any, res: any) {
-    const loginName = process.env.NEXT_MYLOGIN;
+    const loginName = process.env.NEXT_PUBLIC_MYLOGIN;
     const pass = process.env.NEXT_MYPASSWORD;
     const secret = process.env.NEXT_SECRET;
 
