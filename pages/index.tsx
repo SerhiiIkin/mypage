@@ -15,15 +15,15 @@ function Index() {
     async function init() {
         if (!socketInit) {
             try {
-                const res = await fetch("api/chat/socket");
+                const res = await fetch("/api/chat/socket");
                 console.log(res);
                 
                 if (!res.ok) {
-                    console.error(`Error fetching /api/chat/socket: ${res.statusText}`);
+                    console.log(`Error fetching /api/chat/socket: ${res.statusText}`);
                     throw new Error(res.statusText);
                 }
             } catch (error) {
-                console.error('Error:', error);
+                console.log('Error:', error);
             }
         };
         dispatch(changeStatus());

@@ -13,6 +13,7 @@ export default function SocketHandler(req: any, res: any) {
 
     const io = new Server(res.socket.server, {
         connectionStateRecovery: {},
+        cors: { origin: "*", methods: ["GET", "POST"] },
     });
     res.socket.server.io = io;
 
