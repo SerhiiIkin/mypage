@@ -56,6 +56,9 @@ function CardData() {
         titleCalc,
         altCalc,
         descriptionCalc,
+        titleGastroPub,
+        altGastroPub,
+        descriptionGastroPub,
     } = CardText();
 
     const imagesGammelSide = useMemo(() => {
@@ -148,6 +151,14 @@ function CardData() {
         images.push(addImportImg("calculator-php/", "main.jpg"));
         images.push(addImportImg("calculator-php/", "error.jpg"));
         images.push(addImportImg("calculator-php/", "result.jpg"));
+        return images;
+    }, []);
+    const imagesGastroPub = useMemo(() => {
+        const images = [];
+        images.push(addImportImg("gastro-pub/", "hoved.jpg"));
+        images.push(addImportImg("gastro-pub/", "galleri.jpg"));
+        images.push(addImportImg("gastro-pub/", "modal.jpg"));
+        images.push(addImportImg("gastro-pub/", "galleri-open.jpg"));
         return images;
     }, []);
 
@@ -314,6 +325,14 @@ function CardData() {
             descriptionCalc,
             "https://github.com/SerhiiIkin/calculator-php"
         );
+        new createContentCard(
+            16,
+            imagesGastroPub,
+            titleGastroPub,
+            altGastroPub,
+            descriptionGastroPub,
+            "https://serhiiikin.github.io/gastro-pub/"
+        );
 
         return data;
     }, [
@@ -364,6 +383,9 @@ function CardData() {
         descriptionTodoListBlazor,
         imagesTodoListBlazor,
         titleTodoListBlazor,
+        titleGastroPub,
+        altGastroPub,
+        descriptionGastroPub,
     ]);
 
     return contentCard;

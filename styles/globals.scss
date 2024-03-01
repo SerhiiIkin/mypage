@@ -52,3 +52,49 @@ textarea {
 body.lock {
     overflow: hidden;
 }
+
+
+.animation-typing span {
+    animation: typing 2s ease-in-out infinite;
+}
+
+.animation-typing span:nth-child(1) {
+    animation-delay: 0.4s;
+}
+.animation-typing span:nth-child(2) {
+    animation-delay: 0.8s;
+}
+.animation-typing span:nth-child(3) {
+    animation-delay: 1.2s;
+}
+.animation-typing span:nth-child(4) {
+    animation-delay: 1.6s;
+}
+
+@keyframes typing {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+ 
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #7a7676;
+}

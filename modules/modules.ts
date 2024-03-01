@@ -13,7 +13,7 @@ export interface TextState {
 
 export interface ICardContent {
     id?: number;
-    src?: StaticImageData | StaticImageData[]
+    src?: StaticImageData | StaticImageData[];
     title?: string;
     description?: string;
     alt?: string;
@@ -22,11 +22,11 @@ export interface ICardContent {
 }
 
 export interface IBankData {
-    cc: string,
-    exchangedate: string,
-    r030: number,
-    rate: number,
-    txt:string
+    cc: string;
+    exchangedate: string;
+    r030: number;
+    rate: number;
+    txt: string;
 }
 
 export interface ILink {
@@ -35,7 +35,7 @@ export interface ILink {
     pStyles?: string;
     aStyles?: string;
     children?: JSX.Element;
-    as?:string
+    as?: string;
 }
 
 export interface IImage {
@@ -44,7 +44,7 @@ export interface IImage {
     src: StaticImageData;
     styles?: string;
     onImgClick?: () => void;
-    priority?: boolean
+    priority?: boolean;
 }
 
 export interface ISlider {
@@ -55,7 +55,7 @@ export interface ISlider {
     currentIndex: number;
     children: ReactElement;
     setIndex(data: number): void;
-    itemsPerPage :number
+    itemsPerPage: number;
 }
 
 export interface ISlideData {
@@ -70,3 +70,32 @@ export interface IFormIsHuman {
     openCheckBox: boolean;
     setOpenCheckBox: Dispatch<SetStateAction<boolean>>;
 }
+
+export type messageT = {
+    id: string;
+    message: string;
+    username: string;
+    img: StaticImageData;
+    roomId: string;
+    imgAlt: string;
+    dato: string;
+    time: string;
+};
+
+export type userT = {
+    id: string;
+    username: string;
+    roomId: string;
+    messages: messageT[];
+    token: string;
+};
+
+export type usersT = {
+    users: userT[];
+};
+
+export type tokenT = {
+    value: string;
+    expiry: number;
+    message: string;
+};

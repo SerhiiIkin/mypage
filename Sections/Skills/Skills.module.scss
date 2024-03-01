@@ -1,0 +1,4 @@
+.skillsContainer {
+    @apply container py-4 px-2 gap-x-2 gap-y-6 mx-auto  grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+}

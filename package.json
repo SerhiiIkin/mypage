@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
         "start": "npx next dev -H 192.168.8.101",
+        "dev": "npx next dev -H 192.168.1.195 -p 4000",
         "build": "next build",
         "startBuild": "next start",
         "lint": "next lint"
@@ -13,16 +14,21 @@
         "axios": "^1.1.3",
         "classnames": "^2.3.1",
         "email-validator": "^2.0.4",
+        "jsonwebtoken": "^9.0.2",
         "next": "12.2.5",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-redux": "^8.0.2",
         "react-scroll-to-top": "^3.0.0",
         "sass": "^1.54.8",
+        "socket.io": "^4.7.4",
+        "socket.io-client": "^4.7.4",
         "swiper": "^8.4.2"
     },
     "devDependencies": {
         "@types/node": "^18.7.14",
+        "@types/socket.io": "^3.0.2",
+        "@types/socket.io-client": "^3.0.0",
         "autoprefixer": "^10.4.8",
         "eslint": "8.23.0",
         "eslint-config-next": "12.2.5",

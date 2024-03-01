@@ -21,7 +21,8 @@ function CardContent({ id, src, alt, title, styles }: ICardContent) {
                         href={"/portfolio/[id]"}
                         as={`/portfolio/${id}`}
                         aStyles={styles.link}
-                        text={linkText}>
+                        text={linkText}
+                    >
                         <Arrow />
                     </A>
                 </div>

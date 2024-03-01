@@ -41,3 +41,8 @@
 .h2 {
     @apply text-sm xl:text-xl pb-2;
 }
+
+.cardsContainer {
+    @apply grid gap-4 xl:gap-x-8;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}

@@ -174,6 +174,14 @@ function CardText() {
         "Jeg begyndte at lære PHP, og dette er min første PHP-side."
     );
 
+    const titleGastroPub = Multilanguage("Gastro Pub");
+    const altGastroPub = Multilanguage("GastroPub");
+    const descriptionGastroPub = Multilanguage(
+        "Одне із завдань в Media College Denmark",
+        "One of the tasks at Media College Denmark",
+        "En af opgaverne på Media College Denmark"
+    );
+
     const linkText = Multilanguage(
         "Переглянути проект",
         "View the project",
@@ -234,6 +242,9 @@ function CardText() {
         titleCalc,
         altCalc,
         descriptionCalc,
+        titleGastroPub,
+        altGastroPub,
+        descriptionGastroPub,
     };
 }
 export default CardText;
