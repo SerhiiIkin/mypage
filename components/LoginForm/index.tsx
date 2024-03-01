@@ -87,7 +87,7 @@ function LoginForm() {
             } catch (error) {
                 console.error(error);
             }
-        } else  {
+        } else {
             try {
                 const response = await fetch("api/auth/login", {
                     method: "POST",
@@ -171,7 +171,10 @@ function LoginForm() {
 
     useEffect(() => {
         socketInitializer();
-    }, [socketInitializer]);
+        return () => {
+            socketInitializer();
+        };
+    }, []);
 
     return (
         <>
