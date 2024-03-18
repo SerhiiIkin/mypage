@@ -18,13 +18,15 @@ import { tokenT, userT } from "../../modules/modules";
 import { io } from "socket.io-client";
 import LoginFormText from "./LoginFormText";
 
-let socket = io("https://myserver-e0fy.onrender.com");
+const server = process.env.NEXT_PUBLIC_SERVER;
+
+let socket = io(server);
 
 function LoginForm() {
     const { loginform, placeholderForm, submitForm, errorMessage } =
         LoginFormText();
     const dispatch = useAppDispatch();
-    const { messages, username } = useAppSelector((state) => state.user);
+    const user = useAppSelector((state) => state.user);
     const loginName = process.env.NEXT_PUBLIC_MYLOGIN;
     const router = useRouter();
     const [usernameInput, setUsername] = useState("");
@@ -64,29 +66,27 @@ function LoginForm() {
                 .replace(/ /g, "")}`;
 
             try {
-                const response = await fetch("api/auth/userLogin", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ usernameInput }),
-                });
-                const { token } = await response.json();
-                if (token.message === "Success") {
-                    localStorage.setItem("token", JSON.stringify(token));
-                    const userData: userT = {
-                        id: createId,
-                        username: usernameInput.trim(),
-                        messages,
-                        roomId,
-                        token: token.value,
-                    };
-
+                const response = await fetch(
+                    `${server}api/user/`,
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ username: usernameInput }),
+                    }
+                );
+                const { newUser, message } = await response.json();
+                if (message === "New user created") {
+                    localStorage.setItem(
+                        "token",
+                        JSON.stringify(newUser.token)
+                    );
                     setIsOpenChat(true);
                     setIsOpenForm(false);
 
-                    socket.emit("join_room", userData);
-                    dispatch(setUser(userData));
+                    socket.emit("join_room", newUser);
+                    dispatch(setUser(newUser));
                 } else {
                     throw new Error(token.message);
                 }
@@ -95,13 +95,19 @@ function LoginForm() {
             }
         } else {
             try {
-                const response = await fetch("api/auth/login", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ usernameInput, password }),
-                });
+                const response = await fetch(
+                    `${server}api/admin/`,
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            username: usernameInput,
+                            password,
+                        }),
+                    }
+                );
 
                 const { token } = await response.json();
 
@@ -118,7 +124,7 @@ function LoginForm() {
     }
 
     function OpenCloseForm() {
-        if (username.length >= 2) {
+        if (user.username.length >= 2) {
             if (isFullScreenWindow) {
                 setIsFullScreen(true);
             }
@@ -136,41 +142,58 @@ function LoginForm() {
                 : localStorage.getItem("token")
             : "";
 
-        window.addEventListener("beforeunload", () => {
-            updateToken(localToken);
-        });
-        if (localToken?.length === 0) {
-            setToken({
-                expiry: 0,
-                value: "empty",
-                message: "",
-            });
-        } else if (localToken.value) {
-            setToken(localToken);
-        }
-
         if (new Date().getTime() > localToken.expiry) {
             localStorage.removeItem("token");
         } else {
-            socket.emit("get_user", localToken);
-            socket.once("current_user", (user: userT) => {
-                dispatch(setUser(user));
+            setToken(localToken);
+            const response = await fetch(`${server}api/user/`);
+            const users = await response.json();
+            const currentUser: userT = users.find((u) => {
+                if ("value" in u.token) {
+                    return u.token.value === localToken.value;
+                } else {
+                    return u.token === localToken;
+                }
             });
+            dispatch(setUser(currentUser));
+            await updateToken(localToken, currentUser);
         }
     }, []);
+
+    async function updateToken(localToken: tokenT, currentUser: userT) {
+        if (localToken?.expiry) {
+            try {
+                const response = await fetch(
+                    `${server}api/user/token/${currentUser._id}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            expiry: new Date().getTime() + 24 * 60 * 60 * 1000,
+                        }),
+                    }
+                );
+
+                const data = await response.json();
+
+                if ((data.message = "Users token was updated!")) {
+                    localStorage.setItem(
+                        "token",
+                        JSON.stringify(data.updatedUser.token)
+                    );
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    }
 
     function userNameHandler(event: ChangeEvent<HTMLInputElement>) {
         const value = event.target.value;
         if (letters.test(value) || value === "") {
             setUsername(event.target.value);
-        }
-    }
-
-    function updateToken(localToken) {
-        if (localToken?.expiry) {
-            localToken.expiry = new Date().getTime() + 24 * 60 * 60 * 1000;
-            localToken.message = "updated";
-            localStorage.setItem("token", JSON.stringify(localToken));
         }
     }
 
@@ -180,7 +203,7 @@ function LoginForm() {
 
     return (
         <>
-            {!isOpenForm && !isOpenChat && token && (
+            {!isOpenForm && !isOpenChat && (
                 <div
                     className={`cursor-pointer fixed bg-blue-400 p-1 rounded bottom-5 right-4 z-20 `}
                     onClick={OpenCloseForm}
@@ -188,7 +211,7 @@ function LoginForm() {
                     <Chat />
                 </div>
             )}
-            {isOpenForm && !username && (
+            {isOpenForm && !user.username && (
                 <form
                     onSubmit={submitHandler}
                     className="shadow-sm shadow-slate-500 p-2 z-20 bg-white rounded flex flex-col fixed bottom-5 right-4"

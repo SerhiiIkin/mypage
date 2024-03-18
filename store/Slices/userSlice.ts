@@ -1,13 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { userT, messageT } from "../../modules/modules";
+import { userT, messageT,tokenT } from "../../modules/modules";
 
 const initialState: userT = {
     username: "",
     roomId: "",
     messages: [],
     id: "",
-    token:""
+    token: {
+        value: "",
+        expiry:0,
+        message:""
+    }
 };
 
 export const userSlice = createSlice({
@@ -18,7 +22,7 @@ export const userSlice = createSlice({
             ...state,
             ...action.payload,
         }),
-        setToken: (state, action: PayloadAction<string>) => ({
+        setToken: (state, action: PayloadAction<tokenT>) => ({
             ...state,
             token:action.payload,
         }),

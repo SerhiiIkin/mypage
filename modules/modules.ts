@@ -83,11 +83,12 @@ export type messageT = {
 };
 
 export type userT = {
+    _id?:string
     id: string;
     username: string;
     roomId: string;
     messages: messageT[];
-    token: string;
+    token: tokenT | string;
 };
 
 export type usersT = {

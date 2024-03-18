@@ -33,6 +33,8 @@ function MyChat({ userRoomId, socket, myData }: MyChatPropsT) {
     const [isTyping, setIsTyping] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
+    const server = process.env.NEXT_PUBLIC_SERVER;
+
     async function sendMessage() {
         const createId = `${myData.username}${new Date()
             .toLocaleTimeString()
@@ -48,7 +50,19 @@ function MyChat({ userRoomId, socket, myData }: MyChatPropsT) {
             imgAlt: myData.username,
             id: createId,
         };
-        await socket?.emit("send_msg", messageData);
+
+        await fetch(
+            `${server}api/user/messages/${currentUser._id}`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(messageData),
+            }
+        );
+
+        await socket.emit("send_msg", messageData);
         dispatch(updateUserMessages(messageData));
         setTextarea("");
     }
@@ -111,8 +125,7 @@ function MyChat({ userRoomId, socket, myData }: MyChatPropsT) {
                 {currentUser?.username}
             </h2>
             <h3 className="text-center font-semibold pb-2">
-                {" "}
-                {currentUser?.roomId}{" "}
+                {currentUser?.roomId}
             </h3>
 
             <MessagesContainer containerRef={containerRef} user={currentUser} />

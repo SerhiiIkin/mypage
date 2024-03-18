@@ -56,6 +56,14 @@ function UserChat({
             id: createId,
         };
 
+        await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/messages/${user._id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(messageData),
+        });
+
         await socket.emit("send_msg", messageData);
         dispatch(setMessages(messageData));
         setTextarea("");
@@ -96,6 +104,10 @@ function UserChat({
     }
 
     useEffect(() => {
+        socket.emit("rejoin_room", user.roomId);
+    }, []);
+
+    useEffect(() => {
         socket.on("online", () => {
             setStatus(true);
         });
@@ -122,7 +134,7 @@ function UserChat({
             socket.off("online");
             socket.off("offline");
         };
-    }, [socket,dispatch]);
+    }, [socket]);
 
     useEffect(() => {
         if (containerRef?.current)

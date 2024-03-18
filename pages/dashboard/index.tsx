@@ -6,12 +6,16 @@ import { useRouter } from "next/router";
 import { RootState } from "../../store/store";
 import { messageT, userT } from "../../modules/modules";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { setUsers, updateUserMessages } from "../../store/Slices/usersSlice";
+import {
+    setUsers,
+    updateUserMessages,
+    setUser,
+} from "../../store/Slices/usersSlice";
 import MyChat from "../../components/MyChat";
 import Header from "../../Sections/Header/Header";
 import LinkUkraine from "../../components/LinkUkraine/LinkUkraine";
 
-let socket = io("https://myserver-e0fy.onrender.com");
+let socket = io(process.env.NEXT_PUBLIC_SERVER);
 
 function Dashboard() {
     const users = useAppSelector((state: RootState) => state.users.users);
@@ -35,25 +39,12 @@ function Dashboard() {
     }
 
     const socketInit = useCallback(async () => {
-        const loginName = process.env.NEXT_PUBLIC_MYLOGIN;
         const localToken = localStorage.getItem("token")?.length
             ? localStorage.getItem("token").includes("expiry")
                 ? JSON.parse(localStorage.getItem("token"))
                 : localStorage.getItem("token")
             : "";
         if (localToken.expiry || !localToken?.length) {
-            router.push("./");
-            return;
-        }
-        const response = await fetch("api/auth/checkJWT", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ localToken }),
-        });
-        const data = await response.json();
-        if (data?.token !== loginName) {
             router.push("./");
             return;
         }
@@ -80,17 +71,22 @@ function Dashboard() {
     }, []);
 
     useEffect(() => {
-        socket.on("new_user_joined", (users: userT[]) => {
+        socket.on("new_user_joined", (user: userT) => {
+            const isUser = users.find((u) => u.username === user.username);
+
+            if (!isUser) {
+                dispatch(setUser(user));
+            }
+            socket.emit("join_room", user);
+        });
+
+        socket.on("receive_users", (users: userT[]) => {
             if (users.length !== 0) {
                 users.forEach((user) => {
                     socket.emit("join_room", user);
                 });
                 dispatch(setUsers(users));
             }
-        });
-
-        socket.on("receive_users", (users: userT[]) => {
-            dispatch(setUsers(users));
         });
 
         socket.on("leaved_user", (users: userT[]) => {
@@ -107,7 +103,7 @@ function Dashboard() {
             socket.off("new_user_joined");
             socket.off("receive_msg");
         };
-    }, [ dispatch]);
+    }, [socket, dispatch]);
 
     return (
         <>
@@ -119,47 +115,56 @@ function Dashboard() {
                         Chats list
                     </h3>
                     <div className="px-2 flex flex-wrap w-full  xl:grid   gap-2 xl:overflow-y-auto">
-                        {users?.map((user) => {
-                            const { messages, id, username } = user;
-                            return (
-                                <button
-                                    onClick={() => changeRoom(user)}
-                                    key={id}
-                                    className="grid gap-2 pb-4 lg:grid-cols-2 px-2 py-1 bg-blue-500 rounded "
-                                >
-                                    {messages[messages.length - 1]?.img ? (
-                                        <div className="w-8 aspect-square mx-auto">
-                                            <Image
-                                                className="w-8 aspect-square rounded-full"
-                                                src={
-                                                    messages[
-                                                        messages.length - 1
-                                                    ]?.img
-                                                }
-                                                alt={
-                                                    messages[
-                                                        messages.length - 1
-                                                    ]?.imgAlt
-                                                }
-                                            />
-                                        </div>
-                                    ) : (
-                                        <span className="bg-gray-600 max-w-8 mx-auto aspect-square rounded-full justify-self-start px-4 py-2">
-                                            {username[0]}
-                                        </span>
-                                    )}
+                        {users.length > 0
+                            ? users.map((user) => {
+                                  const { messages, _id, username } = user;
+                                  return (
+                                      <button
+                                          onClick={() => changeRoom(user)}
+                                          key={_id}
+                                          className="grid gap-2 pb-4 lg:grid-cols-2 px-2 py-1 bg-blue-500 rounded "
+                                      >
+                                          {messages?.length > 0 &&
+                                          messages[messages?.length - 1]
+                                              ?.img ? (
+                                              <div className="w-8 aspect-square mx-auto">
+                                                  <Image
+                                                      className="w-8 aspect-square rounded-full"
+                                                      src={
+                                                          messages[
+                                                              messages?.length -
+                                                                  1
+                                                          ]?.img
+                                                      }
+                                                      alt={
+                                                          messages[
+                                                              messages?.length -
+                                                                  1
+                                                          ]?.imgAlt
+                                                      }
+                                                  />
+                                              </div>
+                                          ) : (
+                                              <span className="bg-gray-600 max-w-8 mx-auto aspect-square rounded-full justify-self-start px-4 py-2">
+                                                  {username[0]}
+                                              </span>
+                                          )}
 
-                                    <p>{username}</p>
+                                          <p>{username}</p>
 
-                                    <p className="lg:col-span-2 text-left truncate">
-                                        {messages[messages.length - 1]?.message
-                                            ? messages[messages.length - 1]
-                                                  .message
-                                            : "No message"}
-                                    </p>
-                                </button>
-                            );
-                        })}
+                                          <p className="lg:col-span-2 text-left truncate">
+                                              {messages?.length > 0 &&
+                                              messages[messages.length - 1]
+                                                  ?.message
+                                                  ? messages[
+                                                        messages.length - 1
+                                                    ].message
+                                                  : "No message"}
+                                          </p>
+                                      </button>
+                                  );
+                              })
+                            : "No users"}
                     </div>
                 </aside>
                 {userRoomId ? (
