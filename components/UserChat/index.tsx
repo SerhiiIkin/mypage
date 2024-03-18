@@ -56,7 +56,7 @@ function UserChat({
             id: createId,
         };
 
-        await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/messages/${user._id}`, {
+        await fetch(`${process.env.NEXT_PUBLIC_SERVER}api/user/messages/${user._id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
