@@ -1,6 +1,9 @@
 .dialog {
-    @apply  max-w-full max-h-full w-full h-full bg-gray-400/75;
-    
+    @apply max-w-full max-h-full w-full h-full bg-gray-400/75 fixed z-30 opacity-100 inset-0 visible;
+}
+
+.hidden {
+    @apply opacity-0 invisible;
 }
 
 .form {
@@ -15,20 +18,21 @@
     @apply text-red-400 absolute -bottom-4 left-2 text-xs;
 }
 
-.btn_blue, .btn_reset {
-    @apply rounded px-4 py-2
+.btn_blue,
+.btn_reset {
+    @apply rounded px-4 py-2;
 }
 
 .btn_blue {
-    @apply  bg-blue-500 xl:hover:bg-green-300 duration-500  disabled:xl:hover:bg-red-400 disabled:cursor-not-allowed;
+    @apply bg-blue-500 xl:hover:bg-green-300 duration-500  disabled:xl:hover:bg-red-400 disabled:cursor-not-allowed;
 }
 
 .btn_reset {
-    @apply  bg-red-800 xl:hover:bg-red-600 duration-300
+    @apply bg-red-800 xl:hover:bg-red-600 duration-300;
 }
 
 .btns {
-    @apply flex justify-between w-full
+    @apply flex justify-between w-full;
 }
 
 .input {
@@ -43,12 +47,12 @@
 }
 
 .loader {
-    @apply  -top-[1rem]  h-10;
+    @apply -top-[1rem]  h-10;
     & div::after {
         background: white;
     }
 }
 
 .textArea {
-    @apply overflow-hidden py-2 ;
+    @apply overflow-hidden py-2;
 }

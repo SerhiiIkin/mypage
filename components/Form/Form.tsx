@@ -15,6 +15,7 @@ import Notification from "../Notification/Notification";
 import FormIsHuman from "../FormIsHuman/FormIsHuman";
 
 import styles from "./Form.module.scss";
+import classNames from "classnames";
 
 function Form() {
     const {
@@ -38,6 +39,7 @@ function Form() {
     const [checkbox, setCheckbox] = useState(false);
 
     const [loading, setLoading] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const [errorTitle, setErrorTitle] = useState(false);
     const [errorText, setErrorText] = useState(false);
@@ -60,7 +62,7 @@ function Form() {
             !validator.validate(email) ||
             !checkbox
         );
-    }, [text, title, checkbox,email]);
+    }, [text, title, checkbox, email]);
 
     useEffect(() => {
         setBtnSendMessage(btnSend);
@@ -74,7 +76,7 @@ function Form() {
             setLoading(true);
 
             try {
-                await axios.post("/api/sendemail", {
+                await axios.post("api/sendemail", {
                     email,
                     title,
                     text,
@@ -163,14 +165,9 @@ function Form() {
         }
     }
 
-    function openDialog() {
-        document.body.classList.add("lock");
-        dialogRef.current.showModal();
-    }
-
-    function closeDialog() {
-        document.body.classList.remove("lock");
-        dialogRef.current.close();
+    function dialogHandler() {
+        document.body.classList.toggle("lock");
+        setIsOpen((prev) => !prev);
     }
 
     function stopPropagation(event: MouseEvent) {
@@ -217,22 +214,26 @@ function Form() {
             />
             <button
                 type="button"
-                onClick={openDialog}
-                className={styles.btn_blue}>
+                onClick={dialogHandler}
+                className={styles.btn_blue}
+            >
                 {btnMessage}
             </button>
-            <dialog
+            <div
                 ref={dialogRef}
-                onClick={closeDialog}
-                className={styles.dialog}>
+                onClick={dialogHandler}
+                className={classNames(isOpen ? styles.dialog : styles.hidden, "duration-500")}
+            >
                 <form
                     onClick={stopPropagation}
                     onSubmit={submitHandler}
-                    className={styles.form}>
+                    className={styles.form}
+                >
                     <button
                         type="button"
-                        onClick={closeDialog}
-                        className={styles.btnClose}>
+                        onClick={dialogHandler}
+                        className={styles.btnClose}
+                    >
                         X
                     </button>
                     <label htmlFor="title" className={styles.labelInput}>
@@ -309,7 +310,8 @@ function Form() {
                         <button
                             onClick={onResetClick}
                             className={styles.btn_reset}
-                            type="button">
+                            type="button"
+                        >
                             Reset
                         </button>
                     </div>
@@ -320,7 +322,7 @@ function Form() {
                         isMatch={isMatch}
                     />
                 </form>
-            </dialog>
+            </div>
         </>
     );
 }
